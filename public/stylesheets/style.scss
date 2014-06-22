@@ -1,0 +1,140 @@
+/*
+	style.scss
+	User defined styles
+
+	Revision history
+	Hemanth Kona, 2014.06.20: created
+
+*/
+$body-bg: #e4e7ec;
+
+$font-family-base: 'Open Sans', sans-serif;
+$headings-color: #111;
+$headings-font-family: Avenir, sans-serif;
+$headings-font-weight: bold;
+
+$brand-success: #22ae5f;
+$brand-primary: #11bbee;
+$brand-danger: #b30015;
+$brand-warning: #ffd66a;
+
+$text-muted: #90939a;
+$link-color: #000;
+
+$navbar-default-link-active-bg: #f7f7f7;
+$navbar-default-link-color: #848484;
+$navbar-default-bg: #fff;
+$navbar-default-border: #e3e9ec;
+
+$navbar-default-brand-color: #333;
+$navbar-default-brand-hover-color: #ffe939;
+$navbar-default-brand-hover-bg: #333;
+
+$btn-success-bg: $brand-success;
+$btn-success-border: darken($btn-success-bg, 3%);
+$btn-primary-bg: $brand-primary;
+$btn-primary-border: darken($btn-primary-bg, 3%);
+
+$jumbotron-padding: 16px;
+$jumbotron-bg: #f4f6f8;
+
+$alert-border-radius: 0;
+$input-border-radius: 0;
+
+$alert-success-text: #fff;
+$alert-success-bg: #60c060;
+$alert-success-border: darken($alert-success-bg, 3%);
+
+$alert-danger-text: #fff;
+$alert-danger-bg: $brand-danger;
+$alert-danger-border: darken($alert-danger-bg, 3%);
+
+$alert-info-bg: #e5f7fd;
+$alert-info-border: #bcf8f3;
+$alert-info-text: #25484e;
+
+@import 'bootstrap/bootstrap';
+
+body {
+  padding-bottom: 20px;
+}
+
+em {
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.alphabet {
+  cursor: pointer;
+  font-size: 22px;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+}
+
+.alert {
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.alert.top-right {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  margin: 20px;
+  z-index: 1050;
+  outline: none;
+
+  .close {
+    padding-left: 10px
+  }
+}
+
+.btn {
+  border-radius: 2px;
+}
+
+.center-form {
+  width: 330px;
+  margin: 10% auto;
+
+  input {
+    border-radius: 0;
+  }
+}
+
+.navbar {
+  box-shadow: 0 3px 2px -3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-header {
+  float: left;
+  padding-left: 15px;
+
+}
+
+.navbar-brand {
+  background-color: #11bbee;
+  transition: 0.25s all;
+  margin-left: -15px;
+}
+
+.navbar-nav {
+  float: left;
+  margin: 0;
+
+  > li {
+    float: left;
+
+    > a {
+      padding: 15px;
+    }
+  }
+}
