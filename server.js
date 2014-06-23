@@ -5,8 +5,10 @@
   Revision history
   Hemanth Kona, 2014.06.19: created
   Hemanth Kona, 2014.06.20: Connection to mongodb database is established using mongoose 
-  Hemanth Kona, 2014.06.20: Defined User and Project schemas 
-  Hemanth Kona, 2014.06.22: User authentication implemented using passport 
+  Hemanth Kona, 2014.06.21: Defined User schemas 
+  Hemanth Kona, 2014.06.21: User authentication implemented using passport 
+  Hemanth Kona, 2014.06.22: Defined project schemas
+  Hemanth Kona, 2014.06.23: project data persisted to mongodb 
 */
 
 // import required modules
@@ -69,10 +71,10 @@ var projectSchema = new mongoose.Schema({
   data: {
     design: {
 
-    }
+    },
     construction: {
 
-    },     
+    }     
   }
 });
 
@@ -105,7 +107,7 @@ var Project = mongoose.model('Project', projectSchema);
 mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10078/emd')
 
 // Define middleware
-app.set('port', process.env.PORT || 3000)
+app.set('port', process.env.PORT || 5000)
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());

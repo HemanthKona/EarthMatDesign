@@ -1,4 +1,12 @@
-app.factory('Auth', ['$http', '$location', '$rootScope', '$cookieStore', '$alert', 
+/* 
+	auth.js
+	User authentication service 
+
+	Revision history
+	Hemanth Kona, 2014.06.20: created
+ */
+
+ app.factory('Auth', ['$http', '$location', '$rootScope', '$cookieStore', '$alert', 
 	function($http, $location, $rootScope, $cookieStore, $alert) {
 		$rootScope.currentUser = $cookieStore.get('user');
 		$cookieStore.remove('user');

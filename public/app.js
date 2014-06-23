@@ -24,6 +24,14 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 		.when('/signup', {
 			templateUrl: 'views/signup.html',
 		})
+		.when('/projects', {
+			templateUrl: 'views/projects.html',
+			controller: 'ProjectController'
+		})
+		.when('/project/new', {
+			templateUrl: 'views/newProject.html',
+			controller: 'NewProjectController'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
