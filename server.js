@@ -4,6 +4,9 @@
 
   Revision history
   Hemanth Kona, 2014.06.19: created
+  Hemanth Kona, 2014.06.20: Connection to mongodb database is established using mongoose 
+  Hemanth Kona, 2014.06.20: Defined User and Project schemas 
+  Hemanth Kona, 2014.06.22: User authentication implemented using passport 
 */
 
 // import required modules
