@@ -14,7 +14,7 @@ $headings-font-family: Avenir, sans-serif;
 $headings-font-weight: bold;
 
 $brand-success: #22ae5f;
-$brand-primary: #11bbee;
+$brand-primary: #1d7cf4;
 $brand-danger: #b30015;
 $brand-warning: #ffd66a;
 
@@ -53,31 +53,15 @@ $alert-info-bg: #e5f7fd;
 $alert-info-border: #bcf8f3;
 $alert-info-text: #25484e;
 
-@import 'bootstrap/bootstrap';
 
 body {
+  margin: 0px;
   padding-bottom: 20px;
 }
 
 em {
   font-style: normal;
   text-decoration: underline;
-}
-
-.alphabet {
-  cursor: pointer;
-  font-size: 22px;
-  text-align: center;
-
-  li {
-    display: inline-block;
-    padding-left: 5px;
-    padding-right: 5px;
-
-    &:hover {
-      color: $brand-primary;
-    }
-  }
 }
 
 .alert {
@@ -111,30 +95,14 @@ em {
 }
 
 .navbar {
+  width: 100%;
+  background: #eee;
+  height: 60px;
+  padding: 10x;
   box-shadow: 0 3px 2px -3px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-header {
-  float: left;
-  padding-left: 15px;
 
-}
-
-.navbar-brand {
-  background-color: #11bbee;
-  transition: 0.25s all;
-  margin-left: -15px;
-}
-
-.navbar-nav {
-  float: left;
-  margin: 0;
-
-  > li {
-    float: left;
-
-    > a {
-      padding: 15px;
-    }
-  }
+.pull-right {
+  float: right;
 }

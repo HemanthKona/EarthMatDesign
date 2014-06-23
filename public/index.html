@@ -1,6 +1,6 @@
 <!-- 
 	index.html
-	Main template
+	Staring point of the client appliaction
 
 	Revision history
 	Hemanth Kona, 2014.06.19: created
@@ -8,38 +8,75 @@
  -->
 
 <!DOCTYPE html>
-<html ng-app="MyApp">
+<html ng-app="DHPEMD">
 <head>
   <base href="/">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <title>Earth Mat Design</title>
+  
   <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="vendor/foundation/foundation.css">
+  <link rel="stylesheet" href="vendor/semantic/packaged/css/semantic.css">
   <link href="stylesheets/style.css" rel="stylesheet">
+
 </head>
 <body>
 
-<div class="navbar navbar-default navbar-static-top"
-     role="navigation" bs-navbar>
-  <div class="navbar-header">
-    <a class="navbar-brand" href="/">
-      <span class="glyphicon glyphicon-film"></span>
-      Earth<strong>Mat</strong>Design</a>
+<div class="ui grid">
+  <div class="four columns">
+    <div class="ui">
+      <i class="home icon"></i>
+      <a href="/">EarthMatDesign</a>
+    </div>   
   </div>
-  <ul class="nav navbar-nav">
-    <li data-match-route="/$"><a href="/">Home</a></li>
-    <li data-match-route="/projects"><a href="/projects">Projects</a></li>
-  </ul>
-  <ul class="nav navbar-nav pull-right" ng-if="!currentUser">
-    <li data-match-route="/login"><a href="/login">Login</a></li>
-    <li data-match-route="/signup"><a href="/signup">Sign up</a></li>
-  </ul>
-  <ul class="nav navbar-nav pull-right" ng-if="currentUser">
-    <li class="navbar-text" ng-bind="currentUser.email"></li>
-    <li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
-  </ul>
+  <div class="four columns">
+    <ul>
+      <li data-match-route="/$"><a href="/">Home</a></li>
+      <li data-match-route="/projects"><a href="/projects">Projects</a></li>
+    </ul>    
+  </div>
+  <div class="four columns">
+    <ul class="nav navbar-nav pull-right" ng-if="!currentUser">
+      <li data-match-route="/login"><a href="/login">Login</a></li>
+      <li data-match-route="/signup"><a href="/signup">Sign up</a></li>
+    </ul>
+    <ul class="nav navbar-nav pull-right" ng-if="currentUser">
+      <li class="navbar-text" ng-bind="currentUser.email"></li>
+      <li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
+    </ul>    
+  </div>
 </div>
+
+<div class="ui segment">
+  <h1>Earth Mat Design</h1>
+</div>
+
+<div class="ui labeled horizontal fluid inverted icon menu">
+  <a class="item" href="/">
+    <i class="icon home"></i>
+    Home
+  </a>
+  <a class="item">
+    <i class="icon lab"></i>
+    Projects
+  </a>
+  <a class="item">
+    <i class="icon settings"></i>
+    Settings
+  </a>
+  <a class="item" href="/login">
+    <i class="icon sign in"></i>
+    Sign In
+  </a>
+  <a class="item" href="">
+    <i class="icon sign out"></i>
+    Sign out
+  </a>
+</div>
+
 
 <div ng-view></div>
 
@@ -50,12 +87,16 @@
 <script src="vendor/angular/angular-resource.js"></script>
 <script src="vendor/angular/angular-route.js"></script>
 <script src="vendor/angular/angular-sanitize.js"></script>
-<script src="vendor/angular/angular-scenario.js"></script>
 <script src="vendor/angular/angular-strap.js"></script>
 <script src="vendor/angular/angular-strap.tpl.js"></script>
 <script src="vendor/angular/angular-touch.js"></script>
 
 <script src="app.js"></script>
+
+<script src="controllers/login.js"></script>
+<script src="controllers/signup.js"></script>
+
+<script src="services/auth.js"></script>
 
 
 </body>
