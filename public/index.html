@@ -67,11 +67,11 @@
     <i class="icon settings"></i>
     Settings
   </a>
-  <a class="item" href="/login">
+  <a class="item" href="/login" ng-if="!currentUser">
     <i class="icon sign in"></i>
     Sign In
   </a>
-  <a class="item" href="">
+  <a class="item" href="javascript:void(0)" ng-click="logout()" ng-controller="LogoutController" ng-if="currentUser">
     <i class="icon sign out"></i>
     Sign out
   </a>
@@ -94,6 +94,7 @@
 <script src="app.js"></script>
 
 <script src="controllers/login.js"></script>
+<script src="controllers/logout.js"></script>
 <script src="controllers/signup.js"></script>
 
 <script src="services/auth.js"></script>

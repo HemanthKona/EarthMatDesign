@@ -33,6 +33,7 @@ app.factory('Auth', ['$http', '$location', '$rootScope', '$cookieStore', '$alert
 						$rootScope.currentUser = null;
 						$cookieStore.remove('user');
 
+						$location.path('/');
 						console.log('You are logged out');
 					})
 			}			
