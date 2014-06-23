@@ -66,7 +66,14 @@ var userSchema = new mongoose.Schema({
 // Project collection schema
 var projectSchema = new mongoose.Schema({
   name:  String,
+  data: {
+    design: {
 
+    }
+    construction: {
+
+    },     
+  }
 });
 
 // Encrypt pasword before saving
@@ -94,8 +101,8 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 var User = mongoose.model('User', userSchema);
 var Project = mongoose.model('Project', projectSchema);
 
-mongoose.connect('localhost/emd');
-//mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10078/emd')
+//mongoose.connect('localhost/emd');
+mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10078/emd')
 
 // Define middleware
 app.set('port', process.env.PORT || 3000)
