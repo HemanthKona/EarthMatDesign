@@ -1,9 +1,9 @@
 /* 
 	project.js
-	Project controller 
+	Create new project 
 
 	Revision history
-	Hemanth Kona, 2014.06.23: created
+	Pranav Maharaj, 2014.06.23: created
  */
  app.controller('NewProjectController', ['$scope', 
  		function ($scope) {

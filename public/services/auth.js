@@ -3,11 +3,13 @@
 	User authentication service 
 
 	Revision history
-	Hemanth Kona, 2014.06.20: created
+	Pranav Mahraj, 2014.06.20: created
+	Pranav Mahraj, 2014.06.21: defined login, signup functions 
+	Pranav Mahraj, 2014.06.21: defined logout function 
  */
 
- app.factory('Auth', ['$http', '$location', '$rootScope', '$cookieStore', '$alert', 
-	function($http, $location, $rootScope, $cookieStore, $alert) {
+ app.factory('Auth', ['$http', '$location', '$rootScope', '$cookieStore',  
+	function($http, $location, $rootScope, $cookieStore) {
 		$rootScope.currentUser = $cookieStore.get('user');
 		$cookieStore.remove('user');
 

@@ -3,7 +3,7 @@
 	Sign up controller
 
 	Revision history
-	Hemanth Kona, 2014.06.20: created
+	Pranav Maharaj, 2014.06.20: created
  */
 
  app.controller('SignupController', [ '$scope', 'Auth', 

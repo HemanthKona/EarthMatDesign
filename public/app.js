@@ -1,9 +1,10 @@
 /*
 	app.js
-	AngularJs configauratio
+	Create AngularJs module and add its dependencies
 
 	Revision history
-	Hemanth Kona, 2014.06.19: created 
+	Pranav Maharaj, 2014.06.19: created 
+	Pranav Maharaj, 2014.06.19: added routes and templateUrls
 
 */ 
 
