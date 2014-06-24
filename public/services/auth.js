@@ -3,9 +3,9 @@
 	User authentication service 
 
 	Revision history
-	Pranav Mahraj, 2014.06.20: created
-	Pranav Mahraj, 2014.06.21: defined login, signup functions 
-	Pranav Mahraj, 2014.06.21: defined logout function 
+	Pranav Maharaj, 2014.06.20: created
+	Pranav Maharaj, 2014.06.21: defined login, signup functions 
+	Pranav Maharaj, 2014.06.21: defined logout function 
  */
 
  app.factory('Auth', ['$http', '$location', '$rootScope', '$cookieStore',  
