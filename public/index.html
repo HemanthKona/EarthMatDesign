@@ -47,6 +47,10 @@
     <i class="icon sign in"></i>
     Sign In
   </a>
+  <a class="item" href="" ng-if="currentUser">
+    <i class="icon user"></i>
+    <span ng-bind="currentUser.email"></span>
+  </a>
   <a class="item" href="javascript:void(0)" ng-click="logout()" ng-controller="LogoutController" ng-if="currentUser">
     <i class="icon sign out"></i>
     Sign out
@@ -69,14 +73,14 @@
 
 <script src="app.js"></script>
 
+<script src="services/auth.js"></script>
+<script src="services/project.js"></script>
+
 <script src="controllers/login.js"></script>
 <script src="controllers/logout.js"></script>
 <script src="controllers/signup.js"></script>
 <script src="controllers/project.js"></script>
 <script src="controllers/newProject.js"></script>
-
-<script src="services/auth.js"></script>
-
 
 </body>
 </html>

@@ -9,6 +9,10 @@
   Hemanth Kona, 2014.06.21: User authentication implemented using passport 
   Hemanth Kona, 2014.06.22: Defined project schemas
   Hemanth Kona, 2014.06.23: project data persisted to mongodb 
+  Hemanth Kona, 2014.06.23: create project 
+  Hemanth Kona, 2014.06.24: Show all projects
+  Hemanth Kona, 2014.06.25: edit project
+
 */
 
 // import required modules
@@ -62,18 +66,54 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, function(email, passw
 var userSchema = new mongoose.Schema({
   name: {first: String, last: String},
   email: { type: String, unique: true },
-  password: String
+  password: String,
+  createdOn: {type: Date, default: Date.now},
+  projects: [{type: mongoose.Schema.Types.ObjectId, ref: 'Project'}]
 });
 
 // Project collection schema
 var projectSchema = new mongoose.Schema({
-  name:  String,
+  name:  String, 
+  createdBy: String,
+  createdOn: {type: Date, default: Date.now},
   data: {
     design: {
-
+      lineVoltage: Number,
+      impedanceOne: Number,
+      impedanceTwo: Number,
+      impedanceThree: Number,
+      
+      decrementFactor: Number,
+      growthFactor: Number,
+      physicalGridCoefficient: Number,
+      irregularityFactor: Number,
+      
+      averageResistivity: Number,
+      immediateResistivity: Number,
+      clearingTime: Number,
+      substationLength: Number,
+      substationWidth: Number,
+      widthSpacing: Number,
+      lengthSpacing: Number,
+      earthRodLength: Number,
+      geometricSpacingFactor: Number
     },
     construction: {
-
+      estimatedFaultCurrent: Number,
+      designFaultCurrent: Number,
+      conductorLength: Number,
+      earthMatResistance: Number,
+      gridConductorLength: Number,
+      minEarthRodsNumber: Number,
+      increasedEarthRodsNumber: Number,
+      newGridConductorLength: Number,
+      totalLengthOfCopper: Number,
+      maxStepVoltage: Number,
+      tolerableStepVoltage: Number,
+      maxGridPotentialRise: Number,
+      designGrade: String,
+      recommendation: String,
+      comments: String,
     }     
   }
 });
@@ -103,8 +143,12 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 var User = mongoose.model('User', userSchema);
 var Project = mongoose.model('Project', projectSchema);
 
-//mongoose.connect('localhost/emd');
-mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10078/emd')
+mongoose.connect('localhost/emd');
+//mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10078/emd')
+
+mongoose.connection.on('error', function() {
+  console.error(' MongoDB Connection Error. Please make sure MongoDB is running.');
+});
 
 // Define middleware
 app.set('port', process.env.PORT || 5000)
@@ -138,7 +182,7 @@ app.post('/api/signup', function(req, res, next) {
   });
   user.save(function(err) {
     if (err) return next(err);
-    res.send(200);
+    res.send(200, "User created");
   });
 });
 
@@ -146,6 +190,158 @@ app.post('/api/signup', function(req, res, next) {
 app.get('/api/logout', function(req, res, next) {
   req.logout();
   res.send(200);
+});
+
+// Retrieve all projects
+app.get('/api/projects', ensureAuthenticated, function(req, res, next) {
+  Project.find({createdBy: req.user.email}, function(err, projects) {
+    if(err) return next(err);
+    if(!projects) res.send('EMpty');
+    res.send(projects);
+  });
+});
+
+// Create new project
+app.post('/api/projects', ensureAuthenticated, function(req, res, next) {
+  var user = req.user.email;
+
+  var project = new Project({
+    name: req.body.name,
+    createdBy: user,
+    data: {
+      design: {
+        lineVoltage: req.body.lineVoltage,
+        impedanceOne: req.body.impedanceOne,
+        impedanceTwo: req.body.impedanceTwo,
+        impedanceThree: req.body.impedanceThree,
+        
+        decrementFactor: req.body.decrementFactor,
+        growthFactor: req.body.growthFactor,
+        physicalGridCoefficient: req.body.physicalGridCoefficient,
+        irregularityFactor: req.body.irregularityFactor,
+        
+        averageResistivity: req.body.averageResistivity,
+        immediateResistivity: req.body.immediateResistivity,
+        clearingTime: req.body.clearingTime,
+        substationLength: req.body.substationLength,
+        substationWidth: req.body.substationWidth,
+        widthSpacing: req.body.widthSpacing,
+        lengthSpacing: req.body.lengthSpacing,
+        earthRodLength: req.body.earthRodLength,
+        geometricSpacingFactor: req.body.geometricSpacingFactor
+      },
+      construction: {
+        estimatedFaultCurrent: req.body.estimatedFaultCurrent,
+        designFaultCurrent: req.body.designFaultCurrent,
+        conductorLength: req.body.conductorLength,
+        earthMatResistance: req.body.earthMatResistance,
+        gridConductorLength: req.body.gridConductorLength,
+        minEarthRodsNumber: req.body.minEarthRodsNumber,
+        increasedEarthRodsNumber: req.body.increasedEarthRodsNumber,
+        newGridConductorLength: req.body.newGridConductorLength,
+        totalLengthOfCopper: req.body.totalLengthOfCopper,
+        maxStepVoltage: req.body.maxStepVoltage,
+        tolerableStepVoltage: req.body.tolerableStepVoltage,
+        designGrade: req.body.designGrade,
+        maxGridPotentialRise: req.body.maxGridPotentialRise,
+        recommendation: req.body.recommendation,
+        comments: req.body.comments,
+      }
+    } 
+  });
+  
+  project.save(function(err, project) {
+    if (err) return next(err);
+    User.findOne({email: user}, function(err, user) {
+      if(err) return next(err);
+
+      user.projects.push(project.id); 
+      user.save();
+
+      res.send(200, project);
+    })    
+  })
+});
+
+// To retrieve a single project detials
+app.get('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
+  Project.findById(req.params.id, function(err, project) {
+    if(err) return next(err);
+    if(!project) res.send(404, 'Project doesnt exist');
+    
+    res.send(project);
+  })
+});
+
+// To edit existing project
+app.put('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
+  var project = {
+    name: req.body.name,
+    createdBy: user,
+    data: {
+      design: {
+        lineVoltage: req.body.lineVoltage,
+        impedanceOne: req.body.impedanceOne,
+        impedanceTwo: req.body.impedanceTwo,
+        impedanceThree: req.body.impedanceThree,
+        
+        decrementFactor: req.body.decrementFactor,
+        growthFactor: req.body.growthFactor,
+        physicalGridCoefficient: req.body.physicalGridCoefficient,
+        irregularityFactor: req.body.irregularityFactor,
+        
+        averageResistivity: req.body.averageResistivity,
+        immediateResistivity: req.body.immediateResistivity,
+        clearingTime: req.body.clearingTime,
+        substationLength: req.body.substationLength,
+        substationWidth: req.body.substationWidth,
+        widthSpacing: req.body.widthSpacing,
+        lengthSpacing: req.body.lengthSpacing,
+        earthRodLength: req.body.earthRodLength,
+        geometricSpacingFactor: req.body.geometricSpacingFactor
+      },
+      construction: {
+        estimatedFaultCurrent: req.body.estimatedFaultCurrent,
+        designFaultCurrent: req.body.designFaultCurrent,
+        conductorLength: req.body.conductorLength,
+        earthMatResistance: req.body.earthMatResistance,
+        gridConductorLength: req.body.gridConductorLength,
+        minEarthRodsNumber: req.body.minEarthRodsNumber,
+        increasedEarthRodsNumber: req.body.increasedEarthRodsNumber,
+        newGridConductorLength: req.body.newGridConductorLength,
+        totalLengthOfCopper: req.body.totalLengthOfCopper,
+        maxStepVoltage: req.body.maxStepVoltage,
+        tolerableStepVoltage: req.body.tolerableStepVoltage,
+        designGrade: req.body.designGrade,
+        maxGridPotentialRise: req.body.maxGridPotentialRise,
+        recommendation: req.body.recommendation,
+        comments: req.body.comments,
+      }
+    } 
+  };
+
+  Project.findOneAndUpdate({_id: req.params.id}, project, function(err, project) {
+    if(err) return next(err);
+    res.send(project);
+  })
+});
+
+// To delete existing project
+app.delete('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
+  Project.remove({_id: req.params.id}, function(err) {
+    if(err) return next(err);
+
+    User.findOne({email: req.user.email}, function(err, user) {
+      if(err) return next(err);
+
+      var item = 'ObjectId("'+req.param.id+'")';
+      user.projects.pop(item);
+      user.save();
+      
+      res.send(200);
+    })
+    
+  })
 });
 
 // redirect every other which is not defined route

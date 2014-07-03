@@ -5,50 +5,99 @@
 	Revision history
 	Pranav Maharaj, 2014.06.23: created
  */
- app.controller('NewProjectController', ['$scope', 
- 		function ($scope) {
+ app.controller('NewProjectController', [ 'Project', '$scope', '$rootScope', '$alert', 
+ 		function (Project, $scope, $rootScope, $alert) {
+
+ 			$scope.createProject = function() {
+ 				Project.save({
+			    
+			    name: $scope.projectName || "New Proejct 1",
+
+	        lineVoltage: $scope.lineVoltage,
+	        impedanceOne: $scope.impedanceOne,
+	        impedanceTwo: $scope.impedanceTwo,
+	        impedanceThree: $scope.impedanceThree,
+	        
+	        decrementFactor: $scope.decrementFactor,
+	        growthFactor: $scope.growthFactor,
+	        physicalGridCoefficient: $scope.physicalGridCoefficient,
+	        irregularityFactor: $scope.irregularityFactor,
+	        
+	        averageResistivity: $scope.averageResistivity,
+	        immediateResistivity: $scope.immediateResistivity,
+	        clearingTime: $scope.clearingTime,
+	        substationLength: $scope.substationLength,
+	        substationWidth: $scope.substationWidth,
+	        widthSpacing: $scope.widthSpacing,
+	        lengthSpacing: $scope.lengthSpacing,
+	        earthRodLength: $scope.earthRodLength,
+	        geometricSpacingFactor: $scope.geometricSpacingFactor,
+	        
+	        estimatedFaultCurrent: $scope.estimatedFaultCurrent,
+	        designFaultCurrent: $scope.designFaultCurrent,
+	        conductorLength: $scope.conductorLength,
+	        earthMatResistance: $scope.earthMatResistance,
+	        gridConductorLength: $scope.gridConductorLength,
+	        minEarthRodsNumber: $scope.minEarthRodsNumber,
+	        increasedEarthRodsNumber: $scope.increasedEarthRodsNumber,
+	        newGridConductorLength: $scope.newGridConductorLength,
+	        totalLengthOfCopper: $scope.totalLengthOfCopper,
+	        maxStepVoltage: $scope.maxStepVoltage,
+	        tolerableStepVoltage: $scope.tolerableStepVoltage,
+	        designGrade: $scope.designGrade,
+	        maxGridPotentialRise: $scope.maxGridPotentialRise,
+	        recommendation: $scope.recommendation,
+	        comments: $scope.comments,
+			  }, 
+				function() {
+					console.log("Created Projct");
+				},
+				function(response) {
+					console.log(response.data.message);
+	      });
+	 		};
 			//Input Design Data
-			$scope.lineVoltage = 1;
-			$scope.impedanceOne = 1;
-			$scope.impedanceTwo = 1;
-			$scope.impedanceThree	= 1;
+			$scope.lineVoltage = 11;
+			$scope.impedanceOne = 11;
+			$scope.impedanceTwo = 11;
+			$scope.impedanceThree	= 11;
 			
-			$scope.decrementFactor = 1;
-			$scope.growthFactor = 1;
-			$scope.physicalGridCoefficient = 1;
-			$scope.irregularityFactor = 1;
+			$scope.decrementFactor = 11;
+			$scope.growthFactor = 11;
+			$scope.physicalGridCoefficient = 11;
+			$scope.irregularityFactor = 11;
 			
-			$scope.averageResistivity = 1;
-			$scope.immediateResistivity = 1;
-			$scope.clearingTime = 1;
-			$scope.substationLength = 1;
-			$scope.substationWidth = 1;
-			$scope.widthSpacing = 1;
-			$scope.lengthSpacing = 1;
-			$scope.earthRodLength = 1;
-			$scope.geometricSpacingFactor = 1;
+			$scope.averageResistivity = 11;
+			$scope.immediateResistivity = 11;
+			$scope.clearingTime = 11;
+			$scope.substationLength = 11;
+			$scope.substationWidth = 11;
+			$scope.widthSpacing = 11;
+			$scope.lengthSpacing = 11;
+			$scope.earthRodLength = 11;
+			$scope.geometricSpacingFactor = 11;
 		$scope.generateConstructionData = function() {
 			//Output Construction Data
 			$scope.estimatedFaultCurrent = $scope.CalculateEstimatedFaultCurrent().toFixed(3);
 			$scope.designFaultCurrent = $scope.CalculateDesignFaultCurrent().toFixed(3);
 			
 			$scope.conductorLength = $scope.CalculateConductorLength().toFixed(3);
-			//$scope.earthMatResistance = $scope.CalculateEarthMatResistance().toFixed(3);
+			$scope.earthMatResistance = $scope.CalculateEarthMatResistance().toFixed(3);
 			$scope.gridConductorLength = $scope.CalculateGridConductorLength().toFixed(3);
 			$scope.minEarthRodsNumber = $scope.CalculateMinEarthRodsNumber().toFixed(3);
-			// $scope.increasedEarthRodsNumber = $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
-			// $scope.recommendation = "Increase rods by 10% to: " + $scope.CalculateIncreasedRodsNumber().toFixed(3);
+			$scope.increasedEarthRodsNumber = $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
+			$scope.recommendation = "Increase rods by 10% to: " + $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
 			
-			// $scope.newGridConductorLength = $scope.increasedEarthRodsNumber * $scope.earthRodLength;
-			// $scope.totalLengthOfCopper = $scope.gridConductorLength + $scope.newGridConductorLength;
-			// $scope.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
-			// $scope.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
+			$scope.newGridConductorLength = $scope.increasedEarthRodsNumber * $scope.earthRodLength;
+			$scope.totalLengthOfCopper = $scope.gridConductorLength + $scope.newGridConductorLength;
+			$scope.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
+			$scope.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
 			
 			// $scope.designGrade ="";
 			// $scope.comments = "";
-			// CompareMaxWithTolerableStepVoltage();
+			$scope.CompareMaxWithTolerableStepVoltage();
 			
-			// $scope.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
+			$scope.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
 		}
 		
 	//Comparing max step voltage and tolerable step voltage
@@ -96,7 +145,7 @@
 	//Earth Mat Resistance
 	$scope.CalculateEarthMatResistance = function()
 	{
-		return $scope.sverageResistivity * ((1/(4)) + (1/$scope.conductorLength));
+		return $scope.averageResistivity * ((1/(4 * $scope.CalculateRadius())) + (1/$scope.conductorLength));
 	}
 	
 	//Grid Conductor length
@@ -114,7 +163,7 @@
 	}
 	///////////////////////////////////////////////////////////////////////////////	
 	//Method: Calculate earth rod increase
-	$scope.CalculateIncreasedNumberEarthRods = function()
+	$scope.CalculateIncreasedEarthRodsNumber = function()
 	{
 		return Math.round($scope.minEarthRodsNumber * 1.10);
 	}
@@ -132,7 +181,7 @@
 	}
 	
 	//Method: Calculate maximum grid potential rise
-	$scope.CalculateMaximumGridPotentialRise = function()
+	$scope.CalculateMaxGridPotentialRise = function()
 	{
 		return $scope.designFaultCurrent * $scope.earthMatResistance;
 	}

@@ -10,7 +10,7 @@
 
 
 var app = angular.module('DHPEMD', 
-	[ 'ngCookies', 'ngMessages', 'ngRoute', 'ngResource', 'mgcrea.ngStrap' ] );
+	[ 'ngAnimate', 'ngCookies', 'ngMessages', 'ngRoute', 'ngResource', 'mgcrea.ngStrap' ] );
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$locationProvider.html5Mode(true);

@@ -11,7 +11,6 @@
  app.factory('Auth', ['$http', '$location', '$rootScope', '$cookieStore',  
 	function($http, $location, $rootScope, $cookieStore) {
 		$rootScope.currentUser = $cookieStore.get('user');
-		$cookieStore.remove('user');
 
 		return {
 			login: function(user) {

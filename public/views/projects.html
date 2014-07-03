@@ -6,5 +6,130 @@
 	Danish Gupta, 2014.06.22: created
 
  -->
+ <style>
+
+ 	.container {
+ 		display: flex;
+ 		direction: row;
+ 		flex-wrap: wrap;
+ 		justify-content: space-around;
+ 	}
+	.box {
+		background: gray;
+		color: white;
+		width: 200px;
+		height: auto;
+		margin: 5px;
+		padding: 10px;
+	}
+	
+	.fadeOutDown.ng-leave,
+	.fadeOutDown.ng-enter
+	.fadeOutDown.ng-move {
+	  -webkit-animation-duration: 1s;
+	  animation-duration: 1s;
+	  -webkit-animation-fill-mode: both;
+	  animation-fill-mode: both;
+	}
+
+
+@-webkit-keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+}
+
+.fadeOutDown.ng-leave.ng-leave-active,
+.fadeOutDown.ng-move,
+.fadeOutDown.ng-enter	 {
+  -webkit-animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
+}
+
+
+/* SLide IN right after deleting */
+
+@-webkit-keyframes slideInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.slideInRight {
+  
+}
+
+.fadeOutDown.ng-leave,
+.fadeOutDown.ng-move.ng-move-active,
+.fadeOutDown.ng-enter.ng-enter-active {
+	-webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+}
+	/*.animate-box.ng-leave {
+	  -webkit-transition: all linear 1s;
+	  transition: all linear 1s;
+	  opacity: 1;
+	}
+
+	.animate-box.ng-leave.ng-leave-active {
+	  opacity: 0;
+	}
+*/
+ </style>
 <h1>Projects</h1>
 <a class="ui blue button" href="/project/new">New Project</a>
+
+<div class="container ">
+	<div class="box fadeOutDown" ng-repeat="project in projects">
+		<input hidden value={{project._id}} ng-model="proid" />
+		<button ng-click="remove(project._id, $index)">Delete</button>
+		<h1>{{project.name}}</h1>
+		<p>{{project.data.construction.recommendation}}</p>
+	</div>
+</div>
