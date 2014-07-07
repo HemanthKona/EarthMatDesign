@@ -4,14 +4,14 @@
 
   Revision history
   Hemanth Kona, 2014.06.19: created
-  Hemanth Kona, 2014.06.20: Connection to mongodb database is established using mongoose 
-  Hemanth Kona, 2014.06.21: Defined User schemas 
-  Hemanth Kona, 2014.06.21: User authentication implemented using passport 
-  Hemanth Kona, 2014.06.22: Defined project schemas
+  Hemanth Kona, 2014.06.20: connection to mongodb database is established using mongoose 
+  Hemanth Kona, 2014.06.21: defined User schemas 
+  Hemanth Kona, 2014.06.21: user authentication implemented using passport 
+  Hemanth Kona, 2014.06.22: defined project schemas
   Hemanth Kona, 2014.06.23: project data persisted to mongodb 
-  Hemanth Kona, 2014.06.23: create project 
-  Hemanth Kona, 2014.06.24: Show all projects
-  Hemanth Kona, 2014.06.25: edit project
+  Hemanth Kona, 2014.06.23: defined create project route 
+  Hemanth Kona, 2014.06.24: defined Show all projects route
+  Hemanth Kona, 2014.06.25: defined edit project route
 
 */
 
@@ -159,12 +159,24 @@ app.use(cookieParser());
 app.use(session({ secret: 'Authentic' }));
 app.use(passport.initialize());
 app.use(passport.session());
+// app.use(function(req, res, next) {
+//       res.header("Access-Control-Allow-Origin", "*");
+//       res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//       next();
+//     });
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
   if (req.user) {
     res.cookie('user', JSON.stringify(req.user));
   }
+  next();
+});
+
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
 
@@ -178,10 +190,14 @@ app.post('/api/login', passport.authenticate('local'), function(req, res) {
 app.post('/api/signup', function(req, res, next) {
   var user = new User({
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    name: {
+      first: req.body.firstname,
+      last: req.body.lastname
+    }
   });
   user.save(function(err) {
-    if (err) return next(err);
+    if (err) return res.send(500, "User already exists!");
     res.send(200, "User created");
   });
 });
@@ -192,11 +208,32 @@ app.get('/api/logout', function(req, res, next) {
   res.send(200);
 });
 
+// Get user profile
+app.get('/api/profile', ensureAuthenticated, function(req, res, next) {
+  User.findOne({email: req.user.email}, function(err, user) {
+    if(err) return next(err);
+    res.send(user);
+  })
+})
+
+//Edit profile
+app.put('/api/profile', ensureAuthenticated, function(req, res, next) {
+  var user = new User({
+    email: req.body.email,
+    password: req.body.password, 
+    
+  });
+  User.update({email: req.user.email}, user,  function(err, user) {
+    if(err) return next(err);
+    res.send(200, user);
+  })
+})
+
 // Retrieve all projects
 app.get('/api/projects', ensureAuthenticated, function(req, res, next) {
   Project.find({createdBy: req.user.email}, function(err, projects) {
     if(err) return next(err);
-    if(!projects) res.send('EMpty');
+    if(!projects) res.send(400, 'Empty');
     res.send(projects);
   });
 });
@@ -252,11 +289,11 @@ app.post('/api/projects', ensureAuthenticated, function(req, res, next) {
   
   project.save(function(err, project) {
     if (err) return next(err);
-    User.findOne({email: user}, function(err, user) {
+    User.findOne({email: user}, function(err, u) {
       if(err) return next(err);
 
-      user.projects.push(project.id); 
-      user.save();
+      u.projects.push(project.id); 
+      u.save();
 
       res.send(200, project);
     })    
@@ -275,6 +312,8 @@ app.get('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
 
 // To edit existing project
 app.put('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
+  var user = req.user.email;
+
   var project = {
     name: req.body.name,
     createdBy: user,

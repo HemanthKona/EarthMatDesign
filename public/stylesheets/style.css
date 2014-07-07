@@ -7,8 +7,9 @@
 
 */
 body {
+  height: 100%;
   margin: 0px;
-  padding-bottom: 20px; }
+  /*padding-bottom: 20px;*/ }
 
 em {
   font-style: normal;
@@ -45,3 +46,15 @@ em {
 
 .pull-right {
   float: right; }
+
+/* ============ Material styles */
+.material-theme-emd {
+  background: #607d8b;
+  color: #fff; }
+  .material-theme-emd a {
+    color: #fff; }
+
+material-card {
+  padding: 20px; }
+
+/* ================================ */

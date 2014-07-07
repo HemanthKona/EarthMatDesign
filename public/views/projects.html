@@ -123,13 +123,15 @@
 */
  </style>
 <h1>Projects</h1>
-<a class="ui blue button" href="/project/new">New Project</a>
 
-<div class="container ">
-	<div class="box fadeOutDown" ng-repeat="project in projects">
+<div class="container">
+	<material-card style="min-width:300px;" class="box fadeOutDown" ng-repeat="project in projects">
 		<input hidden value={{project._id}} ng-model="proid" />
-		<button ng-click="remove(project._id, $index)">Delete</button>
 		<h1>{{project.name}}</h1>
 		<p>{{project.data.construction.recommendation}}</p>
-	</div>
+    <button class="btn btn-danger" ng-click="remove(project._id, $index)">
+      <i class="fa fa-trash-o fa-lg"></i>
+       Delete
+    </button>
+	</material-card>
 </div>

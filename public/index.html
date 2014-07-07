@@ -17,48 +17,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <title>Earth Mat Design</title>
-  
-  <link rel="icon" type="image/png" href="favicon.png"/>
-  <link rel="stylesheet" href="vendor/foundation/foundation.css">
-  <link rel="stylesheet" href="vendor/semantic/packaged/css/semantic.css">
+
+  <!-- <link rel="stylesheet" href="vendor/foundation/foundation.css"> -->
+  <!-- <link rel="stylesheet" href="vendor/semantic/packaged/css/semantic.css"> -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/vendor/material/material-design.css">
   <link href="stylesheets/style.css" rel="stylesheet">
 
 </head>
 <body>
+    
+  <material-toolbar class="material-theme-emd">
+    <div class="material-toolbar-tools">
+      <a href="/">
+        <span class="fa fa-home"></span>
+      </a>
+      <!-- <span class="fa fa-bars"></span> -->
+      <span class="material-flex">Projects</span>
+      <a href="/project/new" ng-if="currentUser">
+        <span class="fa fa-plus"></span>
+      </a>
+      <a href="/profile" ng-if="currentUser">
+        <span class="fa fa-user"></span>
+        <!-- <span class="fa fa-user" ng-bind="currentUser.email"></span> -->
+      </a>
+      <a class="btn btn-primary" href="/login" ng-if="!currentUser"> 
+           Login
+      </a>
+      <a class="btn btn-primary" href="/signup" ng-if="!currentUser">
+           Signup
+      </a>
+      <a href="javascript:void(0)" ng-click="logout()" ng-if="currentUser" ng-controller="LogoutController">
+        <span class="fa fa-sign-out"></span>
+      </a>
+    </div>
+  </material-toolbar>
+<material-content>    
 
-<div class="ui segment">
-  <h1>Earth Mat Design</h1>
-</div>
-
-<div class="ui labeled horizontal fluid inverted icon menu">
-  <a class="item" href="/">
+  
+<!-- <div class="">
+  <a class="" href="/">
     <i class="icon home"></i>
     Home
   </a>
-  <a class="item" href="/projects">
+  <a class="" href="/projects" ng-if="currentUser">
     <i class="icon lab"></i>
     Projects
   </a>
-  <a class="item">
+  <a class="" ng-if="currentUser">
     <i class="icon settings"></i>
     Settings
   </a>
-  <a class="item" href="/login" ng-if="!currentUser">
+  <a class="" href="/login" ng-if="!currentUser">
     <i class="icon sign in"></i>
     Sign In
   </a>
-  <a class="item" href="" ng-if="currentUser">
+  <a class="" href="" ng-if="currentUser">
     <i class="icon user"></i>
     <span ng-bind="currentUser.email"></span>
   </a>
-  <a class="item" href="javascript:void(0)" ng-click="logout()" ng-controller="LogoutController" ng-if="currentUser">
+  <a class="" href="javascript:void(0)" ng-click="logout()" ng-controller="LogoutController" ng-if="currentUser">
     <i class="icon sign out"></i>
     Sign out
   </a>
 </div>
 
-
+ -->
 <div ng-view></div>
+
+</material-content>
 
 <script src="vendor/angular/angular.js"></script>
 <script src="vendor/angular/angular-animate.js"></script>
@@ -71,6 +99,10 @@
 <script src="vendor/angular/angular-strap.tpl.js"></script>
 <script src="vendor/angular/angular-touch.js"></script>
 
+<script src="vendor/material/angular-animate-sequence.js"></script>
+<script src="vendor/material/angular-animate-stylers.js"></script>
+<script src="vendor/material/material-design.js"></script>
+
 <script src="app.js"></script>
 
 <script src="services/auth.js"></script>
@@ -81,6 +113,7 @@
 <script src="controllers/signup.js"></script>
 <script src="controllers/project.js"></script>
 <script src="controllers/newProject.js"></script>
+
 
 </body>
 </html>

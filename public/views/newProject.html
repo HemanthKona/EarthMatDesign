@@ -8,153 +8,85 @@
 	Danish Gupta, 2014.06.21: created construciton data form
 
  -->
-      <form method="post" ng-submit="createProject()">
 <h1>New project</h1>
-<div class="ui two column grid">
-  <div class="column">
-    <div class="ui fluid form segment">
-      <h3 class="ui header">Design data</h3>
-      <div class="field">
-        <label class="item item-input">Project Name</label>
-        <input type="text" name="projectName" ng-model="projectName">
+<form method="post" ng-submit="createProject()">
+  <div class="material-display-flex material-flex-center">
+    <div style="width:400px;">
+      <h2>Design data</h2>
+      <div class="material-input-group">
+        <label for="projectName">Project Name</label>
+        <input type="text" id="projectName" name="projectName" ng-model="projectName">
       </div>
-      <div class="field">
-        <label class="item item-input">Line Voltage</label>
-		  	<input type="text" name="lineVoltage" ng-model="lineVoltage" placeholder="Line Voltage[V]">
+      <div class="material-input-group">
+        <label for="lineVoltage">Line Voltage</label>
+  	  	<input type="text" id="lineVoltage" name="lineVoltage" ng-model="lineVoltage" >
       </div>
-      <div class="field">
-        <label class="item item-input">Impedance 1</label>
-		    <input type="text" name="impedanceOne" ng-model="impedanceOne" placeholder="Impedance 1 []">
+      <div class="material-input-group">
+        <label for="impedanceOne">Impedance 1</label>
+  	    <input type="text" id="impedanceOne" name="impedanceOne" ng-model="impedanceOne" >
       </div>
-      <div class="field">
-        <label class="item item-input">Impedance 2</label>
-		    <input type="text" name="impedanceTwo" ng-model="impedanceTwo" placeholder="Impedance 2 []">
+      <div class="material-input-group">
+        <label for="impedanceTwo">Impedance 2</label>
+  	    <input type="text" id="impedanceTwo" name="impedanceTwo" ng-model="impedanceTwo" >
       </div>
-      <div class="field">
-        <label class="item item-input">Impedance 3</label>
-		    <input type="text" name="impedanceThree" ng-model="impedanceThree" placeholder="Impedance 3 []">
+      <div class="material-input-group">
+        <label for="impedanceThree">Impedance 3</label>
+  	    <input type="text" id="impedanceThree" name="impedanceThree" ng-model="impedanceThree" >
       </div>
-      <div class="field">
-        <label class="item item-input">Decrement Factor</label>
-		    <input type="text" name="decrementFactor" ng-model="decrementFactor" placeholder="Decrement Factor, D">
+      <div class="material-input-group">
+        <label for="decrementFactor">Decrement Factor</label>
+  	    <input type="text" id="decrementFactor" name="decrementFactor" ng-model="decrementFactor" >
       </div>
-      <div class="field">
-        <label class="item item-input">Growth Factor</label>
-		    <input type="text" name="growthFactor" ng-model="growthFactor" placeholder="Growth Factor [%]">
+      <div class="material-input-group">
+        <label for="growthFactor">Growth Factor</label>
+  	    <input type="text" id="growthFactor" name="growthFactor" ng-model="growthFactor" >
       </div>
-      <div class="field">
-        <label class="item item-input">Phyical Grid COefficient</label>
-		    <input type="text" name="physicalGridCoefficient" ng-model="physicalGridCoefficient" placeholder="Phyical Grid COefficient, km">
+      <div class="material-input-group">
+        <label for="physicalGridCoefficient">Phyical Grid COefficient</label>
+  	    <input type="text" id="physicalGridCoefficient" name="physicalGridCoefficient" ng-model="physicalGridCoefficient" >
       </div>
-      <div class="field">
-        <label class="item item-input">Irregular Factor</label>
-		    <input type="text" name="irregularityFactor" ng-model="irregularityFactor" placeholder="Irregular Factor, ki">
+      <div class="material-input-group">
+        <label for="irregularityFactor">Irregular Factor</label>
+  	    <input type="text" id="irregularityFactor" name="irregularityFactor" ng-model="irregularityFactor" >
       </div>
-      <div class="field">
-        <label class="item item-input">Average Resistivity</label>
-		    <input type="text" name="averageResistivity" ng-model="averageResistivity" placeholder="Average Resistivity, p []">
+      <div class="material-input-group">
+        <label for="averageResistivity">Average Resistivity</label>
+  	    <input type="text" id="averageResistivity" name="averageResistivity" ng-model="averageResistivity" >
       </div>
-      <div class="field">
-        <label class="item item-input">Immediate Resistivity</label>
-		    <input type="text" name="immediateResistivity" ng-model="immediateResistivity" placeholder="Immediate Resistivity, ps []">
+      <div class="material-input-group">
+        <label for="immediateResistivity">Immediate Resistivity</label>
+  	    <input type="text" id="immediateResistivity" name="immediateResistivity" ng-model="immediateResistivity" >
       </div>
-			<div class="field">
-					<label class="item item-input">Clearing Time</label>
-		    <input type="text" name="clearingTime" ng-model="clearingTime" placeholder="Clearing Time, t [s]">
-		  </div>
-		  <div class="field">
-		  	<label class="item item-input">Substation Length</label>
-		    <input type="text" name="substationLength" ng-model="substationLength" placeholder="Substation Length [m]">
-		  </div>
-		  <div class="field">
-		  	<label class="item item-input">Substation width</label>
-		    <input type="text" name="substationWidth" ng-model="substationWidth" placeholder="Substation width [m]">
-		  </div>
-		  <div class="field">
-		  	<label class="item item-input">Width Spacing</label>
-		    <input type="text" name="widthSpacing" ng-model="widthSpacing" placeholder="Width Spacing [m]">
-		  </div>
-		  <div class="field">
-		  	<label class="item item-input">Length Spacing</label>
-		    <input type="text" name="lengthSpacing" ng-model="lengthSpacing" placeholder="Length Spacing [m]">
-		  </div>
-		  <div class="field">
-		  	<label class="item item-input">Earth Rod Length</label>
-		    <input type="text" name="earthRodLength" ng-model="earthRodLength" placeholder="Earth Rod Length [m]">
-		  </div>
-		  <div class="field">
-		  	<label class="item item-input">Geometric Spacing Factor</label>
-		    <input type="text" name="geometricSpacingFactor" ng-model="geometricSpacingFactor" placeholder="Geometric Spacing Factor, ks">
-		  </div>
-			<button class="ui blue submit button" type="reset">Reset</button>
-      <a class="ui blue submit button" ng-click="generateConstructionData()">Generate</a>
-      
-    </div>
+  		<div class="material-input-group">
+  			<label for="clearingTime">Clearing Time</label>
+  	    <input type="text" id="clearingTime" name="clearingTime" ng-model="clearingTime" >
+  	  </div>
+  	  <div class="material-input-group">
+  	  	<label for="">Substation Length</label>
+  	    <input type="text" id="substationLength" name="substationLength" ng-model="substationLength" >
+  	  </div>
+  	  <div class="material-input-group">
+  	  	<label for="">Substation width</label>
+  	    <input type="text" id="substationWidth" name="substationWidth" ng-model="substationWidth" >
+  	  </div>
+  	  <div class="material-input-group">
+  	  	<label for="widthSpacing">Width Spacing</label>
+  	    <input type="text" id="widthSpacing" name="widthSpacing" ng-model="widthSpacing" >
+  	  </div>
+  	  <div class="material-input-group">
+  	  	<label for="lengthSpacing">Length Spacing</label>
+  	    <input type="text" id="lengthSpacing" name="lengthSpacing" ng-model="lengthSpacing" >
+  	  </div>
+  	  <div class="material-input-group">
+  	  	<label for="earthRodLength">Earth Rod Length</label>
+  	    <input type="text" id="earthRodLength" name="earthRodLength" ng-model="earthRodLength" >
+  	  </div>
+  	  <div class="material-input-group">
+  	  	<label for="geometricSpacingFactor">Geometric Spacing Factor</label>
+  	    <input type="text" id="geometricSpacingFactor" name="geometricSpacingFactor" ng-model="geometricSpacingFactor" Factor, >
+  	  </div>
+  		<button class="btn btn-default" type="reset">Reset</button>
+      <a class="btn btn-default" ng-click="generateConstructionData()">Generate</a>
+    </div> 
   </div>
-  <div class="column">
-    <div class="ui fluid form segment">
-      <h3 class="ui header">Construction data</h3>
-      
-      <div class="two fields">
-        <div class="field">
-          <label>Estimated Fault Current</label>
-          <input placeholder="Estimated Fault Current [A]" type="text" name="estimatedFaultCurrent" ng-model="estimatedFaultCurrent">
-        </div>
-        <div class="field">
-          <label>Design Fault Current</label>
-          <input placeholder="Design Fault Current [A]" type="text" name="designFaultCurrent" ng-model="designFaultCurrent">
-        </div>
-      </div>
-      <div class="field">
-        <label>Conductor Length</label>
-        <input placeholder="Conductor Length [m]" type="text" name="conductorLength" ng-model="conductorLength">
-      </div>
-      <div class="field">
-        <label>Earth Mat Resistance</label>
-        <input placeholder="Earth Mat Resistance []" type="text" name="earthMatResistance" ng-model="earthMatResistance">
-      </div>
-      <div class="field">
-        <label>Gird Conductor Length</label>
-        <input placeholder="Gird Conductor Length [m]" type="text" name="gridConductorLength" ng-model="gridConductorLength">
-      </div>
-      <div class="field">
-        <label>Min # Earth Rods</label>
-        <input placeholder="Min # Earth Rods" type="text" name="minEarthRodsNumber" ng-model="minEarthRodsNumber">
-      </div>
-      <div class="field">
-        <label>New Grid Conductor Length</label>
-        <input placeholder="New Grid Conductor Length [m]" type="text" name="newGridConductorLength" ng-model="newGridConductorLength">
-      </div>
-      <div class="field">
-        <label>Total Length of Copper</label>
-        <input placeholder="Total Length of Copper [m]" type="text" name="totalLengthOfCopper" ng-model="totalLengthOfCopper">
-      </div>
-      <div class="field">
-        <label>Max Step Voltage</label>
-        <input placeholder="Max Step voltage [V]" type="text" name="maxStepVoltage" ng-model="maxStepVoltage">
-      </div>
-			<div class="field">
-        <label>Tolerable Step Voltage</label>
-        <input placeholder="Tolerable Step Voltage [V]" type="text" name="tolerableStepVoltage" ng-model="tolerableStepVoltage">
-      </div>
-      <div class="field">
-        <label>Design Grade</label>
-        <input placeholder="Design grade" type="text" name="designGrade" ng-model="designGrade">
-      </div>
-      <div class="field">
-        <label>Comments</label>
-        <input placeholder="Comments" type="text" name="comments" ng-model="comments">
-      </div>
-      <div class="field">
-        <label>Recommendation</label>
-        <input placeholder="Recommendation" type="text" name="recommendation" ng-model="recommendation">
-      </div>
-      <div class="field">
-        <label>Max Grid Potential Rise</label>
-        <input placeholder="Max Grid Potential Rise" type="text" name="maxGridPotentialRise" ng-model="maxGridPotentialRise">
-      </div>
-      <button class="ui blue submit button" type="submit">Create Project</button>
-    </div>
-  </div>
-</div>
-      </form>
+</form>

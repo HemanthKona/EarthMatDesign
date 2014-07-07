@@ -8,10 +8,11 @@
 	Pranav Maharaj, 2014.06.21: defined logout function 
  */
 
- app.factory('Auth', ['$http', '$location', '$rootScope', '$cookieStore',  
-	function($http, $location, $rootScope, $cookieStore) {
+ app.factory('Auth', ['$http', '$location', '$rootScope', '$cookieStore', '$alert',
+	function($http, $location, $rootScope, $cookieStore, $alert) {
 		$rootScope.currentUser = $cookieStore.get('user');
-
+    $cookieStore.remove('user');
+		
 		return {
 			login: function(user) {
 				return $http.post('/api/login', user)
@@ -19,10 +20,22 @@
 						$rootScope.currentUser = data;
 						$location.path('/');
 
-						console.log('success');
+						$alert({
+                title: 'Success!',
+                content: 'You are successfully logged in.',
+                placement: 'top-right',
+                type: 'success',
+                duration: 3
+              });
 					})
 					.error(function() {
-            console.log('Error')
+            $alert({
+                title: 'Error!',
+                content: 'Invalid username or password.',
+                placement: 'top-right',
+                type: 'danger',
+                duration: 3   
+              });
           });
 			},
 			signup: function(user) {
@@ -30,10 +43,23 @@
 					.success(function(data) {
 						$location.path('/login');
 
-						console.log('success');
+						$alert({
+                title: 'Congratulations!',
+                content: 'Your account has been created.',
+                placement: 'top-right',
+                type: 'success',
+                duration: 3
+              });
 					})
 					.error(function(response) {
-						console.log('Error: ' + response.data);
+						console.log(response);
+						$alert({
+                title: 'Error!',
+                content: response,
+                placement: 'top-right',
+                type: 'danger',
+                duration: 3
+              });
 					});	
 			},
 			logout: function() {
@@ -42,7 +68,7 @@
 						$rootScope.currentUser = null;
 						$cookieStore.remove('user');
 
-						$location.path('/');
+						$location.path('/home');
 						console.log('You are logged out');
 					})
 			}			

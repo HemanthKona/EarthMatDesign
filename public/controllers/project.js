@@ -5,8 +5,9 @@
 	Revision history
 	Hemanth Kona, 2014.06.23: created
  */
- app.controller('ProjectController', [ 'Project', '$scope', '$location', '$route',   
- 	function(Project, $scope, $location, $route) {
+ app.controller('ProjectController', [ 'Project', 'Auth', '$scope', '$rootScope', '$location', '$route',   
+ 	function(Project, Auth, $scope, $rootScope, $location, $route) {
+ 		$scope.show = true;
  		$scope.projects =  Project.query({
  			isArray: true
  		})

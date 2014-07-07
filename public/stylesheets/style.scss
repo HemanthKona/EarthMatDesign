@@ -8,8 +8,9 @@
 */
 
 body {
+  height: 100%;
   margin: 0px;
-  padding-bottom: 20px;
+  /*padding-bottom: 20px;*/
 }
 
 em {
@@ -59,3 +60,18 @@ em {
   float: right;
 }
 
+/* ============ Material styles */
+
+.material-theme-emd {
+  background: #607d8b;
+  color: #fff;  
+  a {
+    color: #fff;  
+  }
+}
+
+material-card {
+  padding: 20px;
+}
+
+/* ================================ */

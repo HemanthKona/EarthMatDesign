@@ -10,13 +10,17 @@
 
 
 var app = angular.module('DHPEMD', 
-	[ 'ngAnimate', 'ngCookies', 'ngMessages', 'ngRoute', 'ngResource', 'mgcrea.ngStrap' ] );
+	[ 'ngAnimate', 'ngCookies', 'ngMessages', 'ngRoute', 'ngResource', 'mgcrea.ngStrap', 'ngMaterial' ] );
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$locationProvider.html5Mode(true);
 
 	$routeProvider
 		.when('/', {
+			templateUrl: 'views/projects.html',
+			controller: 'ProjectController'
+		})
+		.when('/home', {
 			templateUrl: 'views/home.html',
 		})
 		.when('/login', {
@@ -24,6 +28,9 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 		})
 		.when('/signup', {
 			templateUrl: 'views/signup.html',
+		})
+		.when('/profile', {
+			templateUrl: 'views/profile.html',
 		})
 		.when('/projects', {
 			templateUrl: 'views/projects.html',
@@ -33,8 +40,35 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 			templateUrl: 'views/newProject.html',
 			controller: 'NewProjectController'
 		})
+		.when('/project/result', {
+			templateUrl: 'views/result.html',
+			controller: 'NewProjectController'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
 
 }]);
+
+// app.run( function($rootScope, $location) {
+
+//     // register listener to watch route changes
+//     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+//       if ( $rootScope.currentUser == null ) {
+//         // no logged user, we should be going to #login
+//         if ( next.templateUrl == "views/login.html" || next.templateUrl == "views/signup.html" ) {
+//           // already going to #login, no redirect needed
+//         } else {
+//           // not going to #login, we should redirect now
+//           $location.path( "/login" );
+//         }
+//       }
+//       // else if the user is logged in dont show login or signup page
+//       else {
+      	
+//       	if ( next.templateUrl == "views/login.html" || next.templateUrl == "views/signup.html" ) {
+//           $location.path( "/" );
+//         } 
+//       }        
+//     });
+//  });

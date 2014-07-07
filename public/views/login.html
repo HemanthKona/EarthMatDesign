@@ -8,53 +8,21 @@
 
  -->
 
- <div class="ui two column grid">
-  <div class="column" ng-controller="LoginController">
-    <div class="ui fluid form segment">
-      <h3 class="ui header">Log-in</h3>
-      <form method="post" ng-submit="login()" name="LoginForm">
-	      <div class="field">
-	        <label>Email</label>
-	        <input placeholder="Email" type="email" name="email" ng-model="email" required autofocus>
-	      </div>
-	      <div class="field">
-	        <label>Password</label>
-	        <input placeholder="Password" type="password" name="password" ng-model="password">
-	      </div>
-	      <button class="ui blue submit button" type="submit">Login</button>
-      </form>
-    </div>
+<div class="material-display-flex material-flex-center" ng-controller="LoginController">
+<material-card style="width: 400px;">
+  <div>
+    <h3>Log-in</h3>
+    <form method="post" ng-submit="login()" name="LoginForm">
+			<div class="material-input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" ng-model="email" required autofocus>
+      </div>
+      <div class="material-input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" ng-model="password">
+      </div>	
+      <button type="submit">Login</button>
+    </form>
   </div>
-  <div class="column" ng-controller="SignupController">
-    <div class="ui fluid form segment">
-      <h3 class="ui header">Register</h3>
-        <form method="post" ng-submit="signup()" name="signupForm">
-      	<div class="two fields">
-	        <div class="field">
-	          <label>First Name</label>
-	          <input placeholder="First Name" type="text" ng-model="firstname" required>
-	        </div>
-	        <div class="field">
-	          <label>Last Name</label>
-	          <input placeholder="Last Name" type="text" ng-model="lastname" required>
-	        </div>
-	      </div>
-	      <div class="field">
-	        <label>Email</label>
-	        <input placeholder="Email" type="email" name="emailAddress" ng-model="email" required>
-	      </div>
-	      <div class="field">
-	        <label>Password</label>
-	        <input placeholder="Password" type="password" name="pass" ng-model="password">
-	      </div>
-	      <div class="inline field">
-	        <div class="ui checkbox">
-	          <input type="checkbox" id="conditions">
-	          <label for="conditions">I agree to the terms and conditions</label>
-	        </div>
-	      </div>
-	      <button class="ui blue submit button" type="submit">Submit</button>
-      </form>
-    </div>
-  </div>
+</material-card>
 </div>

@@ -5,8 +5,8 @@
 	Revision history
 	Pranav Maharaj, 2014.06.23: created
  */
- app.controller('NewProjectController', [ 'Project', '$scope', '$rootScope', '$alert', 
- 		function (Project, $scope, $rootScope, $alert) {
+ app.controller('NewProjectController', [ 'Project', '$scope', '$location', '$rootScope', '$alert', 
+ 		function (Project, $scope, $location, $rootScope, $alert) {
 
  			$scope.createProject = function() {
  				Project.save({
@@ -57,25 +57,25 @@
 	      });
 	 		};
 			//Input Design Data
-			$scope.lineVoltage = 11;
-			$scope.impedanceOne = 11;
-			$scope.impedanceTwo = 11;
-			$scope.impedanceThree	= 11;
+			// $scope.lineVoltage = 11;
+			// $scope.impedanceOne = 11;
+			// $scope.impedanceTwo = 11;
+			// $scope.impedanceThree	= 11;
 			
-			$scope.decrementFactor = 11;
-			$scope.growthFactor = 11;
-			$scope.physicalGridCoefficient = 11;
-			$scope.irregularityFactor = 11;
+			// $scope.decrementFactor = 11;
+			// $scope.growthFactor = 11;
+			// $scope.physicalGridCoefficient = 11;
+			// $scope.irregularityFactor = 11;
 			
-			$scope.averageResistivity = 11;
-			$scope.immediateResistivity = 11;
-			$scope.clearingTime = 11;
-			$scope.substationLength = 11;
-			$scope.substationWidth = 11;
-			$scope.widthSpacing = 11;
-			$scope.lengthSpacing = 11;
-			$scope.earthRodLength = 11;
-			$scope.geometricSpacingFactor = 11;
+			// $scope.averageResistivity = 11;
+			// $scope.immediateResistivity = 11;
+			// $scope.clearingTime = 11;
+			// $scope.substationLength = 11;
+			// $scope.substationWidth = 11;
+			// $scope.widthSpacing = 11;
+			// $scope.lengthSpacing = 11;
+			// $scope.earthRodLength = 11;
+			// $scope.geometricSpacingFactor = 11;
 		$scope.generateConstructionData = function() {
 			//Output Construction Data
 			$scope.estimatedFaultCurrent = $scope.CalculateEstimatedFaultCurrent().toFixed(3);
@@ -98,6 +98,9 @@
 			$scope.CompareMaxWithTolerableStepVoltage();
 			
 			$scope.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
+				
+
+			$location.path('/project/result');
 		}
 		
 	//Comparing max step voltage and tolerable step voltage
