@@ -48,13 +48,24 @@ em {
   float: right; }
 
 /* ============ Material styles */
+label {
+  font-size: 1em; }
+
+material-card {
+  padding: 20px; }
+
 .material-theme-emd {
   background: #607d8b;
   color: #fff; }
   .material-theme-emd a {
     color: #fff; }
 
-material-card {
-  padding: 20px; }
+.material-input-group > input {
+  width: 100%;
+  font-size: 1.2em; }
+
+.material-button {
+  padding: 10px 30px;
+  margin-right: 5px; }
 
 /* ================================ */
