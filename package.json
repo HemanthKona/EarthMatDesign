@@ -20,6 +20,7 @@
     "static-favicon": "~1.0.0"
   },
   "devDependencies": {
+    "express-mongoose-docs": "^0.2.0",
     "gulp": "^3.8.1",
     "gulp-plumber": "^0.6.3",
     "gulp-sass": "^0.7.2",

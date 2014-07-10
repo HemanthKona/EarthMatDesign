@@ -26,6 +26,7 @@ var bcrypt = require('bcryptjs');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var docs = require("express-mongoose-docs");
 
 // Initiating express server
 var app = express();
@@ -180,6 +181,7 @@ app.all('*', function(req, res, next) {
   next();
 });
 
+
 // Login route
 app.post('/api/login', passport.authenticate('local'), function(req, res) {
   res.cookie('user', JSON.stringify(req.user));
@@ -237,6 +239,9 @@ app.get('/api/projects', ensureAuthenticated, function(req, res, next) {
     res.send(projects);
   });
 });
+
+// To generate api documentation for exress-mongoose 
+docs(app, mongoose);
 
 // Create new project
 app.post('/api/projects', ensureAuthenticated, function(req, res, next) {
@@ -383,6 +388,8 @@ app.delete('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
   })
 });
 
+
+
 // redirect every other which is not defined route
 app.get('*', function(req, res) {
   res.redirect('/#' + req.originalUrl);
@@ -393,6 +400,7 @@ app.use(function(err, req, res, next) {
   console.error(err.stack);
   res.send(500, { message: err.message });
 });
+
 
 //Listen on port 1000
 app.listen(app.get('port'), function() {
