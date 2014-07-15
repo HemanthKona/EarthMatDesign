@@ -14,7 +14,7 @@
   Hemanth Kona, 2014.06.25: defined edit project route
 
 */
-
+require('newrelic');
 // import required modules
 var express = require('express');
 var path = require('path');
