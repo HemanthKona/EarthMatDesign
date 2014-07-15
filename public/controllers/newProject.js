@@ -9,6 +9,7 @@
  		function (Project, $scope, $location, $rootScope, $alert) {
 
  			$scope.createProject = function() {
+ 				console.log("clicked");
  				Project.save({
 			    
 			    name: $scope.projectName || "New Proejct 1",
@@ -77,6 +78,7 @@
 			// $scope.earthRodLength = 11;
 			// $scope.geometricSpacingFactor = 11;
 		$scope.generateConstructionData = function() {
+			console.log('Construction data genereated');
 			//Output Construction Data
 			$scope.estimatedFaultCurrent = $scope.CalculateEstimatedFaultCurrent().toFixed(3);
 			$scope.designFaultCurrent = $scope.CalculateDesignFaultCurrent().toFixed(3);
