@@ -70,3 +70,24 @@ pre                             { margin-bottom:20px; }
 	from 	{ -webkit-transform:translateX(200%); }
 	to 		{ -webkit-transform: translateX(0); }
 }
+
+/*Our stuff */
+.impedances {
+width: 100%;
+}
+
+.impedances > .form-group{
+width:30%;
+float: left;
+margin-right: 12px;
+}
+
+.physical {
+width: 100%;
+}
+
+.physical > .form-group{
+width: 38%;
+float: left;
+margin-right: 12px;
+}
