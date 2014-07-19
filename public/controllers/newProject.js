@@ -11,7 +11,7 @@
  			$scope.createProject = function() {
  				Project.save({
 			    
-			    name: $scope.projectName || "New Proejct 1",
+			    name: $scope.projectName || "New Project 1", // ideally the default should be something with a date/time stamp
 
 	        lineVoltage: $scope.lineVoltage,
 	        impedanceOne: $scope.impedanceOne,
@@ -50,7 +50,7 @@
 	        comments: $scope.comments,
 			  }, 
 				function() {
-					console.log("Created Projct");
+					console.log("Created Project");
 				},
 				function(response) {
 					console.log(response.data.message);

@@ -1,10 +1,11 @@
 <div>
-  <h2>Construction data</h2>
+  <h2>Construction Data</h2>
   
   <div style="width:400px;">
     <div class="">
       <label>Estimated Fault Current</label>
-      <input disabled placeholder="Estimated Fault Current [A]" type="text" name="estimatedFaultCurrent" ng-model="estimatedFaultCurrent">
+      <input type="text" name="estimatedFaultCurrent" ng-model="estimatedFaultCurrent">
+	  <div ng-model="estimatedFaultCurrent" >sdfds {{estimatedFaultCurrent}} </div>
     </div>
     <div class="">
       <label>Design Fault Current</label>
@@ -59,5 +60,5 @@
     <label>Max Grid Potential Rise</label>
     <input placeholder="Max Grid Potential Rise" type="text" name="maxGridPotentialRise" ng-model="maxGridPotentialRise">
   </div>
-  <button class="btn btn-success" type="submit">Create Project</button>
+  <button class="btn btn-success" type="submit">Save</button>
 </div>

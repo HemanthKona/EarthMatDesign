@@ -165,6 +165,7 @@ app.use(passport.session());
 //       res.header("Access-Control-Allow-Headers", "X-Requested-With");
 //       next();
 //     });
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
