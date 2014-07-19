@@ -12,7 +12,7 @@
  		display: flex;
  		direction: row;
  		flex-wrap: wrap;
- 		justify-content: center;
+ 		justify-content: space-around;
   }
   .box {
 		background: #3C9;
@@ -128,9 +128,16 @@
 		<input hidden value={{project._id}} ng-model="proid" />
 		<h1>{{project.name}}</h1>
 		<p>{{project.data.construction.recommendation}}</p>
-    <button class="btn btn-danger" ng-click="remove(project._id, $index)">
+    <button class="btn btn-danger" ng-hide="confirmDelete" ng-click="confirmDelete = true">
       <i class="fa fa-trash-o fa-lg"></i>
-       Delete
+      Delete
     </button>
+    <div  ng-show="confirmDelete"> 
+      <button class="btn btn-danger" ng-click="remove(project._id, $index)">
+        <i class="fa fa-trash-o fa-lg"></i>
+         Confirm undoable delete ? 
+      </button>
+      <button class="btn btn-success" ng-click="confirmDelete = false">Cancel</button>
+    </div>
 	</material-card>
 </div>

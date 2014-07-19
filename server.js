@@ -14,7 +14,7 @@
   Hemanth Kona, 2014.06.25: defined edit project route
 
 */
-
+require('newrelic');
 // import required modules
 var express = require('express');
 var path = require('path');
@@ -165,6 +165,8 @@ app.use(passport.session());
 //       res.header("Access-Control-Allow-Headers", "X-Requested-With");
 //       next();
 //     });
+
+//app.use(express.static(path.join(__dirname, 'MultiFormExample')));
 
 app.use(express.static(path.join(__dirname, 'public')));
 

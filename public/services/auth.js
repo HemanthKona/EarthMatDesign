@@ -20,6 +20,8 @@
 						$rootScope.currentUser = data;
 						$location.path('/');
 
+						console.log(data);
+
 						$alert({
                 title: 'Success!',
                 content: 'You are successfully logged in.',

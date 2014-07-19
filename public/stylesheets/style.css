@@ -69,3 +69,11 @@ material-card {
   margin-right: 5px; }
 
 /* ================================ */
+
+
+.impedances >  .form-group {
+  width: 33%;
+  clear: both;
+  float: left;
+  ,
+} 
