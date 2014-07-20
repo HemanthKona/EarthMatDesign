@@ -8,45 +8,26 @@
 
 */ 
 
-
 var app = angular.module('DHPEMD', 
-	[ 'ngAnimate', 'ngCookies', 'ngMessages', 'ngRoute', 'ngResource', 'mgcrea.ngStrap', 'ngMaterial' ] );
+	[ 'ngAnimate', 'ngCookies', 'ngMessages', 'ui.router', 'ngResource', 'mgcrea.ngStrap', 'ngMaterial' ] );
 
-app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+app.config(['$urlRouterProvider', '$locationProvider', '$stateProvider',   function($urlRouterProvider, $locationProvider, $stateProvider) {
 	$locationProvider.html5Mode(true);
 
-	$routeProvider
-		.when('/', {
-			templateUrl: 'views/projects.html',
+	$stateProvider
+		.state('root', {
+			url: '/',
+			templateUrl: 'views/login.html',
 			controller: 'ProjectController'
 		})
-		.when('/home', {
-			templateUrl: 'views/home.html',
-		})
-		.when('/login', {
+		
+		.state('login', {
+			url: '/login',
 			templateUrl: 'views/login.html',
 		})
-		.when('/signup', {
-			templateUrl: 'views/signup.html',
-		})
-		.when('/profile', {
-			templateUrl: 'views/profile.html',
-		})
-		.when('/projects', {
-			templateUrl: 'views/projects.html',
-			controller: 'ProjectController'
-		})
-		.when('/project/new', {
-			templateUrl: 'views/newProject.html',
-			controller: 'NewProjectController'
-		})
-		.when('/project/result', {
-			templateUrl: 'views/result.html',
-			controller: 'NewProjectController'
-		})
-		.otherwise({
-			redirectTo: '/'
-		});
+		
+		
+		$urlRouterProvider.otherwise('/');
 
 }]);
 

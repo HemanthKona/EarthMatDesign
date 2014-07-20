@@ -53,79 +53,59 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
     
     // we will store all of our form data in this object
     $scope.formData = {};
-	$scope.estimatedFaultCurrent;
-	
     
+    $scope.lineVoltage = parseFloat($scope.formData.lineVoltage);
+    
+    $scope.impedanceOne = parseFloat($scope.formData.impedanceOne);
+    $scope.impedanceTwo = parseFloat($scope.formData.impedanceTwo);
+    $scope.impedanceThree   = parseFloat($scope.formData.impedanceThree);
+    
+    $scope.decrementFactor = parseFloat($scope.formData.decrementFactor);
+    $scope.growthFactor = parseFloat($scope.formData.growthFactor);
+    $scope.physicalGridCoefficient = parseFloat($scope.formData.physicalGridCoefficient);
+    $scope.irregularityFactor = parseFloat($scope.formData.irregularityFactor);
+    
+    $scope.averageResistivity = parseFloat($scope.formData.averageResistivity);
+    $scope.immediateResistivity = parseFloat($scope.formData.immediateResistivity);
+    $scope.clearingTime = parseFloat($scope.formData.clearingTime);
+    $scope.substationLength = parseFloat($scope.formData.substationLength);
+    $scope.substationWidth = parseFloat($scope.formData.substationWidth);
+    $scope.widthSpacing = parseFloat($scope.formData.widthSpacing);
+    $scope.lengthSpacing = parseFloat($scope.formData.lengthSpacing);
+    $scope.earthRodLength = parseFloat($scope.formData.earthRodLength);
+    $scope.geometricSpacingFactor = parseFloat($scope.formData.geometricSpacingFactor);
+
+
     // function to process the form
     $scope.processForm = function() {
-		$scope.lineVoltage = parseFloat($scope.lineVoltage);
-	
-			$scope.impedanceOne = parseFloat($scope.formData.impedanceOne);
-			$scope.impedanceTwo = parseFloat($scope.formData.impedanceTwo);
-			$scope.impedanceThree	= parseFloat($scope.formData.impedanceThree);
-			
-			$scope.decrementFactor = parseFloat($scope.formData.decrementFactor);
-			$scope.growthFactor = parseFloat($scope.formData.growthFactor);
-			$scope.physicalGridCoefficient = parseFloat($scope.formData.physicalGridCoefficient);
-			$scope.irregularityFactor = parseFloat($scope.formData.irregularityFactor);
-			
-			$scope.averageResistivity = parseFloat($scope.formData.averageResistivity);
-			$scope.immediateResistivity = parseFloat($scope.formData.immediateResistivity);
-			$scope.clearingTime = parseFloat($scope.formData.clearingTime);
-			$scope.substationLength = parseFloat($scope.formData.substationLength);
-			$scope.substationWidth = parseFloat($scope.formData.substationWidth);
-			$scope.widthSpacing = parseFloat($scope.formData.widthSpacing);
-			$scope.lengthSpacing = parseFloat($scope.formData.lengthSpacing);
-			$scope.earthRodLength = parseFloat($scope.formData.earthRodLength);
-			$scope.geometricSpacingFactor = parseFloat($scope.formData.geometricSpacingFactor);
-			
-			$scope.generateConstructionData();
-			
-	
+				
+		//Output Construction Data
+        $scope.estimatedFaultCurrent = $scope.CalculateEstimatedFaultCurrent().toFixed(3);
+    /*  $scope.designFaultCurrent = $scope.CalculateDesignFaultCurrent().toFixed(3);
         
+        $scope.conductorLength = $scope.CalculateConductorLength().toFixed(3);
+        $scope.earthMatResistance = $scope.CalculateEarthMatResistance().toFixed(3);
+        $scope.gridConductorLength = $scope.CalculateGridConductorLength().toFixed(3);
+        $scope.minEarthRodsNumber = $scope.CalculateMinEarthRodsNumber().toFixed(3);
+        $scope.increasedEarthRodsNumber = $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
+        $scope.recommendation = "Increase rods by 10% to: " + $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
+        
+        $scope.newGridConductorLength = $scope.increasedEarthRodsNumber * $scope.earthRodLength;
+        $scope.totalLengthOfCopper = +$scope.gridConductorLength + +$scope.newGridConductorLength;
+        $scope.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
+        $scope.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
+        
+        // $scope.designGrade ="";
+        // $scope.comments = "";
+        $scope.CompareMaxWithTolerableStepVoltage();
+        
+        $scope.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
+            */
+        console.log(parseFloat($scope.lineVoltage));    
+        console.log($scope.estimatedFaultCurrent);  
+        console.log($scope.designFaultCurrent);
     };
 	
-		$scope.generateConstructionData = function() {
-			
-		
-			//Output Construction Data
-			$scope.estimatedFaultCurrent = $scope.CalculateEstimatedFaultCurrent().toFixed(3);
-		/*	$scope.designFaultCurrent = $scope.CalculateDesignFaultCurrent().toFixed(3);
-			
-			$scope.conductorLength = $scope.CalculateConductorLength().toFixed(3);
-			$scope.earthMatResistance = $scope.CalculateEarthMatResistance().toFixed(3);
-			$scope.gridConductorLength = $scope.CalculateGridConductorLength().toFixed(3);
-			$scope.minEarthRodsNumber = $scope.CalculateMinEarthRodsNumber().toFixed(3);
-			$scope.increasedEarthRodsNumber = $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
-			$scope.recommendation = "Increase rods by 10% to: " + $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
-			
-			$scope.newGridConductorLength = $scope.increasedEarthRodsNumber * $scope.earthRodLength;
-			$scope.totalLengthOfCopper = +$scope.gridConductorLength + +$scope.newGridConductorLength;
-			$scope.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
-			$scope.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
-			
-			// $scope.designGrade ="";
-			// $scope.comments = "";
-			$scope.CompareMaxWithTolerableStepVoltage();
-			
-			$scope.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
-				*/
-				console.log(parseFloat($scope.lineVoltage));	
-			console.log($scope.estimatedFaultCurrent);	
-			console.log($scope.designFaultCurrent);
-			console.log($scope.conductorLength);
-			console.log($scope.earthMatResistance);
-			console.log($scope.gridConductorLength);
-			console.log($scope.minEarthRodsNumber);
-			console.log($scope.increasedEarthRodsNumber);
-			console.log($scope.recommendation);
-			console.log($scope.newGridConductorLength);
-			console.log($scope.totalLengthOfCopper);
-			console.log($scope.maxStepVoltage);
-			console.log($scope.tolerableStepVoltage);
-			console.log($scope.maxGridPotentialRise);
-			
-		}
 		
 	//Comparing max step voltage and tolerable step voltage
 	$scope.CompareMaxWithTolerableStepVoltage = function()
@@ -152,7 +132,6 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
 	//Design Fault Current
 	$scope.CalculateDesignFaultCurrent = function() 	{
 		return $scope.estimatedFaultCurrent * $scope.decrementFactor * $scope.growthFactor;
-
 	}
 	
 	//Conductor Length
