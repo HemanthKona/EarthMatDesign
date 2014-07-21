@@ -1,0 +1,20 @@
+<div class=" designgrade ">
+
+	<div class="{{designGrade}}" ng-if="designGrade === 'Good'">
+			<h1>{{designGrade}} Design</h1>
+
+	</div>
+
+	<div class="{{designGrade}}" ng-if="designGrade === 'Bad'">
+			<h1>{{designGrade}} Design</h1>
+			<p>{{comments}}</p>
+	</div>
+			<button class="btn btn-default">See costruction data</button>
+			<button class="btn btn-default">Take picture</button>
+			<button class="btn btn-default" ng-click="getCurrentGeoLocation()">Add location</button>
+			<button class="btn btn-default" ng-click="createProject()">Save project</button>
+			<button class="btn btn-default">edit data</button>
+			<button class="btn btn-default">Share</button>
+
+			<p>Coords: {{coords.latitude}} , {{coords.longitude}}</p>
+</div>

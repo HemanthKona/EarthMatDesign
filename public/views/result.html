@@ -1,10 +1,14 @@
-<div ng-controller="">
-  <h2>Construction data</h2>
+
+<div>
+  <h2>Construction Data</h2>
+
   
   <div style="width:400px;">
     <div class="">
       <label>Estimated Fault Current</label>
+
       <input disabled type="text" name="estimatedFaultCurrent" ng-model="estimatedFaultCurrent">
+
     </div>
     <div class="">
       <label>Design Fault Current</label>
@@ -59,5 +63,6 @@
     <label>Max Grid Potential Rise</label>
     <input type="text" name="maxGridPotentialRise" ng-model="maxGridPotentialRise">
   </div>
-  <button class="btn btn-success" ng-click="createProject()">Create Project</button>
+  <button class="btn btn-success" type="submit">Save</button>
+
 </div>

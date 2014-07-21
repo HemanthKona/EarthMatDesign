@@ -77,6 +77,10 @@ var projectSchema = new mongoose.Schema({
   name:  String, 
   createdBy: String,
   createdOn: {type: Date, default: Date.now},
+  geolocation: {
+    latitide: Number,
+    longitude: Number
+  },
   data: {
     design: {
       lineVoltage: Number,
@@ -165,7 +169,9 @@ app.use(passport.session());
 //       res.header("Access-Control-Allow-Headers", "X-Requested-With");
 //       next();
 //     });
+
 //app.use(express.static(path.join(__dirname, 'MultiFormExample')));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
@@ -251,6 +257,10 @@ app.post('/api/projects', ensureAuthenticated, function(req, res, next) {
   var project = new Project({
     name: req.body.name,
     createdBy: user,
+    geolocation: {
+      latitide: req.body.latitude,
+      longitude: req.body.longitude
+    },
     data: {
       design: {
         lineVoltage: req.body.lineVoltage,

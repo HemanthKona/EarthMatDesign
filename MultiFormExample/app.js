@@ -6,7 +6,7 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
 // configuring our routes 
 // =============================================================================
 .config(function($stateProvider, $urlRouterProvider) {
-    
+
     $stateProvider
     
         // route to show our basic form (/form)
@@ -78,6 +78,7 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
 
     // function to process the form
     $scope.processForm = function() {
+
 				
 		//Output Construction Data
         $scope.estimatedFaultCurrent = $scope.CalculateEstimatedFaultCurrent().toFixed(3);
@@ -98,6 +99,7 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
         // $scope.designGrade ="";
         // $scope.comments = "";
         $scope.CompareMaxWithTolerableStepVoltage();
+
         
         $scope.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
             */
@@ -105,7 +107,6 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
         console.log($scope.estimatedFaultCurrent);  
         console.log($scope.designFaultCurrent);
     };
-	
 		
 	//Comparing max step voltage and tolerable step voltage
 	$scope.CompareMaxWithTolerableStepVoltage = function()
@@ -139,33 +140,33 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
 	{
 		return (($scope.physicalGridCoefficient * $scope.irregularityFactor * 
 			$scope.averageResistivity * $scope.designFaultCurrent * 
-			Math.sqrt($scope.formDataclearingTime))/(116 + (0.17 * $scope.formDataimmediateResistivity)));
+			Math.sqrt($scope.clearingTime))/(116 + (0.17 * $scope.immediateResistivity)));
 	}
 	
 	//Overall Radius from Substation Area Info
 	$scope.CalculateRadius = function()
 	{
-		return Math.sqrt(($scope.formDatasubstationLength * $scope.formDatasubstationWidth)/(Math.PI));
+		return Math.sqrt(($scope.substationLength * $scope.substationWidth)/(Math.PI));
 	}
 	
 	//Earth Mat Resistance
 	$scope.CalculateEarthMatResistance = function()
 	{
-		return $scope.formDataaverageResistivity * ((1/(4 * $scope.CalculateRadius())) + (1/$scope.conductorLength));
+		return $scope.averageResistivity * ((1/(4 * $scope.CalculateRadius())) + (1/$scope.conductorLength));
 	}
 	
 	//Grid Conductor length
 	$scope.CalculateGridConductorLength = function()
 	{
-		return ($scope.formDatasubstationWidth
-			* (($scope.formDatasubstationLength / $scope.formDatalengthSpacing) + 1))
-			+ ($scope.formDatasubstationLength * (($scope.formDatasubstationWidth / $scope.formDatawidthSpacing) + 1));
+		return ($scope.substationWidth
+			* (($scope.substationLength / $scope.lengthSpacing) + 1))
+			+ ($scope.substationLength * (($scope.substationWidth / $scope.widthSpacing) + 1));
 	}
 	
 	//Minimum Required number of Earth Rods
 	$scope.CalculateMinEarthRodsNumber = function()
 	{
-		return Math.round(($scope.formDataconductorLength - $scope.formDatagridConductorLength) / $scope.formDataearthRodLength);
+		return Math.round(($scope.conductorLength - $scope.gridConductorLength) / $scope.earthRodLength);
 	}
 	///////////////////////////////////////////////////////////////////////////////	
 	//Method: Calculate earth rod increase
@@ -177,13 +178,13 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
 	//Method: Calculate maximum step voltage
 	$scope.CalculateMaximumStepVoltage = function()
 	{
-		return $scope.formDatageometricSpacingFactor * $scope.formDatairregularityFactor * $scope.formDataaverageResistivity * ($scope.designFaultCurrent / $scope.totalLengthOfCopper);
+		return $scope.geometricSpacingFactor * $scope.irregularityFactor * $scope.averageResistivity * ($scope.designFaultCurrent / $scope.totalLengthOfCopper);
 	}
 	
 	//Method: Calculate tolerable step voltage
 	$scope.CalculateTolerableStepVoltage = function()
 	{
-		return ((116 + (0.7 * $scope.formDataimmediateResistivity)) / (Math.sqrt($scope.formDataclearingTime)));
+		return ((116 + (0.7 * $scope.immediateResistivity)) / (Math.sqrt($scope.clearingTime)));
 	}
 	
 	//Method: Calculate maximum grid potential rise

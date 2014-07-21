@@ -60,8 +60,13 @@ material-card {
   .material-theme-emd a {
     color: #fff; }
 
+.material-input-group label {
+  color: #000;
+  margin-left: 5px; }
+
 .material-input-group > input {
-  width: 100%;
+  /*width: 100%;*/
+  background: #fff;
   font-size: 1.2em; }
 
 .material-button {
@@ -69,11 +74,165 @@ material-card {
   margin-right: 5px; }
 
 /* ================================ */
+/*  ===============   Form design =========== */
+/* BASIC STYLINGS
+============================================================================= */
+pre {
+  margin-bottom: 20px; }
 
+/* form styling */
+#form-container {
+  background: #d5d5d5;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  max-width: 800px; }
 
-.impedances >  .form-group {
-  width: 33%;
-  clear: both;
-  float: left;
-  ,
-} 
+#form-container .page-header {
+  background: #bbb;
+  margin: 0;
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+
+/* numbered buttons */
+#status-buttons a {
+  color: #FFF;
+  max-width: 200px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  margin-right: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  background: #607d8b;
+  box-shadow: 2px 2px 5px #111; }
+
+#status-buttons a:hover {
+  background: #00BC8C;
+  /*border-radius:15px; */
+  text-decoration: none; }
+
+#status-buttons span {
+  width: 90px;
+  height: 30px;
+  font-size: 20px;
+  margin: 0 auto 10px;
+  padding: 5px 25px;
+  display: block; }
+
+/* active buttons */
+#status-buttons a.active {
+  background: #00BC8C;
+  /*border-radius: 10px;*/ }
+
+/* ANIMATION STYLINGS
+============================================================================= */
+#design-form {
+  position: relative;
+  min-height: 300px;
+  overflow: hidden;
+  padding: 30px; }
+
+/* basic styling for entering and leaving */
+/* left and right added to ensure full width */
+#form-views.ng-enter, #form-views.ng-leave {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease; }
+
+/* enter animation */
+#form-views.ng-enter {
+  -webkit-animation: slideInRight 0.5s both ease;
+  -moz-animation: slideInRight 0.5s both ease;
+  animation: slideInRight 0.5s both ease; }
+
+/* leave animation */
+#form-views.ng-leave {
+  -webkit-animation: slideOutLeft 0.5s both ease;
+  -moz-animation: slideOutLeft 0.5s both ease;
+  animation: slideOutLeft 0.5s both ease; }
+
+/* ANIMATIONS
+============================================================================= */
+/* slide out to the left */
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-200%); } }
+
+@-moz-keyframes slideOutLeft {
+  to {
+    -moz-transform: translateX(-200%); } }
+
+@-webkit-keyframes slideOutLeft {
+  to {
+    -webkit-transform: translateX(-200%); } }
+
+/* slide in from the right */
+@keyframes slideInRight {
+  from {
+    transform: translateX(200%); }
+
+  to {
+    transform: translateX(0); } }
+
+@-moz-keyframes slideInRight {
+  from {
+    -moz-transform: translateX(200%); }
+
+  to {
+    -moz-transform: translateX(0); } }
+
+@-webkit-keyframes slideInRight {
+  from {
+    -webkit-transform: translateX(200%); }
+
+  to {
+    -webkit-transform: translateX(0); } }
+
+/*Our stuff */
+.horizontal-space-between {
+  display: flex;
+  flex: 1 0 auto;
+  direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.designgrade {
+  postion: relative;
+  height: 100%; }
+
+.Good {
+  background: green;
+  color: #fff;
+  padding: 20px; }
+
+.Bad {
+  background: red;
+  color: #fff;
+  padding: 20px; }
+
+/*.impedances {
+width: 100%;
+}
+
+.impedances > .form-group{
+width:30%;
+float: left;
+margin-right: 6px;
+}
+
+.physical {
+width: 100%;
+}
+
+.physical > .form-group{
+width: 40%;
+float: left;
+margin-right: 12px;
+clear: none;
+}
+*/
+/* ===== end form desing ========== */

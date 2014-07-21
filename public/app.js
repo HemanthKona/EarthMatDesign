@@ -11,23 +11,74 @@
 var app = angular.module('DHPEMD', 
 	[ 'ngAnimate', 'ngCookies', 'ngMessages', 'ui.router', 'ngResource', 'mgcrea.ngStrap', 'ngMaterial' ] );
 
-app.config(['$urlRouterProvider', '$locationProvider', '$stateProvider',   function($urlRouterProvider, $locationProvider, $stateProvider) {
+app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider', 
+	function($urlRouterProvider, $stateProvider, $locationProvider) {
 	$locationProvider.html5Mode(true);
 
 	$stateProvider
-		.state('root', {
-			url: '/',
-			templateUrl: 'views/login.html',
-			controller: 'ProjectController'
+
+		.state('home', {
+			url: '/home',
+			templateUrl: 'views/home.html'
 		})
 		
 		.state('login', {
 			url: '/login',
 			templateUrl: 'views/login.html',
 		})
+
+		.state('signup', {
+			url: '/signup',
+			templateUrl: 'views/signup.html',
+		})
+
+		.state('profile', {
+			url: '/profile',
+			templateUrl: 'views/profile.html',
+		})
+
+		.state('projects', {
+			url: '/projects',
+			templateUrl: 'views/projects.html',
+			controller: 'ProjectController'
+		})  
+
+	// route to show our basic form (/form)
+    .state('form', {
+      url: '/form',
+      templateUrl: 'views/forms/form.html',
+      controller: 'NewProjectController'
+    })
+    
+    // nested states 
+    // each of these sections will have their own view
+    // url will be nested (/form/profile)
+    .state('form.electrical', {
+      url: '/electrical',
+      templateUrl: 'views/forms/form-electrical.html'
+    })
+    
+    // url will be /form/physical
+    .state('form.physical', {
+      url: '/physical',
+      templateUrl: 'views/forms/form-physical.html'
+    })
+    
+    // url will be /form/factors
+    .state('form.factors', {
+      url: '/factors',
+      templateUrl: 'views/forms/form-factors.html'
+    })
+
+    //url will be /form/designGrade
+    .state('form.designGrade', {
+    	url: '/designGrade',
+    	templateUrl: 'views/forms/designGrade.html'
+    });
+     
+
 		
-		
-		$urlRouterProvider.otherwise('/');
+		$urlRouterProvider.otherwise('/home');
 
 }]);
 

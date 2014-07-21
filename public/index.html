@@ -30,12 +30,12 @@
 
   <material-toolbar class="material-theme-emd">
     <div class="material-toolbar-tools">
-      <a href="/">
+      <a href="/projects">
         <span class="fa fa-home"></span>
       </a>
       <!-- <span class="fa fa-bars"></span> -->
       <span class="material-flex">Projects</span>
-      <a href="/project/new" ng-if="currentUser">
+      <a ui-sref="form.electrical" ng-if="currentUser">
         <span class="fa fa-plus"></span>
       </a>
       <a href="/profile" ng-if="currentUser">
@@ -84,19 +84,22 @@
 </div>
 
  -->
-<div ng-view></div>
+<div ui-view></div>
 
 </material-content>
 
+<script src="vendor/jquery-1.11.1.min.js"></script>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 <script src="vendor/angular/angular.js"></script>
 
-<script src="vendor/angular/angular-ui-router.js"></script>
 
 <script src="vendor/angular/angular-animate.js"></script>
 <script src="vendor/angular/angular-cookies.js"></script>
 <script src="vendor/angular/angular-messages.js"></script>
 <script src="vendor/angular/angular-resource.js"></script>
-<script src="vendor/angular/angular-route.js"></script>
+
 <script src="vendor/angular/angular-sanitize.js"></script>
 <script src="vendor/angular/angular-strap.js"></script>
 <script src="vendor/angular/angular-strap.tpl.js"></script>
@@ -106,10 +109,12 @@
 <script src="vendor/material/angular-animate-stylers.js"></script>
 <script src="vendor/material/material-design.js"></script>
 
+<script src="vendor/angular/angular-ui-router.js"></script>
 <script src="app.js"></script>
 
 <script src="services/auth.js"></script>
 <script src="services/project.js"></script>
+<script src="services/geolocation.js"></script>
 
 <script src="controllers/login.js"></script>
 <script src="controllers/logout.js"></script>
@@ -117,6 +122,11 @@
 <script src="controllers/project.js"></script>
 <script src="controllers/newProject.js"></script>
 
+<script>
+  (function() {
+    $('#help').popover('show')
+  })();
+</script>
 
 </body>
 </html>
