@@ -88,6 +88,9 @@ label {
 material-card {
   padding: 20px; }
 
+material-content {
+  padding: 0; }
+
 .material-theme-emd {
   background: #607d8b;
   color: #fff; }
@@ -101,11 +104,18 @@ material-card {
 .material-input-group > input {
   /*width: 100%;*/
   background: #fff;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  border: 2px solid #143; }
 
 .material-button {
   padding: 10px 30px;
   margin-right: 5px; }
+
+.viewsDisplayCenter {
+  display: flex;
+  direction: row;
+  flex-wrap: wrap;
+  justify-content: center; }
 
 /* ================================ */
 /*  ===============   Form design =========== */
@@ -165,8 +175,9 @@ pre {
 #design-form {
   position: relative;
   min-height: 300px;
+  min-width: 350px;
   overflow: hidden;
-  padding: 30px; }
+  padding: 10px 30px; }
 
 /* basic styling for entering and leaving */
 /* left and right added to ensure full width */

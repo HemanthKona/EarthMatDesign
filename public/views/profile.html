@@ -7,9 +7,9 @@
 
  -->
 <div>
-<material-card style="width: 400px;">
+<material-card style="width: 350px;">
   <div>
-    <h3>Profile</h3>
+    <!-- <h2>Profile</h2> -->
     <form method="post" ng-submit="login()" name="LoginForm">
 			<div class="material-input-group">
        	<p>Email: {{currentUser.email}}</p>
@@ -28,7 +28,7 @@
 	        <input type="text" id="lastname" name="lastname" ng-model="userProfileDetails.lastname">
 	      </div>
       </div>	
-      <div ng-show="editPassword">
+      <div class="material-input-group" ng-show="editPassword">
       	<label for="password">Password</label>
       	<input type="password" id="password" name="password" ng-model="userProfileDetails.password">       	
       </div>

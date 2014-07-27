@@ -1,68 +1,62 @@
-	<script>
+<script>
 $(document).ready(function(){
-    $("#tooltip-ex a").tooltip({
+    $("a").tooltip({
         placement : 'top'
     });
 });
 </script>
 
-<div class="physical">
-<div class="material-input-group">
-    <label for="decrementFactor">Decrement Factor </label>
-    <input type="text" class="form-control" id="decrementFactor" name="decrementFactor" ng-model="formData.decrementFactor">
-	<ul class="list-inline" id="tooltip-ex" >
-        <li><a href="" data-toggle="tooltip" 
-		data-original-title="The symmetrical grid current is not the maximum grid current because of asymmetry in short circuits, namely a DC current offset. This is captured by the decrement factor, which can be calculated from IEEE Std 80 equation 79"><i class="fa fa-info-circle"></i></a></li>		
-     </ul>
+<div layout flex main-axis="space-between" flex="50">
+    <div>
+        <label for="decrementFactor">Decrement Factor </label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <a href="" data-toggle="tooltip" 
+                data-original-title="The symmetrical grid current is not the maximum grid current because of asymmetry in short circuits, namely a DC current offset. This is captured by the decrement factor, which can be calculated from IEEE Std 80 equation 79"><i class="fa fa-info-circle"></i></a>
+            </span>
+            <input class="form-control" id="decrementFactor" name="decrementFactor" ng-model="formData.decrementFactor">	
+        </div>
+    </div>
+    <div>
+        <label for="growthFactor"> Growth Factor </label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <a href="" data-toggle="tooltip" 
+                data-original-title="Projection factor for future system growth"><i class="fa fa-info-circle"></i></a>
+            </span>
+            <input class="form-control" id="growthFactor" name="growthFactor" ng-model="formData.growthFactor">
+    </div>
+    </div>
 </div>
 
-<div class="material-input-group">
-    <label for="growthFactor"> Growth Factor </label>
-    <input type="text" class="form-control" id="growthFactor" name="growthFactor" ng-model="formData.growthFactor">
-	<ul class="list-inline" id="tooltip-ex" >
-        <li><a href="" data-toggle="tooltip" 
-		data-original-title="Projection factor for future system growth"><i class="fa fa-info-circle"></i></a></li>
-		
-     </ul>
-</div>
-</div>
-
-<div class="physical">
-
-<div class="material-input-group">
-
-    <label for="irregularityFactor"> Irregularity Factor  </label>
-    <input type="text" class="form-control" id="irregularityFactor" name="irregularityFactor" ng-model="formData.irregularityFactor">
-	<ul class="list-inline" id="tooltip-ex" >
-        <li><a href="" data-toggle="tooltip" 
-		data-original-title="An irregularity correction factor"><i class="fa fa-info-circle"></i></a></li>
-		
-     </ul>
+<div layout flex main-axis="space-between" flex="50">
+    <div>
+        <label for="irregularityFactor"> Irregularity Factor  </label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <a href="" data-toggle="tooltip" 
+                data-original-title="An irregularity correction factor"><i class="fa fa-info-circle"></i></a>
+            </span>
+            <input class="form-control" id="irregularityFactor" name="irregularityFactor" ng-model="formData.irregularityFactor">	
+        </div>
+    </div>
+    <div>
+        <label for="geometricSpacingFactor">  Geometric Spacing Factor </label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <a href="" data-toggle="tooltip" data-original-title="Calculated from IEEE Std 80 Equation 81"><i class="fa fa-info-circle"></i></a>   
+            </span>
+            <input class="form-control" id="geometricSpacingFactor" name="geometricSpacingFactor" ng-model="formData.geometricSpacingFactor">
+        </div>
+    </div>
 </div>
 
-<div class="material-input-group" >
-    <label for="geometricSpacingFactor">  Geometric Spacing Factor </label>
-    <input type="text" class="form-control" id="geometricSpacingFactor" name="geometricSpacingFactor" ng-model="formData.geometricSpacingFactor">
-	<ul class="list-inline" id="tooltip-ex" >
-        <li><a href="" data-toggle="tooltip" 
-		data-original-title="Calculated from IEEE Std 80 Equation 81"><i class="fa fa-info-circle"></i></a></li>
-		
-     </ul>
+<label for="physicalGridCoefficient">Physical Grid Coefficient</label>
+<div class="input-group">
+    <span class="input-group-addon">
+        <a href="" data-toggle="tooltip" data-original-title="Coefficient which takes into account the physical parameters of the grid "><i class="fa fa-info-circle"></i></a>    
+    </span>
+    <input class="form-control" id="physicalGridCoefficient" name="physicalGridCoefficient" ng-model="formData.physicalGridCoefficient">
 </div>
 
-
-</div>
-
-<div class="material-input-group">
-    <label for="physicalGridCoefficient">Physical Grid Coefficient</label>
-    <input type="text" class="form-control" id="physicalGridCoefficient" name="physicalGridCoefficient" ng-model="formData.physicalGridCoefficient">
-	<ul class="list-inline" id="tooltip-ex" >
-        <li><a href="" data-toggle="tooltip" 
-		data-original-title="Coefficient which takes into account the physical parameters of the grid "><i class="fa fa-info-circle"></i></a></li>
-		
-     </ul>
-</div>
-
-
-    
-    <button type="submit" ng-click="processForm()" class="btn btn-danger">Submit</button>
+<button type="submit" ng-click="processForm()" class="btn btn-danger">Submit</button>

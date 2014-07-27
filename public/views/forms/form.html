@@ -5,25 +5,33 @@
   
       <div class="page-header text-center">
           <h2>Input Data</h2>
-          
+
           <!-- the links to our nested states using relative paths -->
           <!-- add the active class if the state matches our ui-sref -->
           <div id="status-buttons" class="text-center">
-              <a ui-sref-active="active" ui-sref=".electrical"><span>&#8486;</span> Electrical</a>
-              
+              <a ui-sref-active="active" ui-sref=".electrical"><span>&#8486;</span> Electrical</a>    
               <a ui-sref-active="active" ui-sref=".physical"><span>L</span> Physical</a>
-        
-        
-        
-        <a ui-sref-active="active" ui-sref=".factors"><span>F</span> Factors</a>
+              <a ui-sref-active="active" ui-sref=".factors"><span>F</span> Factors</a>
           </div>
       </div>
-      
+
+      <!-- <material-tabs>  -->
+        <!-- Material tab to Electrical form -->
+        <!-- <material-tab ui-sref-active="active" ui-sref=".electrical" label="&#8486; Electrical"> -->
+        <!-- </material-tab> -->
+        <!-- Material tab to physical form -->
+        <!-- <material-tab ui-sref-active="active" ui-sref=".physical" label="Physical"> -->
+        <!-- </material-tab> -->
+        <!-- Material tab to Factors form -->
+        <!-- <material-tab ui-sref-active="active" ui-sref=".factors" label="Factors"> -->
+        <!-- </material-tab> -->
+      <!-- </material-tabs> -->
+
       <!-- use ng-submit to catch the form submission and use our Angular function -->
       <form id="design-form" ng-submit="">
           <!-- our nested state views will be injected here -->
-          <label for="projectName">Project Name: </label>
-          <input type="text" class="form-control" name="projectName" ng-model="projectName">
+            <label for="projectName"> Project Name: </label>
+            <input class="form-control" id="projectName" name="projectName" ng-model="projectName">
           <div id="form-views" ui-view></div>
       </form>
   

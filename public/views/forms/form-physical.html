@@ -1,90 +1,74 @@
-	<script>
+<script>
 $(document).ready(function(){
-    $("#tooltip-ex a").tooltip({
+    $("a").tooltip({
         placement : 'top'
     });
 });
 </script>
 
-<div class="material-display-flex horizontal-space-between">
-<div class="material-input-group">
-    <label for="substationLength">Substation Length</label>
-    <input type="text" class="form-control" id="substationLength" name="substationLength" ng-model="formData.substationLength">
-
-	<span class="input-group-addon" "material-input-group-addon">m</span>
-	<ul class="list-inline" id="tooltip-ex" >
-        <li><a href="" data-toggle="tooltip" 
-		data-original-title="Length of the Substation"><i class="fa fa-info-circle"></i></a></li>
-		
-     </ul>
+<div layout flex main-axis="space-between" flex="50">
+<div>
+<label for="substationLength">Substation Length</label>
+<div class="input-group">
+	<span class="input-group-addon">
+        <a href="" data-toggle="tooltip" 
+        data-original-title="Length of the Substation"><i class="fa fa-info-circle"></i></a>
+    </span>
+    <input class="form-control" id="substationLength" name="substationLength" ng-model="formData.substationLength">
+    <span class="input-group-addon">m</span>
+</div>
+</div>
+<div>
+<label for="substationWidth"> Substation Width</label>
+<div class="input-group">
+	<span class="input-group-addon">
+        <a href="" data-toggle="tooltip" 
+        data-original-title="Width of the Substation"><i class="fa fa-info-circle"></i></a>
+    </span>
+    <input class="form-control" id="substationWidth" name="substationWidth" ng-model="formData.substationWidth">
+    <span class="input-group-addon">m</span>
+</div>
+</div>
 </div>
 
-<div class="material-input-group">
-    <label for="substationWidth"> Substation Width</label>
-    <input type="text" class="form-control" id="substationWidth" name="substationWidth" ng-model="formData.substationWidth">
-
-	<span class="input-group-addon" "material-input-group-addon">m</span>
-
-	<ul class="list-inline" id="tooltip-ex" >
-        <li><a href="" data-toggle="tooltip" 
-		data-original-title="Width of the Substation"><i class="fa fa-info-circle"></i></a></li>
-		
-     </ul>
+<label for="lengthSpacing"> Length Spacing </label>
+<div class="input-group">
+	<span class="input-group-addon">
+        <a href="" data-toggle="tooltip" 
+        data-original-title="Spacing between lengthwise rods"><i class="fa fa-info-circle"></i></a>
+    </span>
+    <input class="form-control" id="lengthSpacing" name="lengthSpacing" ng-model="formData.lengthSpacing">
+    <span class="input-group-addon">m</span>
 </div>
 
-<div class="material-input-group">
-
-    <label for="lengthSpacing"> Length Spacing </label>
-    <input type="text" class="form-control" id="lengthSpacing" name="lengthSpacing" ng-model="formData.lengthSpacing">
-	<span class="input-group-addon" "material-input-group-addon">m</span>
-
-	<ul class="list-inline" id="tooltip-ex" >
-        <li><a href="" data-toggle="tooltip" 
-		data-original-title="Spacing between lengthwise rods"><i class="fa fa-info-circle"></i></a></li>
-		
-     </ul>
+<label for="widthSpacing">  Width Spacing </label>
+<div class="input-group" >
+    <span class="input-group-addon">
+        <a href="" data-toggle="tooltip" data-original-title="Spacing between cross-sectional rods"><i class="fa fa-info-circle"></i></a>
+    </span>
+    <input class="form-control" id="widthSpacing" name="widthSpacing" ng-model="formData.widthSpacing">
+    <span class="input-group-addon">m</span>
 </div>
 
-<div class="material-input-group" >
-    <label for="widthSpacing">  Width Spacing </label>
-    <input type="text" class="form-control" id="widthSpacing" name="widthSpacing" ng-model="formData.widthSpacing">
-
-	<span class="input-group-addon" "material-input-group-addon">m</span>
-
-	<ul class="list-inline" id="tooltip-ex" >
-        <li><a href="" data-toggle="tooltip" 
-		data-original-title="Spacing between cross-sectional rods"><i class="fa fa-info-circle"></i></a></li>
-		
-     </ul>
+<label for="earthRodLength">Earth Rod Length</label>
+<div class="input-group">
+	<span class="input-group-addon">
+        <a href="" data-toggle="tooltip" data-original-title="Length of each rod">
+            <i class="fa fa-info-circle"></i>
+        </a>
+    </span>
+    <input class="form-control" id="earthRodLength" name="earthRodLength" ng-model="formData.earthRodLength">
+    <span class="input-group-addon">m</span>
 </div>
 
-
-</div>
-
-<div class="material-input-group">
-    <label for="earthRodLength">Earth Rod Length</label>
-    <input type="text" class="form-control" id="earthRodLength" name="earthRodLength" ng-model="formData.earthRodLength">
-
-	<span class="input-group-addon" "material-input-group-addon">m</span>
-
-	<ul class="list-inline" id="tooltip-ex" >
-        <li><a href="" data-toggle="tooltip" 
-		data-original-title="Length of each rod"><i class="fa fa-info-circle"></i></a></li>
-		
-     </ul>
-</div>
-
-<div class="material-input-group">
-    <label for="clearingTime">Clearing Time</label>
-    <input type="text" class="form-control" id="clearingTime" name="clearingTime" ng-model="formData.clearingTime">
-
-	<span class="input-group-addon" "material-input-group-addon">s</span>
-
-	<ul class="list-inline" id="tooltip-ex" >
-        <li><a href="" data-toggle="tooltip" 
-		data-original-title="Maximum fault clearing time"><i class="fa fa-info-circle"></i></a></li>
-		
-     </ul>
+<label for="clearingTime">Clearing Time</label>
+<div class="input-group">
+	<span class="input-group-addon">
+        <a href="" data-toggle="tooltip" data-original-title="Maximum fault clearing time"><i class="fa fa-info-circle"></i></a>
+    </span>
+    <input class="form-control" id="clearingTime" name="clearingTime" ng-model="formData.clearingTime">
+    <span class="input-group-addon">s</span>
+	
 </div>
 
 

@@ -124,9 +124,9 @@
  </style>
 <div class="container">
   <div ng-repeat="project in projects">
-  	<material-card style="min-width:300px;" class="box fadeOutDown " >
+  	<material-card style="min-width:300px;" class="box fadeOutDown">
   		<input hidden value={{project._id}} ng-model="proid" />
-  		<h1>{{project.name}}</h1>
+  		<h3>{{project.name}}</h3>
   		<p>{{project.data.construction.recommendation}}</p>
       <button class="btn btn-danger" ng-hide="confirmDelete" ng-click="confirmDelete = true">
         <i class="fa fa-trash-o fa-lg"></i>

@@ -13,8 +13,6 @@
  			isArray: true
  		})
 
- 		console.log($scope.projects);
-
  		$scope.remove = function(id, index) {
  			Project.remove({id: id}, function() {
  				$scope.projects.splice(index, 1);

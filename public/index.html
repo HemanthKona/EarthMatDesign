@@ -34,7 +34,7 @@
         <span class="fa fa-home"></span>
       </a>
       <!-- <span class="fa fa-bars"></span> -->
-      <span class="material-flex">{{pageTitle}}</span>
+      <span flex>{{pageTitle}}</span>
       <a ui-sref="form.electrical" ng-if="currentUser">
         <span class="fa fa-plus"></span>
       </a>
@@ -84,7 +84,7 @@
 </div>
 
  -->
-<div ui-view></div>
+<div ui-view layout main-axis="center"></div>
 
 </material-content>
 
@@ -123,9 +123,13 @@
 <script src="controllers/newProject.js"></script>
 <script src="controllers/profile.js"></script>
 
+<!-- <script src="vendor/scroll/scrollreveal.js"></script>
+<script src="vendor/scroll/fox-angular-scrollReveal.js"></script> -->
+
 <script>
   (function() {
     $('#help').popover('show')
+
   })();
 </script>
 
