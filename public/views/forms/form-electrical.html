@@ -12,7 +12,17 @@ $(document).ready(function(){
     <button id="help" type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button> -->
     <label for="lineVoltage">Line Voltage</label>
     <input type="text" class="form-control" id="lineVoltage" name="lineVoltage" ng-model="formData.lineVoltage" >
-	<span class="input-group-addon">Volts</span>
+	 <div class="material-input-group-btn">
+     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">V <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li><a href="">V</a></li>
+          <li><a href="">mV</a></li>
+          <li><a href="">kV</a></li>
+		  <li><a href="">MV</a></li>
+          <li class="divider"></li>
+        
+        </ul>
+  </div>
  </div>
  <div >
     <ul class="list-inline" id="tooltip-ex" >
@@ -38,26 +48,58 @@ $(document).ready(function(){
     <div class="material-input-group">
         <label for="impedanceOne"> One </label>
         <input type="text" id="impedanceOne" name="impedanceOne" ng-model="formData.impedanceOne">
-		<span class="input-group-addon" "material-input-group-addon">&#8486;</span>
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">&#8486 <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li><a href="">&#8486</a></li>
+          <li><a href="">m&#8486</a></li>
+          <li><a href="">k&#8486</a></li>
+		  <li><a href="">M&#8486</a></li>
+          <li class="divider"></li>
+        
+        </ul>
     </div>
 
     <div class="material-input-group" >
         <label for="impedanceTwo"> Two </label>
         <input type="text" class="form-control" id="impedanceTwo" name="impedanceTwo" ng-model="formData.impedanceTwo">
-		<span class="input-group-addon" "material-input-group-addon">&#8486;</span>
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">&#8486 <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li><a href="">&#8486</a></li>
+          <li><a href="">m&#8486</a></li>
+          <li><a href="">k&#8486</a></li>
+		  <li><a href="">M&#8486</a></li>
+          <li class="divider"></li>
+        
+        </ul>
 	</div>
 
     <div class="material-input-group">
         <label for="impedanceThree"> Three</label>
         <input type="text" class="form-control" id="impedanceThree" name="impedanceThree" ng-model="formData.impedanceThree">
-		<span class="input-group-addon" "material-input-group-addon">&#8486;</span>
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">&#8486 <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li><a href="">&#8486</a></li>
+          <li><a href="">m&#8486</a></li>
+          <li><a href="">k&#8486</a></li>
+		  <li><a href="">M&#8486</a></li>
+          <li class="divider"></li>
+        
+        </ul>
     </div>
 </div>
 
 <div class="material-input-group">
     <label for="averageResistivity">Average Resistivity</label>
     <input type="text" class="form-control" id="averageResistivity" name="averageResistivity" ng-model="formData.averageResistivity">
-	<span class="input-group-addon" "material-input-group-addon">&#8486; m</span>
+	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">&#8486 <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li><a href="">&#8486</a></li>
+          <li><a href="">m&#8486</a></li>
+          <li><a href="">k&#8486</a></li>
+		  <li><a href="">M&#8486</a></li>
+          <li class="divider"></li>
+        
+        </ul>
 	<ul class="list-inline" id="tooltip-ex" >
         <li><a href="" data-toggle="tooltip" 
 		data-original-title="Different soil compositions, moisture content and temperatures give different average resistivities"><i class="fa fa-info-circle"></i></a></li>
@@ -68,7 +110,15 @@ $(document).ready(function(){
 <div class="material-input-group">
     <label for="immediateResistivity">Immediate Resistivity</label>
     <input type="text" class="form-control" id="immediateResistivity" name="immediateResistivity" ng-model="formData.immediateResistivity">
-	<span class="input-group-addon" "material-input-group-addon">&#8486; m</span>
+	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">&#8486 <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li><a href="">&#8486</a></li>
+          <li><a href="">m&#8486</a></li>
+          <li><a href="">k&#8486</a></li>
+		  <li><a href="">M&#8486</a></li>
+          <li class="divider"></li>
+        
+        </ul>
 	<ul class="list-inline" id="tooltip-ex" >
         <li><a href="" data-toggle="tooltip" 
 		data-original-title="Resistivity immediately beneath the foot"><i class="fa fa-info-circle"></i></a></li>
