@@ -1,13 +1,39 @@
-<div class="material-input-group">
+	<script>
+$(document).ready(function(){
+    $("#tooltip-ex a").tooltip({
+        placement : 'top'
+    });
+});
+</script>
+<div class="material-input-group" >
     <!-- <button  data-toggle="tooltip" data-placement="left" title="Tooltip on left">
         <i class="fa fa-question-circle"></i>
     </button>
     <button id="help" type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button> -->
     <label for="lineVoltage">Line Voltage</label>
-    <input type="text" class="form-control" id="lineVoltage" name="lineVoltage" ng-model="formData.lineVoltage">
+    <input type="text" class="form-control" id="lineVoltage" name="lineVoltage" ng-model="formData.lineVoltage" >
+
+ </div>
+ <div >
+    <ul class="list-inline" id="tooltip-ex" >
+        <li><a href="" data-toggle="tooltip" 
+		data-original-title="This is the voltage seen on the AC line"><i class="fa fa-info-circle"></i></a></li>
+		
+     </ul>
 </div>
 
-<label>Impedances</label>
+<label>
+	Impedances
+	
+    <ul class="list-inline" id="tooltip-ex" >
+        <li><a href="" data-toggle="tooltip" 
+		data-original-title="The measure of opposition when a voltage is applied"><i class="fa fa-info-circle"></i></a></li>
+		
+     </ul>
+
+</label>
+
+
 <div class="material-display-flex horizontal-space-between">
     <div class="material-input-group">
         <label for="impedanceOne"> One </label>
@@ -17,7 +43,8 @@
     <div class="material-input-group" >
         <label for="impedanceTwo"> Two </label>
         <input type="text" class="form-control" id="impedanceTwo" name="impedanceTwo" ng-model="formData.impedanceTwo">
-    </div>
+		
+	</div>
 
     <div class="material-input-group">
         <label for="impedanceThree"> Three</label>
@@ -28,11 +55,21 @@
 <div class="material-input-group">
     <label for="averageResistivity">Average Resistivity</label>
     <input type="text" class="form-control" id="averageResistivity" name="averageResistivity" ng-model="formData.averageResistivity">
+	<ul class="list-inline" id="tooltip-ex" >
+        <li><a href="" data-toggle="tooltip" 
+		data-original-title="Different soil compositions, moisture content and temperatures give different average resistivities"><i class="fa fa-info-circle"></i></a></li>
+		
+     </ul>	
 </div>
 
 <div class="material-input-group">
     <label for="immediateResistivity">Immediate Resistivity</label>
     <input type="text" class="form-control" id="immediateResistivity" name="immediateResistivity" ng-model="formData.immediateResistivity">
+	<ul class="list-inline" id="tooltip-ex" >
+        <li><a href="" data-toggle="tooltip" 
+		data-original-title="Resistivity immediately beneath the foot"><i class="fa fa-info-circle"></i></a></li>
+		
+     </ul>
 </div>
 
 
