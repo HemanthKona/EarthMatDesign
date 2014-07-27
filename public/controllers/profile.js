@@ -22,7 +22,7 @@
  			
  			console.log($scope.userProfileDetails);
 
- 			$http.put('http://localhost:5000/api/profile', $scope.userProfileDetails)
+ 			$http.put('/api/profile', $scope.userProfileDetails)
  				.success(function(data) {
  					$rootScope.currentUser = data;
  					console.log(data);
@@ -48,7 +48,7 @@
 
  		$scope.updatePassword = function () {
  			console.log($scope.userProfileDetails.password);
- 			$http.put('http://localhost:5000/api/updatePassword', $scope.userProfileDetails.password)
+ 			$http.put('/api/updatePassword', $scope.userProfileDetails.password)
  				.success(function(data) {
  					console.log("success" + data)
  					$alert({

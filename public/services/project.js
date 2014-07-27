@@ -7,5 +7,5 @@
 */
 
 app.factory('Project', ['$resource', function($resource) {
-	return $resource('http://localhost:5000/api/projects/:id');
+	return $resource('/api/projects/:id');
 }]);

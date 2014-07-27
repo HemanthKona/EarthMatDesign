@@ -15,7 +15,7 @@
 		
 		return {
 			login: function(user) {
-				return $http.post('http://localhost:5000/api/login', user)
+				return $http.post('/api/login', user)
 					.success(function(data) {
 						$rootScope.currentUser = data;
 						$location.path('/projects');
@@ -40,7 +40,7 @@
           });
 			},
 			signup: function(user) {
-				return $http.post('http://localhost:5000/api/signup', user)
+				return $http.post('/api/signup', user)
 					.success(function(data) {
 						$location.path('/login');
 
@@ -63,7 +63,7 @@
 					});	
 			},
 			logout: function() {
-				return $http.get('http://localhost:5000/api/logout')
+				return $http.get('/api/logout')
 					.success(function() {
 						$rootScope.currentUser = null;
 						$cookieStore.remove('user');
