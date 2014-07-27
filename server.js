@@ -65,7 +65,8 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, function(email, passw
 
 // User collection schema
 var userSchema = new mongoose.Schema({
-  name: {first: String, last: String},
+  firstname: String, 
+  lastname: String,
   email: { type: String, unique: true },
   password: String,
   createdOn: {type: Date, default: Date.now},
@@ -148,8 +149,8 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 var User = mongoose.model('User', userSchema);
 var Project = mongoose.model('Project', projectSchema);
 
-//mongoose.connect('localhost/emd');
-mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10078/emd')
+mongoose.connect('localhost/emd');
+//mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10078/emd')
 
 mongoose.connection.on('error', function() {
   console.error(' MongoDB Connection Error. Please make sure MongoDB is running.');
@@ -164,11 +165,11 @@ app.use(cookieParser());
 app.use(session({ secret: 'Authentic' }));
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(function(req, res, next) {
-//       res.header("Access-Control-Allow-Origin", "*");
-//       res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//       next();
-//     });
+app.use(function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "X-Requested-With");
+      next();
+    });
 
 //app.use(express.static(path.join(__dirname, 'MultiFormExample')));
 
@@ -195,15 +196,19 @@ app.post('/api/login', passport.authenticate('local'), function(req, res) {
   res.send(req.user);
 });
 
+// Logout route
+app.get('/api/logout', function(req, res, next) {
+  req.logout();
+  res.send(200);
+});
+
 // Signup route
 app.post('/api/signup', function(req, res, next) {
   var user = new User({
     email: req.body.email,
     password: req.body.password,
-    name: {
-      first: req.body.firstname,
-      last: req.body.lastname
-    }
+    firstname: req.body.firstname,
+    lastname: req.body.lastname
   });
   user.save(function(err) {
     if (err) return res.send(500, "User already exists!");
@@ -211,11 +216,16 @@ app.post('/api/signup', function(req, res, next) {
   });
 });
 
-// Logout route
-app.get('/api/logout', function(req, res, next) {
-  req.logout();
-  res.send(200);
-});
+app.put('/api/updatePassword', ensureAuthenticated, function (req, res, next) {
+  var user = req.user;
+
+  user.password = req.body.password;
+
+  user.save(function(err) {
+    if(err) return next(err);
+    res.send(200, "Password updated");
+  })
+})
 
 // Get user profile
 app.get('/api/profile', ensureAuthenticated, function(req, res, next) {
@@ -227,12 +237,16 @@ app.get('/api/profile', ensureAuthenticated, function(req, res, next) {
 
 //Edit profile
 app.put('/api/profile', ensureAuthenticated, function(req, res, next) {
-  var user = new User({
-    email: req.body.email,
-    password: req.body.password, 
+  
+  var userProfile = {};
     
-  });
-  User.update({email: req.user.email}, user,  function(err, user) {
+  //userProfile.email = req.user.email;
+
+  if(req.body.firstname) userProfile.firstname = req.body.firstname;
+  if(req.body.lastname) userProfile.lastname = req.body.lastname;
+
+  
+  User.findOneAndUpdate({email: req.user.email}, userProfile,  function(err, user) {
     if(err) return next(err);
     res.send(200, user);
   })

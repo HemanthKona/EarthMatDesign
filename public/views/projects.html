@@ -12,14 +12,15 @@
  		display: flex;
  		direction: row;
  		flex-wrap: wrap;
- 		justify-content: space-around;
+ 		justify-content: center;
   }
   .box {
-		color: white;
+		color: #333;
 		width: 200px;
 		height: auto;
 		margin: 5px;
 		padding: 10px;
+    background: #ccc;
 	}
 	
 	.fadeOutDown.ng-leave,
@@ -123,7 +124,7 @@
  </style>
 <div class="container">
   <div ng-repeat="project in projects">
-  	<material-card style="min-width:300px;" class="box fadeOutDown {{project.data.construction.designGrade}}" >
+  	<material-card style="min-width:300px;" class="box fadeOutDown " >
   		<input hidden value={{project._id}} ng-model="proid" />
   		<h1>{{project.name}}</h1>
   		<p>{{project.data.construction.recommendation}}</p>
@@ -133,7 +134,7 @@
       <div  ng-show="confirmDelete"> 
         <button class="btn btn-danger" ng-click="remove(project._id, $index)">
           <i class="fa fa-trash-o fa-lg"></i>
-           Confirm undoable delete ? 
+           Confirm delete ? 
         </button>
         <button class="btn btn-success" ng-click="confirmDelete = false">Cancel</button>
       </div>

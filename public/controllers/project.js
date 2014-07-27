@@ -7,6 +7,7 @@
  */
  app.controller('ProjectController', [ 'Project', 'Auth', '$scope', '$rootScope', '$location',   
  	function(Project, Auth, $scope, $rootScope, $location) {
+ 		$rootScope.pageTitle = "Projects"
  		$scope.show = true;
  		$scope.projects =  Project.query({
  			isArray: true

@@ -10,10 +10,8 @@
  	function($scope, Auth) {
 	 	$scope.signup = function() {
 	 		Auth.signup({
-	 			name: {
-	 				first: $scope.firstname,
-	 				last: $scope.lastname
-	 			},
+	 			firstname: $scope.firstname,
+	 			lastname: $scope.lastname,
 	 			email: $scope.email,
 	 			password: $scope.password
 	 		});

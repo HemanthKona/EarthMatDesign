@@ -19,22 +19,32 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
 
 		.state('home', {
 			url: '/home',
-			templateUrl: 'views/home.html'
+			templateUrl: 'views/home.html',
+			controller: function($rootScope) {
+				$rootScope.pageTitle = "Home"
+			}
 		})
 		
 		.state('login', {
 			url: '/login',
 			templateUrl: 'views/login.html',
+			controller: function($rootScope) {
+				$rootScope.pageTitle = "Login"
+			}
 		})
 
 		.state('signup', {
 			url: '/signup',
 			templateUrl: 'views/signup.html',
+			controller: function($rootScope) {
+				$rootScope.pageTitle = "Signup"
+			}
 		})
 
 		.state('profile', {
 			url: '/profile',
 			templateUrl: 'views/profile.html',
+			controller: 'ProfileController'
 		})
 
 		.state('projects', {
@@ -82,25 +92,25 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
 
 }]);
 
-// app.run( function($rootScope, $location) {
+app.run( function($rootScope, $location) {
 
-//     // register listener to watch route changes
-//     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-//       if ( $rootScope.currentUser == null ) {
-//         // no logged user, we should be going to #login
-//         if ( next.templateUrl == "views/login.html" || next.templateUrl == "views/signup.html" ) {
-//           // already going to #login, no redirect needed
-//         } else {
-//           // not going to #login, we should redirect now
-//           $location.path( "/login" );
-//         }
-//       }
-//       // else if the user is logged in dont show login or signup page
-//       else {
+    // register listener to watch route changes
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+      if ( $rootScope.currentUser == null ) {
+        // no logged user, we should be going to #login
+        if ( next.templateUrl == "views/login.html" || next.templateUrl == "views/signup.html" ) {
+          // already going to #login, no redirect needed
+        } else {
+          // not going to #login, we should redirect now
+          $location.path( "/login" );
+        }
+      }
+      // else if the user is logged in dont show login or signup page
+      else {
       	
-//       	if ( next.templateUrl == "views/login.html" || next.templateUrl == "views/signup.html" ) {
-//           $location.path( "/" );
-//         } 
-//       }        
-//     });
-//  });
+      	if ( next.templateUrl == "views/login.html" || next.templateUrl == "views/signup.html" ) {
+          $location.path( "/" );
+        } 
+      }        
+    });
+ });

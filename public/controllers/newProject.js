@@ -7,6 +7,8 @@
  */
  app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$location', '$rootScope', '$alert', 
  		function (Project, geolocation, $scope, $location, $rootScope, $alert) {
+			
+ 			$rootScope.pageTitle = "New Project"
 			//Input Design Data
 			// $scope.lineVoltage = 11;
 			// $scope.impedanceOne = 11;

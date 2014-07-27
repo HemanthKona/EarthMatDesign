@@ -8,6 +8,7 @@
 
 app.controller('LoginController', [ '$scope', 'Auth',  
 	function($scope, Auth) {
+		$scope.email = "Hello"
 		$scope.login = function() {
 			Auth.login({
 				email: $scope.email,

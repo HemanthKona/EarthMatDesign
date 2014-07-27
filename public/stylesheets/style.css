@@ -47,6 +47,40 @@ em {
 .pull-right {
   float: right; }
 
+.horizontal-space-between {
+  display: flex;
+  flex: 1 0 auto;
+  direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.designgrade {
+  postion: relative;
+  height: 100%; }
+
+.Good {
+  background: green;
+  color: #fff;
+  padding: 20px; }
+
+.Bad {
+  background: red;
+  color: #fff;
+  padding: 20px; }
+
+.profile {
+  display: flex;
+  direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+  .profile table {
+    width: 800px;
+    border: 1px solid #333; }
+    .profile table td {
+      padding: 10px;
+      margin: 10px;
+      border: 1px dotted #111; }
+
 /* ============ Material styles */
 label {
   font-size: 1em; }
@@ -100,12 +134,13 @@ pre {
   max-width: 200px;
   display: inline-block;
   font-size: 12px;
-  font-weight: 800;
+  /*font-weight: 800;*/
   margin-right: 10px;
   text-align: center;
   text-transform: uppercase;
   background: #607d8b;
-  box-shadow: 2px 2px 5px #111; }
+  box-shadow: 2px 2px 5px #111;
+  border-radius: 10px; }
 
 #status-buttons a:hover {
   background: #00BC8C;
@@ -193,27 +228,6 @@ pre {
     -webkit-transform: translateX(0); } }
 
 /*Our stuff */
-.horizontal-space-between {
-  display: flex;
-  flex: 1 0 auto;
-  direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between; }
-
-.designgrade {
-  postion: relative;
-  height: 100%; }
-
-.Good {
-  background: green;
-  color: #fff;
-  padding: 20px; }
-
-.Bad {
-  background: red;
-  color: #fff;
-  padding: 20px; }
-
 /*.impedances {
 width: 100%;
 }

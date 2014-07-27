@@ -11,16 +11,14 @@
  app.factory('Auth', ['$http', '$location', '$rootScope', '$cookieStore', '$alert',
 	function($http, $location, $rootScope, $cookieStore, $alert) {
 		$rootScope.currentUser = $cookieStore.get('user');
-    $cookieStore.remove('user');
+		$cookieStore.remove('user');
 		
 		return {
 			login: function(user) {
-				return $http.post('/api/login', user)
+				return $http.post('http://localhost:5000/api/login', user)
 					.success(function(data) {
 						$rootScope.currentUser = data;
 						$location.path('/projects');
-
-						console.log(data);
 
 						$alert({
                 title: 'Success!',
@@ -30,10 +28,11 @@
                 duration: 3
               });
 					})
-					.error(function() {
+					.error(function(response) {
+            console.log(response);
             $alert({
                 title: 'Error!',
-                content: 'Invalid username or password.',
+                content: 'Invalid username or password',
                 placement: 'top-right',
                 type: 'danger',
                 duration: 3   
@@ -41,7 +40,7 @@
           });
 			},
 			signup: function(user) {
-				return $http.post('/api/signup', user)
+				return $http.post('http://localhost:5000/api/signup', user)
 					.success(function(data) {
 						$location.path('/login');
 
@@ -54,7 +53,6 @@
               });
 					})
 					.error(function(response) {
-						console.log(response);
 						$alert({
                 title: 'Error!',
                 content: response,
@@ -65,7 +63,7 @@
 					});	
 			},
 			logout: function() {
-				return $http.get('/api/logout')
+				return $http.get('http://localhost:5000/api/logout')
 					.success(function() {
 						$rootScope.currentUser = null;
 						$cookieStore.remove('user');
