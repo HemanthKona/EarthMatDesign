@@ -1356,3 +1356,6 @@
 {"name":"newrelic","hostname":"Pranavsm-PC","pid":11336,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/719046/applications/3410603","time":"2014-07-27T02:56:33.248Z","v":0}
 {"name":"newrelic","hostname":"Pranavsm-PC","pid":11336,"component":"collector_api","level":30,"msg":"Connected to collector-128.newrelic.com:443 with agent run ID 1367486631.","time":"2014-07-27T02:56:33.249Z","v":0}
 >>>>>>> a5adff580cc24ba0af16e8e4c0e685b6d415f7dc
+{"name":"newrelic","hostname":"Hemanth","pid":5144,"level":30,"msg":"Starting New Relic for Node.js connection process.","time":"2014-07-27T05:20:49.984Z","v":0}
+{"name":"newrelic","hostname":"Hemanth","pid":5144,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/719046/applications/3410603","time":"2014-07-27T05:20:52.241Z","v":0}
+{"name":"newrelic","hostname":"Hemanth","pid":5144,"component":"collector_api","level":30,"msg":"Connected to collector-128.newrelic.com:443 with agent run ID 1367716800.","time":"2014-07-27T05:20:52.242Z","v":0}

@@ -150,7 +150,8 @@ var User = mongoose.model('User', userSchema);
 var Project = mongoose.model('Project', projectSchema);
 
 //mongoose.connect('localhost/emd');
-mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10078/emd')
+//mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10078/emd')
+mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10066/app27162449')
 
 mongoose.connection.on('error', function() {
   console.error(' MongoDB Connection Error. Please make sure MongoDB is running.');
