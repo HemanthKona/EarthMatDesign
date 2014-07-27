@@ -12,7 +12,7 @@ $(document).ready(function(){
     <input type="text" class="form-control" id="decrementFactor" name="decrementFactor" ng-model="formData.decrementFactor">
 	<ul class="list-inline" id="tooltip-ex" >
         <li><a href="" data-toggle="tooltip" 
-		data-original-title="The symmetrical grid current is not the maximum grid current because of asymmetry in short circuits, namely a dc current offset. This is captured by the decrement factor, which can be calculated from IEEE Std 80 equation 79"><i class="fa fa-info-circle"></i></a></li>
+		data-original-title="The symmetrical grid current is not the maximum grid current because of asymmetry in short circuits, namely a DC current offset. This is captured by the decrement factor, which can be calculated from IEEE Std 80 equation 79"><i class="fa fa-info-circle"></i></a></li>
 		
      </ul>
 </div>
@@ -32,13 +32,23 @@ $(document).ready(function(){
 
 <div class="material-input-group">
 
-    <label for="irregularityFactor"> Irregularity  </label>
+    <label for="irregularityFactor"> Irregularity Factor  </label>
     <input type="text" class="form-control" id="irregularityFactor" name="irregularityFactor" ng-model="formData.irregularityFactor">
+	<ul class="list-inline" id="tooltip-ex" >
+        <li><a href="" data-toggle="tooltip" 
+		data-original-title="An irregularity correction factor"><i class="fa fa-info-circle"></i></a></li>
+		
+     </ul>
 </div>
 
 <div class="material-input-group" >
-    <label for="geometricSpacingFactor">  Geometric Spacing  </label>
+    <label for="geometricSpacingFactor">  Geometric Spacing Factor </label>
     <input type="text" class="form-control" id="geometricSpacingFactor" name="geometricSpacingFactor" ng-model="formData.geometricSpacingFactor">
+	<ul class="list-inline" id="tooltip-ex" >
+        <li><a href="" data-toggle="tooltip" 
+		data-original-title="Calculated from IEEE Std 80 Equation 81"><i class="fa fa-info-circle"></i></a></li>
+		
+     </ul>
 </div>
 
 
@@ -47,6 +57,11 @@ $(document).ready(function(){
 <div class="material-input-group">
     <label for="physicalGridCoefficient">Physical Grid Coefficient</label>
     <input type="text" class="form-control" id="physicalGridCoefficient" name="physicalGridCoefficient" ng-model="formData.physicalGridCoefficient">
+	<ul class="list-inline" id="tooltip-ex" >
+        <li><a href="" data-toggle="tooltip" 
+		data-original-title="Coefficient which takes into account the physical parameters of the grid "><i class="fa fa-info-circle"></i></a></li>
+		
+     </ul>
 </div>
 
 
