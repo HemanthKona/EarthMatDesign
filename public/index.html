@@ -35,6 +35,9 @@
       </a>
       <!-- <span class="fa fa-bars"></span> -->
       <span flex>{{pageTitle}}</span>
+      <a href="" ng-if="currentUser">
+        <span class="fa fa-search"></span>
+      </a>
       <a ui-sref="form.electrical" ng-if="currentUser">
         <span class="fa fa-plus"></span>
       </a>

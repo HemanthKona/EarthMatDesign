@@ -172,13 +172,16 @@
 	}
 
 	$scope.createProject = function() {
-		console.log("clicked");
+		
+		// $scope.latitude = $scope.coords.latitude || 0;
+		// $scope.longitude = $scope.coords.longitude || 0;
+
 		Project.save({
     
 	    name: $scope.projectName || "New Project 1", // ideally the default should be something with a date/time stamp
 	    
-	    latitude: $scope.coords.latitude,
-	    longitude: $scope.coords.longitude, 
+	    latitude: $scope.latitude,
+	    longitude: $scope.longitude, 
 
 	    lineVoltage: $scope.lineVoltage,
 	    impedanceOne: $scope.impedanceOne,
@@ -241,7 +244,9 @@
 	$scope.getCurrentGeoLocation = function() {
 		console.log("Geoloaction")
 		geolocation.getLocation().then(function(data){
-      $scope.coords = {latitude:data.coords.latitude, longitude:data.coords.longitude};
+      //$scope.coords = {latitude:data.coords.latitude, longitude:data.coords.longitude};
+    	$scope.latitude = data.latitude;
+    	$scope.longitude = data.longitude;
     });
 	}
 

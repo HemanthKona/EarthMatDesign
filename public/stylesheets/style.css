@@ -59,14 +59,10 @@ em {
   height: 100%; }
 
 .Good {
-  background: green;
-  color: #fff;
-  padding: 20px; }
+  background: #8bc34a; }
 
 .Bad {
-  background: red;
-  color: #fff;
-  padding: 20px; }
+  background: #e84e40; }
 
 .profile {
   display: flex;
@@ -80,6 +76,10 @@ em {
       padding: 10px;
       margin: 10px;
       border: 1px dotted #111; }
+
+hr {
+  margin: 4px 0;
+  border: 1px solid #455a64; }
 
 /* ============ Material styles */
 label {
