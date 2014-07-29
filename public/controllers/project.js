@@ -179,7 +179,7 @@
 
 		Project.save({
     
-	    name: $scope.projectName || "New Project 1", // ideally the default should be something with a date/time stamp
+	    name: $scope.projectName || new Date().toDateString(), // ideally the default should be something with a date/time stamp
 	    
 	    latitude: $scope.latitude,
 	    longitude: $scope.longitude, 
@@ -242,7 +242,7 @@
 	  });
 	};
 
-	$rootScope.pageTitle = "Projects"
+	$rootScope.pageTitle = "Projects";
 	$scope.show = true;
 	$scope.projects =  Project.query({
 		isArray: true
@@ -276,8 +276,9 @@
 	$scope.editProject = function(id, index) {
 		console.log("Edit clicked " + id + "  index: " + index)
 
+		$rootScope.pageTitle = "Edit Project";
 		$scope.formData = $scope.projects[index];
-
+		console.log($scope.formData);
 		console.log($scope.projects[index]);
 		$scope.currentProject = $scope.projects[index];
 		$scope.formData.projectName = "Hemanth";
