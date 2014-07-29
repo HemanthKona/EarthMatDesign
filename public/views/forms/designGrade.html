@@ -1,20 +1,96 @@
 <div class=" designgrade ">
 
-	<div class="{{designGrade}}" ng-if="designGrade === 'Good'">
-			<h1>{{designGrade}} Design</h1>
-
+	<div class="well {{designGrade}}" ng-if="designGrade === 'Good'">
+			<h1>{{designGrade}} Design </h1>
+			<h3>Recommendation: {{recommendation}}</h3>
 	</div>
 
-	<div class="{{designGrade}}" ng-if="designGrade === 'Bad'">
+	<div class="well {{designGrade}}" ng-if="designGrade === 'Bad'">
 			<h1>{{designGrade}} Design</h1>
-			<p>{{comments}}</p>
+			<p>Comments: {{comments}}</p>
+			<h3>Recommendation: {{recommendation}}</h3>
 	</div>
-			<button class="btn btn-default">See costruction data</button>
-			<button class="btn btn-default">Take picture</button>
-			<button class="btn btn-default" ng-click="getCurrentGeoLocation()">Add location</button>
+			<!-- <button class="btn btn-default">See costruction data</button> -->
+ 			<button class="btn btn-default" ng-click="getCurrentGeoLocation()">Add location</button>
 			<button class="btn btn-default" ng-click="createProject()">Save project</button>
-			<button class="btn btn-default">edit data</button>
-			<button class="btn btn-default">Share</button>
+			<a class="btn btn-default" ui-sref="form.electrical">edit data</a>
+			<!-- <button class="btn btn-default">Share</button> -->
 
-			<p>Coords: {{coords.latitude}} , {{coords.longitude}}</p>
+			<!-- <p>Coords: {{coords.latitude}} , {{coords.longitude}}</p> -->
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#geolocation">
+          GeoLocation
+        </a>
+      </h4>
+    </div>
+    <div id="geolocation" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <p>Latitude: {{coords.latitude}}</p>
+        <p>Longitude: {{coords.longitude}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Current
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>EstimatedFaultCurrent: {{estimatedFaultCurrent}}</p>
+        <p>DesignFaultCurrent: {{designFaultCurrent}}</p>
+        <p>EarthMatResistance: {{earthMatResistance}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Length
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p> ConductorLength: {{conductorLength}} </p>
+        <p> GridConductorLength: {{gridConductorLength}} </p>
+        <p> MinEarthRodsNumber: {{minEarthRodsNumber}} </p>
+        <p> IncreasedEarthRodsNumber: {{increasedEarthRodsNumber}} </p>
+        <p> NewGridConductorLength: {{newGridConductorLength}} </p>
+        <p> TotalLengthOfCopper: {{totalLengthOfCopper}} </p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Voltage
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p> MaxStepVoltage: {{maxStepVoltage}} </p>
+        <p> TolerableStepVoltage: {{tolerableStepVoltage}} </p>
+        <p> MaxGridPotentialRise: {{maxGridPotentialRise}} </p>
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+
+<script>
+	$('a[data-toggle]').on('click', function(e) {
+
+		e.preventDefault();
+	})
+</script>

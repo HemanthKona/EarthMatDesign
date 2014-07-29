@@ -9,7 +9,7 @@
 */ 
 
 var app = angular.module('DHPEMD', 
-	[ 'ngAnimate', 'ngCookies', 'ngMessages', 'ui.router', 'ngResource', 'mgcrea.ngStrap', 'ngMaterial' ] );
+	[ 'ngAnimate', 'ngCookies', 'ngMessages', 'ui.router', 'ngResource', 'mgcrea.ngStrap', 'ngMaterial', 'headroom' ] );
 
 app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider', 
 	function($urlRouterProvider, $stateProvider, $locationProvider) {
@@ -21,7 +21,8 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
 			url: '/home',
 			templateUrl: 'views/home.html',
 			controller: function($rootScope) {
-				$rootScope.pageTitle = "Home"
+				$rootScope.pageTitle = "Home",
+        $rootScope.searchProjects = false
 			}
 		})
 		
@@ -57,7 +58,7 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
     .state('form', {
       url: '/form',
       templateUrl: 'views/forms/form.html',
-      controller: 'NewProjectController'
+      controller: 'ProjectController'
     })
     
     // nested states 

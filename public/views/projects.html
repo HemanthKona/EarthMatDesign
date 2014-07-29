@@ -121,17 +121,31 @@
 	  opacity: 0;
 	}
 */
+
+#searchbox 
+{
+  position: relative;
+  width: 100%;
+}
+
  </style>
+<div id="searchbox" ng-show="searchProjects">
+  <input type="text" ng-model="query.name" placeholder="Search...">
+</div>
 <div class="container">
-  <div ng-repeat="project in projects">
+  <div ng-repeat="project in projects | filter:query">
   	<material-card style="min-width:300px;" class="box fadeOutDown">
 
   		<input hidden value={{project._id}} ng-model="proid" />
-  		<h3>{{project.name}} <span class="label {{project.data.construction.designGrade}}"> {{project.data.construction.designGrade}} design </span> </h3> 
-  		<p>{{project.data.construction.recommendation}}</p>
+  		<h3>{{project.name}} <span class="label {{project.data.construction.designGrade}}"> {{project.data.construction.designGrade}} design </span> </h3>
+      <p>{{project.data.construction.recommendation}}</p>
+      <p>Comments: {{project.data.construction.comments}}</p> 
       <hr>
       <a class="" ng-hide="confirmDelete" ng-click="confirmDelete = true">
         <i class="fa fa-trash-o fa-lg"></i>
+      </a>
+      <a ng-click="editProject(project._id, $index)">
+        <i class="fa fa-pencil fa-lg"></i>
       </a>
       <div  ng-show="confirmDelete"> 
         <button class="btn btn-danger" ng-click="remove(project._id, $index)">

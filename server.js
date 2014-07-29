@@ -258,7 +258,7 @@ app.get('/api/projects', ensureAuthenticated, function(req, res, next) {
   Project.find({createdBy: req.user.email}, function(err, projects) {
     if(err) return next(err);
     if(!projects) res.send(400, 'Empty');
-    res.send(projects);
+    res.send(200, projects);
   });
 });
 

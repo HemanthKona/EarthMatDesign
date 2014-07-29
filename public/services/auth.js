@@ -55,7 +55,7 @@
 					.error(function(response) {
 						$alert({
                 title: 'Error!',
-                content: response,
+                content: response.data,
                 placement: 'top-right',
                 type: 'danger',
                 duration: 3

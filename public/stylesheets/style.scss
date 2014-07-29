@@ -104,6 +104,21 @@ hr {
   margin: 4px 0;
   border: 1px solid #455a64;
 }
+
+/* Headroomjs*/
+
+.headroom {
+    transition: transform 200ms linear;
+}
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
+}
+
+/* Headroom js styles end*/
+
 /* ============ Material styles */
 
 label {
@@ -116,6 +131,10 @@ material-card {
 
 material-content {
   padding: 0;
+}
+
+.material-toolbar-tools > a.active{
+  color: #ffeb3b;
 }
 
 .material-theme-emd {
@@ -156,7 +175,7 @@ material-content {
 
 /* BASIC STYLINGS
 ============================================================================= */
-pre                             { margin-bottom:20px; }
+pre { margin-bottom:20px; }
 
 /* form styling */
 #form-container { 
@@ -212,7 +231,7 @@ pre                             { margin-bottom:20px; }
 
 /* ANIMATION STYLINGS
 ============================================================================= */
-#design-form { 
+#form-container { 
   position:relative; 
   min-height:300px; 
   min-width: 350px;
@@ -298,3 +317,13 @@ clear: none;
 }
 */
 /* ===== end form desing ========== */
+
+/*= =========== Media Queries = =============*/
+
+@media (min-width: 900) {
+  #form-container {
+    width: 800px;
+  }
+}
+
+/* -== ==== === ENd of Media queries*/

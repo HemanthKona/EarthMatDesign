@@ -28,20 +28,20 @@
 </head>
 <body>
 
-  <material-toolbar class="material-theme-emd">
+  <material-toolbar headroom tolerance="5" offset="205" class="material-theme-emd">
     <div class="material-toolbar-tools">
-      <a href="/projects">
+      <a ui-sref-active="active" ui-sref="projects">
         <span class="fa fa-home"></span>
       </a>
       <!-- <span class="fa fa-bars"></span> -->
       <span flex>{{pageTitle}}</span>
-      <a href="" ng-if="currentUser">
+      <a href="" ng-if="currentUser" ng-click="searchProjects= true">
         <span class="fa fa-search"></span>
       </a>
-      <a ui-sref="form.electrical" ng-if="currentUser">
+      <a ui-sref-active="active" ui-sref="form.electrical" ng-if="currentUser">
         <span class="fa fa-plus"></span>
       </a>
-      <a href="/profile" ng-if="currentUser">
+      <a ui-sref-active="active" ui-sref="profile" ng-if="currentUser">
         <span class="fa fa-user"></span>
         <!-- <span class="fa fa-user" ng-bind="currentUser.email"></span> -->
       </a>
@@ -123,11 +123,12 @@
 <script src="controllers/logout.js"></script>
 <script src="controllers/signup.js"></script>
 <script src="controllers/project.js"></script>
-<script src="controllers/newProject.js"></script>
 <script src="controllers/profile.js"></script>
 
 <!-- <script src="vendor/scroll/scrollreveal.js"></script>
 <script src="vendor/scroll/fox-angular-scrollReveal.js"></script> -->
+<script src="vendor/headroom/headroom.js"></script>
+<script src="vendor/headroom/angular.headroom.js"></script>
 
 <script>
   (function() {
