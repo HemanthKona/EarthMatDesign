@@ -38,6 +38,7 @@
 
 			// Input Design Data
 			
+			$scope.projectName = $scope.formData.projectName;
 			$scope.lineVoltage = parseFloat($scope.formData.lineVoltage);
     	
 	    $scope.impedanceOne = parseFloat($scope.formData.impedanceOne);
@@ -275,12 +276,12 @@
 	$scope.editProject = function(id, index) {
 		console.log("Edit clicked " + id + "  index: " + index)
 
+		$scope.formData = $scope.projects[index];
+
 		console.log($scope.projects[index]);
 		$scope.currentProject = $scope.projects[index];
-		$scope.projectName = "Hemanth";
-		$scope.latitude = $scope.currentProject.geolocation.longitude;
-
-		console.log($scope.longitude);
+		$scope.formData.projectName = "Hemanth";
+		
 		$location.path('/form/electrical');
 	} 
 
@@ -294,3 +295,4 @@
 	}
 
 }]);
+
