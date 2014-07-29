@@ -5,33 +5,13 @@
 	Revision history
 	Pranav Maharaj, 2014.06.23: created
  */
- app.controller('ProjectController', [ 'Project', 'geolocation', '$scope', '$location', '$rootScope', '$alert', 
- 		function (Project, geolocation, $scope, $location, $rootScope, $alert) {
+app.controller('ProjectController', [ 'Project', 'geolocation', '$scope', '$location', '$rootScope', '$alert', 
+	function (Project, geolocation, $scope, $location, $rootScope, $alert) {
 			
- 			$rootScope.pageTitle = "New Project"
-			//Input Design Data
-			// $scope.lineVoltage = 11;
-			// $scope.impedanceOne = 11;
-			// $scope.impedanceTwo = 11;
-			// $scope.impedanceThree	= 11;
+		$rootScope.pageTitle = "New Project"
+		
+		$scope.formData = {};
 			
-			// $scope.decrementFactor = 11;
-			// $scope.growthFactor = 11;
-			// $scope.physicalGridCoefficient = 11;
-			// $scope.irregularityFactor = 11;
-			
-			// $scope.averageResistivity = 11;
-			// $scope.immediateResistivity = 11;
-			// $scope.clearingTime = 11;
-			// $scope.substationLength = 11;
-			// $scope.substationWidth = 11;
-			// $scope.widthSpacing = 11;
-			// $scope.lengthSpacing = 11;
-			// $scope.earthRodLength = 11;
-			// $scope.geometricSpacingFactor = 11;
-
- 			$scope.formData = {};
- 			
  			
 		$scope.processForm = function() {
 			console.log('Construction data genereated');
@@ -277,11 +257,10 @@
 		console.log("Edit clicked " + id + "  index: " + index)
 
 		$rootScope.pageTitle = "Edit Project";
-		$scope.formData = $scope.projects[index];
-		console.log($scope.formData);
-		console.log($scope.projects[index]);
+
 		$scope.currentProject = $scope.projects[index];
-		$scope.formData.projectName = "Hemanth";
+		
+		$scope.formData.projectName = $scope.currentProject.name;
 		
 		$location.path('/form/electrical');
 	} 
