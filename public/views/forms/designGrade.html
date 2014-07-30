@@ -1,14 +1,14 @@
 <div class=" designgrade ">
 
-	<div class="well {{designGrade}}" ng-if="designGrade === 'Good'">
-			<h1>{{designGrade}} Design </h1>
-			<h3>Recommendation: {{recommendation}}</h3>
+	<div class="well {{formData.designGrade}}" ng-if="formData.designGrade === 'Good'">
+			<h1>{{formData.designGrade}} Design </h1>
+			<h3>Recommendation: {{formData.recommendation}}</h3>
 	</div>
 
-	<div class="well {{designGrade}}" ng-if="designGrade === 'Bad'">
-			<h1>{{designGrade}} Design</h1>
-			<p>Comments: {{comments}}</p>
-			<h3>Recommendation: {{recommendation}}</h3>
+	<div class="well {{formData.designGrade}}" ng-if="formData.designGrade === 'Bad'">
+			<h1>{{formData.designGrade}} Design</h1>
+			<p>Comments: {{formData.comments}}</p>
+			<h3>Recommendation: {{formData.recommendation}}</h3>
 	</div>
 			<!-- <button class="btn btn-default">See costruction data</button> -->
  			<button class="btn btn-default" ng-click="getCurrentGeoLocation()">Add location</button>
@@ -29,8 +29,8 @@
     </div>
     <div id="geolocation" class="panel-collapse collapse in">
       <div class="panel-body">
-        <p>Latitude: {{coords.latitude}}</p>
-        <p>Longitude: {{coords.longitude}}</p>
+        <p>Latitude: {{formData.latitude}}</p>
+        <p>Longitude: {{formData.longitude}}</p>
       </div>
     </div>
   </div>
@@ -44,9 +44,9 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse">
       <div class="panel-body">
-        <p>EstimatedFaultCurrent: {{estimatedFaultCurrent}}</p>
-        <p>DesignFaultCurrent: {{designFaultCurrent}}</p>
-        <p>EarthMatResistance: {{earthMatResistance}}</p>
+        <p>EstimatedFaultCurrent: {{formData.estimatedFaultCurrent}}</p>
+        <p>DesignFaultCurrent: {{formData.designFaultCurrent}}</p>
+        <p>EarthMatResistance: {{formData.earthMatResistance}}</p>
       </div>
     </div>
   </div>
@@ -60,12 +60,12 @@
     </div>
     <div id="collapseTwo" class="panel-collapse collapse">
       <div class="panel-body">
-        <p> ConductorLength: {{conductorLength}} </p>
-        <p> GridConductorLength: {{gridConductorLength}} </p>
-        <p> MinEarthRodsNumber: {{minEarthRodsNumber}} </p>
-        <p> IncreasedEarthRodsNumber: {{increasedEarthRodsNumber}} </p>
-        <p> NewGridConductorLength: {{newGridConductorLength}} </p>
-        <p> TotalLengthOfCopper: {{totalLengthOfCopper}} </p>
+        <p> ConductorLength: {{formData.conductorLength}} </p>
+        <p> GridConductorLength: {{formData.gridConductorLength}} </p>
+        <p> MinEarthRodsNumber: {{formData.minEarthRodsNumber}} </p>
+        <p> IncreasedEarthRodsNumber: {{formData.increasedEarthRodsNumber}} </p>
+        <p> NewGridConductorLength: {{formData.newGridConductorLength}} </p>
+        <p> TotalLengthOfCopper: {{formData.totalLengthOfCopper}} </p>
       </div>
     </div>
   </div>
@@ -79,9 +79,9 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse">
       <div class="panel-body">
-        <p> MaxStepVoltage: {{maxStepVoltage}} </p>
-        <p> TolerableStepVoltage: {{tolerableStepVoltage}} </p>
-        <p> MaxGridPotentialRise: {{maxGridPotentialRise}} </p>
+        <p> MaxStepVoltage: {{formData.maxStepVoltage}} </p>
+        <p> TolerableStepVoltage: {{formData.tolerableStepVoltage}} </p>
+        <p> MaxGridPotentialRise: {{formData.maxGridPotentialRise}} </p>
       </div>
     </div>
   </div>

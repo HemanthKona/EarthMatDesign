@@ -5,15 +5,32 @@
 	Revision history
 	Pranav Maharaj, 2014.06.23: created
  */
+ app.controller('ProjectController', [ 'Project', 'geolocation', '$scope', '$location', '$rootScope', '$alert', 
+ 		function (Project, geolocation, $scope, $location, $rootScope, $alert) {
+			
+ 			$rootScope.pageTitle = "New Project"
+			//Input Design Data
+			// $scope.lineVoltage = 11;
+			// $scope.impedanceOne = 11;
+			// $scope.impedanceTwo = 11;
+			// $scope.impedanceThree	= 11;
+			
+			// $scope.decrementFactor = 11;
+			// $scope.growthFactor = 11;
+			// $scope.physicalGridCoefficient = 11;
+			// $scope.irregularityFactor = 11;
+			
+			// $scope.averageResistivity = 11;
+			// $scope.immediateResistivity = 11;
+			// $scope.clearingTime = 11;
+			// $scope.substationLength = 11;
+			// $scope.substationWidth = 11;
+			// $scope.widthSpacing = 11;
+			// $scope.lengthSpacing = 11;
+			// $scope.earthRodLength = 11;
+			// $scope.geometricSpacingFactor = 11;
 
-app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$location', '$rootScope', '$alert', 
-	function (Project, geolocation, $scope, $location, $rootScope, $alert) {
-	
-		$rootScope.pageTitle = "New Project";
-		
-		$scope.parent = "form";
-
-		$scope.formData = {};
+ 			$scope.formData = {};
  			
  			
 		$scope.processForm = function() {
@@ -21,6 +38,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 
 			// Input Design Data
 			
+			$scope.projectName = $scope.formData.projectName;
 			$scope.lineVoltage = parseFloat($scope.formData.lineVoltage);
     	
 	    $scope.impedanceOne = parseFloat($scope.formData.impedanceOne);
@@ -64,30 +82,6 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			$scope.CompareMaxWithTolerableStepVoltage();
 			
 			$scope.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
-
-			// Converting to form data for convinience 
-
-			$scope.formData.estimatedFaultCurrent = $scope.CalculateEstimatedFaultCurrent().toFixed(3);
-			$scope.formData.designFaultCurrent = $scope.CalculateDesignFaultCurrent().toFixed(3);
-			
-			$scope.formData.conductorLength = $scope.CalculateConductorLength().toFixed(3);
-			$scope.formData.earthMatResistance = $scope.CalculateEarthMatResistance().toFixed(3);
-			$scope.formData.gridConductorLength = $scope.CalculateGridConductorLength().toFixed(3);
-			$scope.formData.minEarthRodsNumber = $scope.CalculateMinEarthRodsNumber().toFixed(3);
-			$scope.formData.increasedEarthRodsNumber = $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
-			$scope.formData.recommendation = "Increase rods by 10% to: " + $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
-			
-			$scope.formData.newGridConductorLength = $scope.increasedEarthRodsNumber * $scope.earthRodLength;
-			$scope.formData.totalLengthOfCopper = $scope.gridConductorLength + $scope.newGridConductorLength;
-			$scope.formData.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
-			$scope.formData.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
-			
-			$scope.formData.designGrade ="";
-			$scope.formData.comments = "";
-			
-			$scope.formData.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
-
-
 			
 			$location.path('/form/designGrade');
 		}
@@ -248,24 +242,57 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 	  });
 	};
 
+	$rootScope.pageTitle = "Projects"
+	$scope.show = true;
+	$scope.projects =  Project.query({
+		isArray: true
+	},
+	function(data) {
+		console.log(data);
+	},
+	function(response) {
+		$alert({
+      title: 'Error!',
+      content: response.data,
+      placement: 'top-right',
+      type: 'danger',
+      duration: 3   
+    });
+	});
 
+	$scope.remove = function(id, index) {
+		Project.remove({id: id}, function() {
+			$scope.projects.splice(index, 1);
+
+			//TODO =====
+			// Feedback user about current deletion
+		});
+	}
+
+	$scope.viewProject = function(id, index) {
+		console.log("view clicked " + id + " Index: " + index)
+	}
+
+	$scope.editProject = function(id, index) {
+		console.log("Edit clicked " + id + "  index: " + index)
+
+		$scope.formData = $scope.projects[index];
+
+		console.log($scope.projects[index]);
+		$scope.currentProject = $scope.projects[index];
+		$scope.formData.projectName = "Hemanth";
+		
+		$location.path('/form/electrical');
+	} 
 
 	$scope.getCurrentGeoLocation = function() {
 		console.log("Geoloaction")
 		geolocation.getLocation().then(function(data){
-      //$scope.coords = {latitude:data.coords.latitude, longitude:data.coords.longitude};
-    	$scope.formData.latitude = data.coords.latitude;
-    	$scope.formData.longitude = data.coords.longitude;
-
-    	$alert({
-    		title: 'Success!',
-        content: 'Location added.',
-        placement: 'top-right',
-        type: 'success',
-        duration: 3
-    	})
-
+      $scope.coords = {latitude:data.coords.latitude, longitude:data.coords.longitude};
+    	$scope.latitude = data.latitude;
+    	$scope.longitude = data.longitude;
     });
 	}
 
 }]);
+

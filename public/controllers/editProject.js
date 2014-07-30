@@ -1,22 +1,90 @@
 /* 
-	project.js
-	Create new project 
+	editProject.js
+	Edit project controller 
 
 	Revision history
-	Pranav Maharaj, 2014.06.23: created
+	Hemanth Kona, 2014.06.23: created
  */
+ app.controller('EditProjectController', [ 'Project', 'geolocation', '$scope', '$rootScope', '$location', '$alert', '$stateParams',  
+ 	function(Project, geolocation, $scope, $rootScope, $location, $alert, $stateParams) {
+ 		$rootScope.pageTitle = "Edit Project"
+ 		$scope.show = true;
+ 		$scope.parent = "edit"
 
-app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$location', '$rootScope', '$alert', 
-	function (Project, geolocation, $scope, $location, $rootScope, $alert) {
-	
-		$rootScope.pageTitle = "New Project";
-		
-		$scope.parent = "form";
+		//console.log(data in $rootScope.currentProject); 		
+ 		// if(geolocation in $rootScope.currentProject) {
+ 		// 	console.log(true);
+ 		// 	$scope.formData.latitude = $rootScope.currentProject.geolocation.latitude
+ 		// 	$scope.formData.longitude = $rootScope.currentProject.geolocation.longitude
+ 		// }
 
-		$scope.formData = {};
- 			
- 			
-		$scope.processForm = function() {
+ 		if($rootScope.currentProject == null) {
+ 			console.log("not projct ");
+ 			$rootScope.currentProject = Project.get({id: $stateParams.projectId}, 
+ 				function(data) {
+ 					console.log(data);
+ 				},
+ 				function(respone) {
+ 					console.log(respone);
+ 				}
+ 			);
+ 		}
+
+ 		$scope.formData = {
+ 			projectName: $rootScope.currentProject.name,
+
+
+	    lineVoltage: $rootScope.currentProject.data.design.lineVoltage,
+	    impedanceOne: $rootScope.currentProject.data.design.impedanceOne,
+	    impedanceTwo: $rootScope.currentProject.data.design.impedanceTwo,
+	    impedanceThree: $rootScope.currentProject.data.design.impedanceThree,
+	    
+	    decrementFactor: $rootScope.currentProject.data.design.decrementFactor,
+	    growthFactor: $rootScope.currentProject.data.design.growthFactor,
+	    physicalGridCoefficient: $rootScope.currentProject.data.design.physicalGridCoefficient,
+	    irregularityFactor: $rootScope.currentProject.data.design.irregularityFactor,
+	    
+	    averageResistivity: $rootScope.currentProject.data.design.averageResistivity,
+	    immediateResistivity: $rootScope.currentProject.data.design.immediateResistivity,
+	    clearingTime: $rootScope.currentProject.data.design.clearingTime,
+	    substationLength: $rootScope.currentProject.data.design.substationLength,
+	    substationWidth: $rootScope.currentProject.data.design.substationWidth,
+	    widthSpacing: $rootScope.currentProject.data.design.widthSpacing,
+	    lengthSpacing: $rootScope.currentProject.data.design.lengthSpacing,
+	    earthRodLength: $rootScope.currentProject.data.design.earthRodLength,
+	    geometricSpacingFactor: $rootScope.currentProject.data.design.geometricSpacingFactor,
+	    
+	    estimatedFaultCurrent: $rootScope.currentProject.data.construction.estimatedFaultCurrent,
+	    designFaultCurrent: $rootScope.currentProject.data.construction.designFaultCurrent,
+	    conductorLength: $rootScope.currentProject.data.construction.conductorLength,
+	    earthMatResistance: $rootScope.currentProject.data.construction.earthMatResistance,
+	    gridConductorLength: $rootScope.currentProject.data.construction.gridConductorLength,
+	    minEarthRodsNumber: $rootScope.currentProject.data.construction.minEarthRodsNumber,
+	    increasedEarthRodsNumber: $rootScope.currentProject.data.construction.increasedEarthRodsNumber,
+	    newGridConductorLength: $rootScope.currentProject.data.construction.newGridConductorLength,
+	    totalLengthOfCopper: $rootScope.currentProject.data.construction.totalLengthOfCopper,
+	    maxStepVoltage: $rootScope.currentProject.data.construction.maxStepVoltage,
+	    tolerableStepVoltage: $rootScope.currentProject.data.construction.tolerableStepVoltage,
+	    designGrade: $rootScope.currentProject.data.construction.designGrade,
+	    maxGridPotentialRise: $rootScope.currentProject.data.construction.maxGridPotentialRise,
+	    recommendation: $rootScope.currentProject.data.construction.recommendation,
+	    comments: $rootScope.currentProject.data.construction.comments,
+ 		};
+
+ 		$scope.createProject = function() {
+ 				
+
+ 			Project.update({id: $rootScope.currentProject._id}, $scope.formData,
+ 				function(data) {
+ 					console.log(data)
+ 				},
+ 				function(respone) {
+ 					console.log(respone)
+ 				});
+ 			console.log("updated");
+ 		};
+
+ 		$scope.processForm = function() {
 			console.log('Construction data genereated');
 
 			// Input Design Data
@@ -84,12 +152,12 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			
 			$scope.formData.designGrade ="";
 			$scope.formData.comments = "";
-			
+			$scope.CompareMaxWithTolerableStepVoltage();
 			$scope.formData.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
 
 
 			
-			$location.path('/form/designGrade');
+			$location.path('/edit/designGrade');
 		}
 		
 	//Comparing max step voltage and tolerable step voltage
@@ -99,11 +167,15 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		{
 			$scope.designGrade = "Good";			
 			$scope.comments = "None";
+			$scope.formData.designGrade = "Good";			
+			$scope.formData.comments = "None";
 		}
 		else
 		{
 			$scope.designGrade = "Bad"; 
 			$scope.comments = "Revise conductor-length input"; 
+			$scope.formData.designGrade = "Bad"; 
+			$scope.formData.comments = "Revise conductor-length input"; 
 		}
 		
 	}
@@ -178,81 +250,11 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		return $scope.designFaultCurrent * $scope.earthMatResistance;
 	}
 
-	$scope.createProject = function() {
-		
-		// $scope.latitude = $scope.coords.latitude || 0;
-		// $scope.longitude = $scope.coords.longitude || 0;
-
-		Project.save({
-    
-	    name: $scope.projectName || "New Project 1", // ideally the default should be something with a date/time stamp
-	    
-	    latitude: $scope.latitude,
-	    longitude: $scope.longitude, 
-
-	    lineVoltage: $scope.lineVoltage,
-	    impedanceOne: $scope.impedanceOne,
-	    impedanceTwo: $scope.impedanceTwo,
-	    impedanceThree: $scope.impedanceThree,
-	    
-	    decrementFactor: $scope.decrementFactor,
-	    growthFactor: $scope.growthFactor,
-	    physicalGridCoefficient: $scope.physicalGridCoefficient,
-	    irregularityFactor: $scope.irregularityFactor,
-	    
-	    averageResistivity: $scope.averageResistivity,
-	    immediateResistivity: $scope.immediateResistivity,
-	    clearingTime: $scope.clearingTime,
-	    substationLength: $scope.substationLength,
-	    substationWidth: $scope.substationWidth,
-	    widthSpacing: $scope.widthSpacing,
-	    lengthSpacing: $scope.lengthSpacing,
-	    earthRodLength: $scope.earthRodLength,
-	    geometricSpacingFactor: $scope.geometricSpacingFactor,
-	    
-	    estimatedFaultCurrent: $scope.estimatedFaultCurrent,
-	    designFaultCurrent: $scope.designFaultCurrent,
-	    conductorLength: $scope.conductorLength,
-	    earthMatResistance: $scope.earthMatResistance,
-	    gridConductorLength: $scope.gridConductorLength,
-	    minEarthRodsNumber: $scope.minEarthRodsNumber,
-	    increasedEarthRodsNumber: $scope.increasedEarthRodsNumber,
-	    newGridConductorLength: $scope.newGridConductorLength,
-	    totalLengthOfCopper: $scope.totalLengthOfCopper,
-	    maxStepVoltage: $scope.maxStepVoltage,
-	    tolerableStepVoltage: $scope.tolerableStepVoltage,
-	    designGrade: $scope.designGrade,
-	    maxGridPotentialRise: $scope.maxGridPotentialRise,
-	    recommendation: $scope.recommendation,
-	    comments: $scope.comments,
-	  }, 
-		function() {
-			console.log("Created Project");
-			$alert({
-        title: 'Success!',
-        content: 'Project saved.',
-        placement: 'top-right',
-        type: 'success',
-        duration: 3
-      });
-		},
-		function(response) {
-			console.log(response.data.message);
-			$alert({
-        title: 'Error!',
-        content: response.data.message,
-        placement: 'top-right',
-        type: 'danger',
-        duration: 3   
-      });
-	  });
-	};
-
-
-
 	$scope.getCurrentGeoLocation = function() {
 		console.log("Geoloaction")
 		geolocation.getLocation().then(function(data){
+
+			console.log(data);
       //$scope.coords = {latitude:data.coords.latitude, longitude:data.coords.longitude};
     	$scope.formData.latitude = data.coords.latitude;
     	$scope.formData.longitude = data.coords.longitude;
@@ -268,4 +270,4 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
     });
 	}
 
-}]);
+ }]);

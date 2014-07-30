@@ -255,7 +255,9 @@ app.put('/api/profile', ensureAuthenticated, function(req, res, next) {
 
 // Retrieve all projects
 app.get('/api/projects', ensureAuthenticated, function(req, res, next) {
-  Project.find({createdBy: req.user.email}, function(err, projects) {
+  Project.find({createdBy: req.user.email}) 
+  .sort('-createdOn')
+  .exec(function(err, projects) {
     if(err) return next(err);
     if(!projects) res.send(400, 'Empty');
     res.send(200, projects);
@@ -336,7 +338,7 @@ app.get('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
   Project.findById(req.params.id, function(err, project) {
     if(err) return next(err);
     if(!project) res.send(404, 'Project doesnt exist');
-    
+    console.log('CalledMethod: ' + project);
     res.send(project);
   })
 });
@@ -346,8 +348,12 @@ app.put('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
   var user = req.user.email;
 
   var project = {
-    name: req.body.name,
+    name: req.body.projectName,
     createdBy: user,
+    geolocation: {
+      latitide: req.body.latitude,
+      longitude: req.body.longitude
+    },
     data: {
       design: {
         lineVoltage: req.body.lineVoltage,

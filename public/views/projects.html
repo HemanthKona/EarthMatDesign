@@ -141,12 +141,91 @@
       <p>{{project.data.construction.recommendation}}</p>
       <p>Comments: {{project.data.construction.comments}}</p> 
       <hr>
+      <div ng-show="viewProject">
+      <div class="panel-group" id="accordion{{$index}}">
+  <!-- <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion{{$index}}" href="#geolocation{{$index}}">
+          GeoLocation
+        </a>
+      </h4>
+    </div>
+    <div id="geolocation{{$index}}" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <p>Latitude: {{formData.latitude}}</p>
+        <p>Longitude: {{formData.longitude}}</p>
+      </div>
+    </div>
+  </div> -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion{{$index}}" href="#collapseOne{{$index}}">
+          Current
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne{{$index}}" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>EstimatedFaultCurrent: {{project.data.construction.estimatedFaultCurrent}}</p>
+        <p>DesignFaultCurrent: {{project.data.construction.designFaultCurrent}}</p>
+        <p>EarthMatResistance: {{project.data.construction.earthMatResistance}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion{{$index}}" href="#collapseTwo{{$index}}">
+          Length
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo{{$index}}" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p> ConductorLength: {{project.data.construction.conductorLength}} </p>
+        <p> GridConductorLength: {{project.data.construction.gridConductorLength}} </p>
+        <p> MinEarthRodsNumber: {{project.data.construction.minEarthRodsNumber}} </p>
+        <p> IncreasedEarthRodsNumber: {{project.data.construction.increasedEarthRodsNumber}} </p>
+        <p> NewGridConductorLength: {{project.data.construction.newGridConductorLength}} </p>
+        <p> TotalLengthOfCopper: {{project.data.construction.totalLengthOfCopper}} </p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion{{$index}}" href="#collapseThree{{$index}}">
+          Voltage
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree{{$index}}" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p> MaxStepVoltage: {{project.data.construction.maxStepVoltage}} </p>
+        <p> TolerableStepVoltage: {{project.data.construction.tolerableStepVoltage}} </p>
+        <p> MaxGridPotentialRise: {{project.data.construction.maxGridPotentialRise}} </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+  $('a[data-toggle]').on('click', function(e) {
+
+    e.preventDefault();
+  })
+</script>
+      <hr>
       <a class="" ng-hide="confirmDelete" ng-click="confirmDelete = true">
         <i class="fa fa-trash-o fa-lg"></i>
       </a>
       <a ng-click="editProject(project._id, $index)">
         <i class="fa fa-pencil fa-lg"></i>
       </a>
+      <a ng-click="viewProject = !viewProject" class="btn btn-primary"> View ^ </a>
       <div  ng-show="confirmDelete"> 
         <button class="btn btn-danger" ng-click="remove(project._id, $index)">
           <i class="fa fa-trash-o fa-lg"></i>
