@@ -7,7 +7,9 @@
 */
 
 app.factory('Project', ['$resource', function($resource, $http, $rootScope) {
-	return $resource('/api/projects/:id');
+	return $resource('/api/projects/:id', null, {
+           'update': { method:'PUT' }
+       		});
 
 	// return {
 	// 	allProjects: function(currentUser) {

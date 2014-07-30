@@ -136,6 +136,7 @@ material-content {
 /* BASIC STYLINGS
 ============================================================================= */
 pre {
+  width: 350px;
   margin-bottom: 20px; }
 
 /* form styling */

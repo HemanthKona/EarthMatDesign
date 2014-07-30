@@ -58,7 +58,7 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
     .state('form', {
       url: '/form',
       templateUrl: 'views/forms/form.html',
-      controller: 'ProjectController'
+      controller: 'NewProjectController'
     })
     
     // nested states 
@@ -85,7 +85,40 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
     .state('form.designGrade', {
     	url: '/designGrade',
     	templateUrl: 'views/forms/designGrade.html'
+    })
+
+    .state('edit', {
+      url: '/edit',
+      templateUrl: 'views/forms/form.html',
+      controller: 'EditProjectController'
+    })
+    
+    // nested states 
+    // each of these sections will have their own view
+    // url will be nested (/form/profile)
+    .state('edit.electrical', {
+    url: '/electrical/:projectId',
+      templateUrl: 'views/forms/form-electrical.html'
+    })
+    
+    // url will be /form/physical
+    .state('edit.physical', {
+      url: '/physical/:projectId',
+      templateUrl: 'views/forms/form-physical.html'
+    })
+    
+    // url will be /form/factors
+    .state('edit.factors', {
+      url: '/factors/:projectId',
+      templateUrl: 'views/forms/form-factors.html'
+    })
+
+    //url will be /form/designGrade
+    .state('edit.designGrade', {
+      url: '/designGrade/:projectId',
+      templateUrl: 'views/forms/designGrade.html'
     });
+
      
 
 		
