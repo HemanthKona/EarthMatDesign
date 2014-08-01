@@ -21,11 +21,15 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var bcrypt = require('bcryptjs');
+
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+
+var mongoose = require('mongoose');
+var Project = require('./lib/models/project.js');
+var User = require('./lib/models/user.js');
+
 var docs = require("express-mongoose-docs");
 
 // Initiating express server
@@ -60,94 +64,6 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, function(email, passw
     });
   });
 }));
-
-/* Define databse schema */
-
-// User collection schema
-var userSchema = new mongoose.Schema({
-  firstname: String, 
-  lastname: String,
-  email: { type: String, unique: true },
-  password: String,
-  createdOn: {type: Date, default: Date.now},
-  projects: [{type: mongoose.Schema.Types.ObjectId, ref: 'Project'}]
-});
-
-// Project collection schema
-var projectSchema = new mongoose.Schema({
-  name:  String, 
-  createdBy: String,
-  createdOn: {type: Date, default: Date.now},
-  geolocation: {
-    latitide: Number,
-    longitude: Number
-  },
-  data: {
-    design: {
-      lineVoltage: Number,
-      impedanceOne: Number,
-      impedanceTwo: Number,
-      impedanceThree: Number,
-      
-      decrementFactor: Number,
-      growthFactor: Number,
-      physicalGridCoefficient: Number,
-      irregularityFactor: Number,
-      
-      averageResistivity: Number,
-      immediateResistivity: Number,
-      clearingTime: Number,
-      substationLength: Number,
-      substationWidth: Number,
-      widthSpacing: Number,
-      lengthSpacing: Number,
-      earthRodLength: Number,
-      geometricSpacingFactor: Number
-    },
-    construction: {
-      estimatedFaultCurrent: Number,
-      designFaultCurrent: Number,
-      conductorLength: Number,
-      earthMatResistance: Number,
-      gridConductorLength: Number,
-      minEarthRodsNumber: Number,
-      increasedEarthRodsNumber: Number,
-      newGridConductorLength: Number,
-      totalLengthOfCopper: Number,
-      maxStepVoltage: Number,
-      tolerableStepVoltage: Number,
-      maxGridPotentialRise: Number,
-      designGrade: String,
-      recommendation: String,
-      comments: String,
-    }     
-  }
-});
-
-// Encrypt pasword before saving
-userSchema.pre('save', function(next) {
-  var user = this;
-  if (!user.isModified('password')) return next();
-  bcrypt.genSalt(10, function(err, salt) {
-    if (err) return next(err);
-    bcrypt.hash(user.password, salt, function(err, hash) {
-      if (err) return next(err);
-      user.password = hash;
-      next();
-    });
-  });
-});
-
-// Compare passwords
-userSchema.methods.comparePassword = function(candidatePassword, cb) {
-  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-    if (err) return cb(err);
-    cb(null, isMatch);
-  });
-};
-
-var User = mongoose.model('User', userSchema);
-var Project = mongoose.model('Project', projectSchema);
 
 //mongoose.connect('localhost/emd');
 //mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10078/emd')
@@ -212,7 +128,7 @@ app.post('/api/signup', function(req, res, next) {
     lastname: req.body.lastname
   });
   user.save(function(err) {
-    if (err) return res.send(500, "User already exists!");
+    if (err) return res.send(400, "User already exists!");
     res.send(200, "User created");
   });
 });
@@ -250,6 +166,13 @@ app.put('/api/profile', ensureAuthenticated, function(req, res, next) {
   User.findOneAndUpdate({email: req.user.email}, userProfile,  function(err, user) {
     if(err) return next(err);
     res.send(200, user);
+  })
+})
+
+app.delete('/api/profile/:id', ensureAuthenticated, function(req, res, next) {
+  User.remove({email: req.params.id}, function(err) {
+    if(err) return (err);
+    res.send(200);
   })
 })
 
@@ -420,8 +343,6 @@ app.delete('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
   })
 });
 
-
-
 // redirect every other which is not defined route
 app.get('*', function(req, res) {
   res.redirect('/#' + req.originalUrl);
@@ -430,6 +351,7 @@ app.get('*', function(req, res) {
 // Error handling 
 app.use(function(err, req, res, next) {
   console.error(err.stack);
+  res.send(500, {message: "Internal server error, we are notified."});
   res.send(500, { message: err.message });
 });
 

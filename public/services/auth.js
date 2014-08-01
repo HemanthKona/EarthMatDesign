@@ -53,9 +53,10 @@
               });
 					})
 					.error(function(response) {
+						console.log(response);
 						$alert({
                 title: 'Error!',
-                content: response.data,
+                content: response,
                 placement: 'top-right',
                 type: 'danger',
                 duration: 3
