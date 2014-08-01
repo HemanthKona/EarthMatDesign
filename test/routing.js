@@ -5,12 +5,12 @@ var winston = require('winston');
 var mongoose = require('mongoose');
  
 describe('Routing', function() {
-  var url = 'http://localhost:5000';
+  var url = '/';
   // within before() you can run all the operations that are needed to setup your tests. In this case
   // I want to create a connection with the database, and when I'm done, I call done().
   before(function(done) {
     // In our tests we use the test db
-    mongoose.connect('localhost/emd');							
+    mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10066/app27162449');							
     done();
   });
 
