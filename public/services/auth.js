@@ -56,7 +56,7 @@
 						console.log(response);
 						$alert({
                 title: 'Error!',
-                content: response,
+                content: response.message,
                 placement: 'top-right',
                 type: 'danger',
                 duration: 3

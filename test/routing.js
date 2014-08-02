@@ -5,12 +5,14 @@ var winston = require('winston');
 var mongoose = require('mongoose');
  
 describe('Routing', function() {
-  var url = '/';
+  var url = 'http://localhost:5000';
   // within before() you can run all the operations that are needed to setup your tests. In this case
   // I want to create a connection with the database, and when I'm done, I call done().
   before(function(done) {
     // In our tests we use the test db
-    mongoose.connect('mongodb://admin:doit@kahana.mongohq.com:10066/app27162449');							
+    //mongoose.connect('localhost/emd');	
+
+
     done();
   });
 
@@ -28,7 +30,7 @@ describe('Routing', function() {
       // should return true when signup using non-existing email
       it('should return true when signup using non-existing email', function(done) {
         var user = {
-          email: 'hema@mail.com',
+          email: 'hem@mail.com',
           password: 'do',
           firstname: 'He',
           lastname: 'ko'
@@ -56,20 +58,38 @@ describe('Routing', function() {
         request(url)
         .post('/api/signup')
         .send(user)
-        .expect(400)
+        .expect(500)
           // end handles the response
         .end(function(err, res) {
           done(err);
         });
       });
 
-    })
+      // should return error when signup using existing email
+      it('should return error when email is not provided', function(done) {
+        var user = {
+          password: 'doit',
+          firstname: 'hemanth',
+          lastname: 'kona'
+        }
+        
+        request(url)
+        .post('/api/signup')
+        .send(user)
+        .expect(500)
+          // end handles the response
+        .end(function(err, res) {
+          done(err);
+        });
+      });
+
+    });
 
     describe('Log in', function() {
       it('should return true trying to login with existing email and password', function(done) {
       var user = {
-        email: 'hemanth@mail.com',
-        password: 'doit',
+        email: 'hem@mail.com',
+        password: 'do',
       };
       request(url)
       .post('/api/login')
@@ -80,7 +100,10 @@ describe('Routing', function() {
               if (err) {
                 throw err;
               }
+              // console.log(res.body);
               // this is should.js syntax, very clear
+              res.body.should.have.property('_id');
+              res.body.should.have.property('email');
               res.body.should.have.property('_id');
               done();
             });
@@ -108,6 +131,54 @@ describe('Routing', function() {
       //      done();
       //    });
       //  });
+    });
+
+    describe("Profile", function() {
+      
+      var currentUser;
+
+      beforeEach(function(done) {
+
+        var user = {
+          email: 'hem@mail.com',
+          password: 'do',
+        };
+
+        request(url)
+        .post('/api/login')
+        .send(user)
+        .end(function(err, res) {
+          currentUser = res.body._id;
+          done(err);
+        });
+
+        
+      });
+
+
+      it('should delete profile', function(done) {
+         
+        var user = {
+          email: 'hem@mail.com',
+          password: 'do',
+        };
+
+        request(url)
+        .post('/api/login')
+        .send(user)
+        .end(function(err, res) {
+          currentUser = res.body._id;
+
+          request(url)
+          .delete('/api/profile/currentUser')
+          .expect(200)
+            // end handles the response
+          .end(function(err, res) {
+            done(err);
+          }); 
+        });
+
+      })
     })
    
   });

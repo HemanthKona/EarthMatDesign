@@ -128,7 +128,7 @@ app.post('/api/signup', function(req, res, next) {
     lastname: req.body.lastname
   });
   user.save(function(err) {
-    if (err) return res.send(400, "User already exists!");
+    if (err) return next(err);
     res.send(200, "User created");
   });
 });
@@ -170,8 +170,11 @@ app.put('/api/profile', ensureAuthenticated, function(req, res, next) {
 })
 
 app.delete('/api/profile/:id', ensureAuthenticated, function(req, res, next) {
+    
+  console.log("Currecnt unser ID: " + req.params.id);
+
   User.remove({email: req.params.id}, function(err) {
-    if(err) return (err);
+    if(err) return next(err);
     res.send(200);
   })
 })
@@ -351,7 +354,7 @@ app.get('*', function(req, res) {
 // Error handling 
 app.use(function(err, req, res, next) {
   console.error(err.stack);
-  res.send(500, {message: "Internal server error, we are notified."});
+  //res.send(500, {message: "Internal server error, we are notified."});
   res.send(500, { message: err.message });
 });
 

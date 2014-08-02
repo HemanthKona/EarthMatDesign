@@ -222,10 +222,10 @@
       <a class="" ng-hide="confirmDelete" ng-click="confirmDelete = true">
         <i class="fa fa-trash-o fa-lg"></i>
       </a>
-      <a ng-click="editProject(project._id, $index)">
+      <a ng-hide="confirmDelete" ng-click="editProject(project._id, $index)">
         <i class="fa fa-pencil fa-lg"></i>
       </a>
-      <a ng-click="viewProject = !viewProject" class="btn btn-primary"> View ^ </a>
+      <a ng-click="viewProject = !viewProject" ng-hide="confirmDelete" class="btn btn-primary"> View ^ </a>
       <div  ng-show="confirmDelete"> 
         <button class="btn btn-danger" ng-click="remove(project._id, $index)">
           <i class="fa fa-trash-o fa-lg"></i>
@@ -236,4 +236,3 @@
   	</material-card>
   </div>
 </div>
-
