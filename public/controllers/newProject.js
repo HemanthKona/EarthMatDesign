@@ -56,7 +56,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			$scope.recommendation = "Increase rods by 10% to: " + $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
 			
 			$scope.newGridConductorLength = $scope.increasedEarthRodsNumber * $scope.earthRodLength;
-			$scope.totalLengthOfCopper = $scope.gridConductorLength + $scope.newGridConductorLength;
+			$scope.totalLengthOfCopper = $scope.gridConductorLength + parseFloat($scope.newGridConductorLength);
 			$scope.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
 			$scope.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
 			
@@ -79,7 +79,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			$scope.formData.recommendation = "Increase rods by 10% to: " + $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
 			
 			$scope.formData.newGridConductorLength = $scope.increasedEarthRodsNumber * $scope.earthRodLength;
-			$scope.formData.totalLengthOfCopper = $scope.gridConductorLength + $scope.newGridConductorLength;
+			$scope.formData.totalLengthOfCopper = $scope.gridConductorLength + parseFloat($scope.newGridConductorLength);
 			$scope.formData.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
 			$scope.formData.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
 			
