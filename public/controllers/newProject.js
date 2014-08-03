@@ -122,7 +122,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 	//Design Fault Current
 	$scope.CalculateDesignFaultCurrent = function()
 	{
-		return $scope.estimatedFaultCurrent * $scope.decrementFactor * $scope.growthFactor;
+		return ($scope.estimatedFaultCurrent * $scope.decrementFactor * $scope.growthFactor);
 	}
 	
 	//Conductor Length
@@ -142,7 +142,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 	//Earth Mat Resistance
 	$scope.CalculateEarthMatResistance = function()
 	{
-		return $scope.averageResistivity * ((1/(4 * $scope.CalculateRadius())) + (1/$scope.conductorLength));
+		return ($scope.averageResistivity * ((1/(4 * $scope.CalculateRadius())) + (1/$scope.conductorLength)));
 	}
 	
 	//Grid Conductor length
@@ -168,7 +168,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 	//Method: Calculate maximum step voltage
 	$scope.CalculateMaximumStepVoltage = function()
 	{
-		return $scope.geometricSpacingFactor * $scope.irregularityFactor * $scope.averageResistivity * ($scope.designFaultCurrent / $scope.totalLengthOfCopper);
+		return ($scope.geometricSpacingFactor * $scope.irregularityFactor * $scope.averageResistivity * ($scope.designFaultCurrent / $scope.totalLengthOfCopper));
 	}
 	
 	//Method: Calculate tolerable step voltage
