@@ -55,7 +55,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			$scope.increasedEarthRodsNumber = $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
 			$scope.recommendation = "Increase rods by 10% to: " + $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
 			
-			$scope.newGridConductorLength = $scope.increasedEarthRodsNumber * $scope.earthRodLength;
+			$scope.newGridConductorLength = parseFloat($scope.increasedEarthRodsNumber) * $scope.earthRodLength;
 			$scope.totalLengthOfCopper = $scope.gridConductorLength + parseFloat($scope.newGridConductorLength);
 			$scope.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
 			$scope.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
