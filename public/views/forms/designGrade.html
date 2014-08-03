@@ -10,6 +10,10 @@
 			<p>Comments: {{formData.comments}}</p>
 			<h3>Recommendation: {{formData.recommendation}}</h3>
 	</div>
+
+  <div class="well " ng-if="formData.designGrade === ''"> 
+    
+  </div>
 			<!-- <button class="btn btn-default">See costruction data</button> -->
  			<button class="btn btn-default" ng-click="getCurrentGeoLocation()">Add location</button>
 			<button class="btn btn-default" ng-click="createProject()">Save project</button>

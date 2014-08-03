@@ -161,6 +161,23 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion{{$index}}" href="#collapseThree{{$index}}">
+          Voltage
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree{{$index}}" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p> MaxStepVoltage: {{project.data.construction.maxStepVoltage}} </p>
+        <p> TolerableStepVoltage: {{project.data.construction.tolerableStepVoltage}} </p>
+        <p> MaxGridPotentialRise: {{project.data.construction.maxGridPotentialRise}} </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion{{$index}}" href="#collapseOne{{$index}}">
           Current
         </a>
@@ -193,22 +210,7 @@
       </div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion{{$index}}" href="#collapseThree{{$index}}">
-          Voltage
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree{{$index}}" class="panel-collapse collapse">
-      <div class="panel-body">
-        <p> MaxStepVoltage: {{project.data.construction.maxStepVoltage}} </p>
-        <p> TolerableStepVoltage: {{project.data.construction.tolerableStepVoltage}} </p>
-        <p> MaxGridPotentialRise: {{project.data.construction.maxGridPotentialRise}} </p>
-      </div>
-    </div>
-  </div>
+  
 </div>
 </div>
 
