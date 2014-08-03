@@ -4,6 +4,7 @@
 
 	Revision history
 	Pranav Maharaj, 2014.06.23: created
+	Hemanth Kona, 2014.08.02; fixed design grade visual error
  */
 
 app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$location', '$rootScope', '$alert', 
@@ -65,7 +66,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			
 			$scope.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
 
-			// Converting to form data for convinience 
+			// Converting to form data for convenience 
 
 			$scope.formData.estimatedFaultCurrent = $scope.CalculateEstimatedFaultCurrent().toFixed(3);
 			$scope.formData.designFaultCurrent = $scope.CalculateDesignFaultCurrent().toFixed(3);
@@ -84,7 +85,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			
 			$scope.formData.designGrade ="";
 			$scope.formData.comments = "";
-			
+			$scope.CompareMaxWithTolerableStepVoltage();
 			$scope.formData.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
 
 
@@ -98,12 +99,16 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		if($scope.maxStepVoltage <= $scope.tolerableStepVoltage)
 		{
 			$scope.designGrade = "Good";			
+			$scope.formData.designGrade = "Good";				
 			$scope.comments = "None";
+			$scope.formData.comments = "None";
 		}
 		else
 		{
 			$scope.designGrade = "Bad"; 
-			$scope.comments = "Revise conductor-length input"; 
+			$scope.formData.designGrade = "Bad"; 
+			$scope.comments = "Revise conductor-length input";
+			$scope.formData.comments = "Revise conductor-length input";
 		}
 		
 	}
