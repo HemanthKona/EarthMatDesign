@@ -177,7 +177,7 @@
 
 
 			
-			$location.path('/form/designGrade');
+			$location.path('/edit/designGrade');
 		}
 		
 	//Comparing max step voltage and tolerable step voltage
