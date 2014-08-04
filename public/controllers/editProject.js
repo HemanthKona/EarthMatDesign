@@ -70,10 +70,7 @@
 	    recommendation: $rootScope.currentProject.data.construction.recommendation,
 	    comments: $rootScope.currentProject.data.construction.comments,
 		
-		//visual aids
-		totalVoltage: $rootScope.currentProject.data.construction.totalVoltage,
-		maxStepVoltagePercent: $rootScope.currentProject.data.construction.maxStepVoltagePercent,
-	    tolerableStepVoltagePercent: $rootScope.currentProject.data.construction.tolerableStepVoltagePercent,
+		
  		};
 
  		$scope.createProject = function() {
@@ -146,10 +143,7 @@
 			$scope.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
 			$scope.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
 			
-			//This is for the visual comparisons
-			$scope.totalVoltage = $scope.maxStepVoltage + $scope.tolerableStepVoltage;
-			$scope.maxStepVoltagePercent = $scope.maxStepVoltage/$scope.totalVoltage;
-			$scope.tolerableStepVoltagePercent = $scope.tolerableStepVoltage/$scope.totalVoltage;
+			
 			
 			$scope.designGrade ="";
 			$scope.recommendation = "";
@@ -174,10 +168,7 @@
 			$scope.formData.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
 			$scope.formData.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
 			
-			//This is for the visual comparisons
-			$scope.formData.totalVoltage = $scope.maxStepVoltage + $scope.tolerableStepVoltage;
-			$scope.formData.maxStepVoltagePercent = $scope.maxStepVoltage/$scope.totalVoltage;
-			$scope.formData.tolerableStepVoltagePercent = $scope.tolerableStepVoltage/$scope.totalVoltage;
+			
 			
 			$scope.formData.designGrade ="";
 			$scope.formData.recommendation= "";
