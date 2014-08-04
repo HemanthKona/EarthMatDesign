@@ -21,7 +21,7 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
 			url: '/home',
 			templateUrl: 'views/home.html',
 			controller: function($rootScope) {
-				$rootScope.pageTitle = "Home",
+				$rootScope.pageTitle = "EMD",
         $rootScope.searchProjects = false
 			}
 		})
@@ -34,11 +34,11 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
 			}
 		})
 
-		.state('signup', {
-			url: '/signup',
-			templateUrl: 'views/signup.html',
+		.state('register', {
+			url: '/register',
+			templateUrl: 'views/register.html',
 			controller: function($rootScope) {
-				$rootScope.pageTitle = "Signup"
+				$rootScope.pageTitle = "Register"
 			}
 		})
 
