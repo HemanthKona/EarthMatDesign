@@ -188,9 +188,9 @@
 			$scope.designGrade = "Good";			
 			$scope.formData.designGrade = "Good";		
 			
+			$scope.comments = "Max Step < Tolerable Step Voltage. \n" + $scope.comments ;	
+			$scope.formData.comments = $scope.comments ;
 				
-			$scope.formData.comments = "Max Step < Tolerable Step Voltage. \n" + $scope.comments ;
-				$scope.comments = "Max Step < Tolerable Step Voltage. \n" + $scope.comments ;
 				
 			$scope.recommendation = "None";
 			$scope.formData.recommendation = "None";
@@ -200,8 +200,9 @@
 			//one for back end one for front end
 			$scope.designGrade = "Bad"; 
 			$scope.formData.designGrade = "Bad"; 
-			$scope.formData.comments = "Max Step > Tolerable Step Voltage. ";
+		
 			$scope.comments = "Max Step > Tolerable Step Voltage. ";
+			$scope.formData.comments = $scope.comments ;
 			
 			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
@@ -210,8 +211,10 @@
 		{
 			$scope.designGrade = "Bad"; 
 			$scope.formData.designGrade = "Bad"; 
-			$scope.formData.comments = "Calculated # of rods is negative. " ;
+			
 			$scope.comments = "Calculated # of rods is negative. " ;
+			$scope.formData.comments = $scope.comments ;
+			
 			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 		}
@@ -219,11 +222,12 @@
 		{
 			$scope.designGrade = "Bad"; 
 			$scope.formData.designGrade = "Bad"; 
-			$scope.formData.comments = "Max Step > Tolerable Step Voltage. " + '\n' +
-				"Calculated # of rods is negative";		
+				
 				
 			$scope.comments = "Max Step > Tolerable Step Voltage. " + '\n' +
 				"Calculated # of rods is negative";		
+			
+			$scope.formData.comments = $scope.comments ;
 				
 			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";

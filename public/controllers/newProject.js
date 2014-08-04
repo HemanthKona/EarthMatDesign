@@ -65,30 +65,42 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			$scope.CompareMaxWithTolerableStepVoltage();
 			
 			$scope.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
+			$scope.totalVoltage = parseFloat($scope.maxStepVoltage) + parseFloat($scope.tolerableStepVoltage);
+			
+			$scope.maxStepVoltagePercent = (($scope.maxStepVoltage / $scope.totalVoltage) * 100).toFixed(0);
+			
+			$scope.tolerableStepVoltagePercent = (($scope.tolerableStepVoltage / $scope.totalVoltage) * 100).toFixed(0);
 
 			// Converting to form data for convenience 
+			//Eliminating past redundancy and overcalculations with more sources of error - pranav
 
-			$scope.formData.estimatedFaultCurrent = $scope.CalculateEstimatedFaultCurrent().toFixed(3);
-			$scope.formData.designFaultCurrent = $scope.CalculateDesignFaultCurrent().toFixed(3);
+			$scope.formData.estimatedFaultCurrent = $scope.estimatedFaultCurrent;
+			$scope.formData.designFaultCurrent = $scope.designFaultCurrent;
 			
-			$scope.formData.conductorLength = $scope.CalculateConductorLength().toFixed(3);
-			$scope.formData.earthMatResistance = $scope.CalculateEarthMatResistance().toFixed(3);
-			$scope.formData.gridConductorLength = $scope.CalculateGridConductorLength().toFixed(3);
-			$scope.formData.minEarthRodsNumber = $scope.CalculateMinEarthRodsNumber().toFixed(3);
-			$scope.formData.increasedEarthRodsNumber = $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
-			$scope.formData.comments = "Increased rod amount by 10% to: " + $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
+			$scope.formData.conductorLength = $scope.conductorLength;
+			$scope.formData.earthMatResistance = $scope.earthMatResistance;
+			$scope.formData.gridConductorLength = $scope.gridConductorLength;
+			$scope.formData.minEarthRodsNumber = $scope.minEarthRodsNumber ;
+			$scope.formData.increasedEarthRodsNumber = $scope.increasedEarthRodsNumber;
+			$scope.formData.comments = $scope.comments
 			
-			$scope.formData.newGridConductorLength = parseFloat($scope.increasedEarthRodsNumber * $scope.earthRodLength).toFixed(3);
-			$scope.formData.totalLengthOfCopper = parseFloat($scope.gridConductorLength) + parseFloat($scope.newGridConductorLength);
-			$scope.formData.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
-			$scope.formData.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
+			$scope.formData.newGridConductorLength = $scope.newGridConductorLength;
+			$scope.formData.totalLengthOfCopper = $scope.totalLengthOfCopper;
+			$scope.formData.maxStepVoltage = $scope.maxStepVoltage;
+			$scope.formData.tolerableStepVoltage = $scope.tolerableStepVoltage;
+		
 			
 		
 			
-			$scope.formData.designGrade ="";
-			$scope.formData.recommendation= "";
-			$scope.CompareMaxWithTolerableStepVoltage();
-			$scope.formData.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
+			$scope.formData.designGrade =$scope.designGrade;
+			$scope.formData.recommendation= $scope.recommendation;
+			//$scope.CompareMaxWithTolerableStepVoltage(); ALREADY DONE ABOVE
+
+			$scope.formData.maxGridPotentialRise = $scope.maxGridPotentialRise;
+			$scope.formData.totalVoltage = $scope.totalVoltage;
+			
+			$scope.formData.maxStepVoltagePercent = $scope.maxStepVoltagePercent;
+			$scope.formData.tolerableStepVoltagePercent = $scope.tolerableStepVoltagePercent;
 
 
 			
@@ -103,9 +115,9 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			$scope.designGrade = "Good";			
 			$scope.formData.designGrade = "Good";		
 			
+			$scope.comments = "Max Step < Tolerable Step Voltage. \n" + $scope.comments ;	
+			$scope.formData.comments = $scope.comments ;
 				
-			$scope.formData.comments = "Max Step < Tolerable Step Voltage. \n" + $scope.comments ;
-				$scope.comments = "Max Step < Tolerable Step Voltage. \n" + $scope.comments ;
 				
 			$scope.recommendation = "None";
 			$scope.formData.recommendation = "None";
@@ -115,8 +127,9 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			//one for back end one for front end
 			$scope.designGrade = "Bad"; 
 			$scope.formData.designGrade = "Bad"; 
-			$scope.formData.comments = "Max Step > Tolerable Step Voltage. ";
+		
 			$scope.comments = "Max Step > Tolerable Step Voltage. ";
+			$scope.formData.comments = $scope.comments ;
 			
 			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
@@ -125,8 +138,10 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		{
 			$scope.designGrade = "Bad"; 
 			$scope.formData.designGrade = "Bad"; 
-			$scope.formData.comments = "Calculated # of rods is negative. " ;
+			
 			$scope.comments = "Calculated # of rods is negative. " ;
+			$scope.formData.comments = $scope.comments ;
+			
 			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 		}
@@ -134,11 +149,39 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		{
 			$scope.designGrade = "Bad"; 
 			$scope.formData.designGrade = "Bad"; 
-			$scope.formData.comments = "Max Step > Tolerable Step Voltage. " + '\n' +
-				"Calculated # of rods is negative";		
+				
 				
 			$scope.comments = "Max Step > Tolerable Step Voltage. " + '\n' +
 				"Calculated # of rods is negative";		
+			
+			$scope.formData.comments = $scope.comments ;
+				
+			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+		}
+		else if (($scope.maxStepVoltage < 0) && ($scope.minEarthRodsNumber > 0))
+		{
+			$scope.designGrade = "Bad"; 
+			$scope.formData.designGrade = "Bad"; 
+				
+				
+			$scope.comments = "Max Step Voltage is Negative. ";		
+			
+			$scope.formData.comments = $scope.comments ;
+				
+			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+		}
+		else if (($scope.maxStepVoltage < 0 ) && ($scope.minEarthRodsNumber < 0))
+		{
+			$scope.designGrade = "Bad"; 
+			$scope.formData.designGrade = "Bad"; 
+				
+				
+			$scope.comments = "Max Step Voltage is Negative. " + '\n' +
+				"Calculated # of rods is negative";		
+			
+			$scope.formData.comments = $scope.comments ;
 				
 			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
@@ -265,6 +308,11 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 	    recommendation: $scope.recommendation,
 	    comments: $scope.comments,
 		
+		totalVoltage: $scope.totalVoltage,
+		maxStepVoltagePercent: $scope.maxStepVoltagePercent,
+		tolerableStepVoltagePercent: $scope.tolerableStepVoltagePercent,
+	
+		
 		
 	  }, 
 		function() {
@@ -296,7 +344,10 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		geolocation.getLocation().then(function(data){
       //$scope.coords = {latitude:data.coords.latitude, longitude:data.coords.longitude};
     	$scope.formData.latitude = data.coords.latitude;
+		$scope.latitude = data.coords.latitude;
+		
     	$scope.formData.longitude = data.coords.longitude;
+		$scope.longitude = data.coords.longitude;
 
     	$alert({
     		title: 'Success!',
