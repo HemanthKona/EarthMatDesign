@@ -185,7 +185,7 @@ app.get('/api/projects', ensureAuthenticated, function(req, res, next) {
   .sort('-createdOn')
   .exec(function(err, projects) {
     if(err) return next(err);
-    if(projects.length === 0) res.send(400, 'No project found');
+    if(projects.length === 0) res.send(200, 'No project found');
     res.send(200, projects);
   });
 });
