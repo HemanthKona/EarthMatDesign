@@ -59,6 +59,10 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			$scope.totalLengthOfCopper = parseFloat($scope.gridConductorLength) + parseFloat($scope.newGridConductorLength);
 			$scope.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
 			$scope.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
+			//This is for the visual comparisons
+			$scope.totalVoltage = $scope.maxStepVoltage + $scope.tolerableStepVoltage;
+			$scope.maxStepVoltagePercent = $scope.maxStepVoltage/$scope.totalVoltage;
+			$scope.tolerableStepVoltagePercent = $scope.tolerableStepVoltage/$scope.totalVoltage;
 			
 			$scope.designGrade ="";
 			$scope.recommendation = "";
@@ -82,6 +86,11 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			$scope.formData.totalLengthOfCopper = parseFloat($scope.gridConductorLength) + parseFloat($scope.newGridConductorLength);
 			$scope.formData.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
 			$scope.formData.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
+			
+			//This is for the visual comparisons
+			$scope.formData.totalVoltage = $scope.maxStepVoltage + $scope.tolerableStepVoltage;
+			$scope.formData.maxStepVoltagePercent = $scope.maxStepVoltage/$scope.totalVoltage;
+			$scope.formDatatolerableStepVoltagePercent = $.scope.tolerableStepVoltage/$scope.totalVoltage;
 			
 			$scope.formData.designGrade ="";
 			$scope.formData.recommendation= "";
@@ -262,6 +271,11 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 	    maxGridPotentialRise: $scope.maxGridPotentialRise,
 	    recommendation: $scope.recommendation,
 	    comments: $scope.comments,
+		
+		//visual aids
+		totalVoltage: $Scope.currentProject.data.construction.totalVoltage,
+		maxStepVoltagePercent: $Scope.currentProject.data.construction.maxStepVoltagePercent,
+	    tolerableStepVoltagePercent: $Scope.currentProject.data.construction.tolerableStepVoltagePercent,
 	  }, 
 		function() {
 			console.log("Created Project");
