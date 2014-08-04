@@ -21,8 +21,8 @@
 						$location.path('/projects');
 
 						$alert({
-                title: 'Success!',
-                content: 'You are successfully logged in.',
+                title: '',
+                content: 'Login Successful.',
                 placement: 'top-right',
                 type: 'success',
                 duration: 3

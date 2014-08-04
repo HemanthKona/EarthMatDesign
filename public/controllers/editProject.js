@@ -149,7 +149,7 @@
 			//This is for the visual comparisons
 			$scope.totalVoltage = $scope.maxStepVoltage + $scope.tolerableStepVoltage;
 			$scope.maxStepVoltagePercent = $scope.maxStepVoltage/$scope.totalVoltage;
-			$scope.tolerableStepVoltagePercent = $.scope.tolerableStepVoltage/$scope.totalVoltage;
+			$scope.tolerableStepVoltagePercent = $scope.tolerableStepVoltage/$scope.totalVoltage;
 			
 			$scope.designGrade ="";
 			$scope.recommendation = "";

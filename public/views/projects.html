@@ -135,12 +135,30 @@
   position: relative;
   width: 100%;
 }
+.panel {
+  width: 100%;
+}
+.noprojects {
+  text-align: center;
+  width: 100%;
+  margin: 10px;
+}
 
  </style>
 <div id="searchbox" ng-show="searchProjects">
   <input type="text" ng-model="query.name" placeholder="Search...">
 </div>
+
+<div ng-show="!projects.length" class="panel panel-default" style="text-align: center">
+    <div class="noprojects">
+      Tap on <i class="fa fa-plus fa-lg"></i> to create a new project
+    </div>
+</div>
+
+
 <div class="container">
+  
+
   <div ng-repeat="project in projects | filter:query">
   	<material-card class="box fadeOutDown">
 

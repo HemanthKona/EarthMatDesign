@@ -90,7 +90,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			//This is for the visual comparisons
 			$scope.formData.totalVoltage = $scope.maxStepVoltage + $scope.tolerableStepVoltage;
 			$scope.formData.maxStepVoltagePercent = $scope.maxStepVoltage/$scope.totalVoltage;
-			$scope.formDatatolerableStepVoltagePercent = $.scope.tolerableStepVoltage/$scope.totalVoltage;
+			$scope.formDatatolerableStepVoltagePercent = $scope.tolerableStepVoltage/$scope.totalVoltage;
 			
 			$scope.formData.designGrade ="";
 			$scope.formData.recommendation= "";
