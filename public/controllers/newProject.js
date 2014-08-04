@@ -102,7 +102,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			$scope.formData.designGrade = "Good";		
 			
 				
-			$scope.formData.comments = "Max Step < Tolerable Step Voltage \n" + $scope.comments ;
+			$scope.formData.comments = "Max Step < Tolerable Step Voltage. \n" + $scope.comments ;
 				
 			$scope.recommendation = "None";
 			$scope.formData.recommendation = "None";
