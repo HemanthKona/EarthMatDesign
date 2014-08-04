@@ -22,7 +22,7 @@
 
 						$alert({
                 title: 'Success!',
-                content: 'You are successfully logged in.',
+                content: 'Successfully logged in.',
                 placement: 'top-right',
                 type: 'success',
                 duration: 3
