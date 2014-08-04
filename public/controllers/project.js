@@ -19,9 +19,10 @@
 
 		},
 		function(response) {
+			console.log(response.dta.message)
 			$alert({
 	      title: 'Error!',
-	      content: response,
+	      content: response.data.message,
 	      placement: 'top-right',
 	      type: 'danger',
 	      duration: 3   

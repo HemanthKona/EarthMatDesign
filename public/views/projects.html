@@ -138,8 +138,8 @@
 
   		<input hidden value={{project._id}} ng-model="proid" />
   		<h3>{{project.name}} <span class="label {{project.data.construction.designGrade}}"> {{project.data.construction.designGrade}} design </span> </h3>
-      <p>{{project.data.construction.recommendation}}</p>
-      <p>Comments: {{project.data.construction.comments}}</p> 
+      <p><strong> Recommendation: </strong>{{project.data.construction.recommendation}}</p>
+      <p><strong> Comments: </strong> {{project.data.construction.comments}}</p> 
       <hr>
       <div ng-show="viewProject">
       <div class="panel-group" id="accordion{{$index}}">
@@ -234,7 +234,7 @@
       </a>
       <div  ng-show="confirmDelete"> 
         <button class="btn btn-danger" ng-click="remove(project._id, $index)">
-          <i class="fa fa-trash-o fa-2x"></i>
+          <i class="fa fa-trash-o fa-lg"></i>
            Confirm delete ? 
         </button>
         <button class="btn btn-success" ng-click="confirmDelete = false">Cancel</button>

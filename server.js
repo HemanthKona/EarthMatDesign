@@ -38,7 +38,7 @@ var app = express();
 // Authentication
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) next();
-  else res.send(401, { message: 'You are not logged in.'});
+  else res.send(401, { data: {message: 'You are not logged in.'} });
 }
 
 // User authentication using passport

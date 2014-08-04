@@ -217,7 +217,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 
 		Project.save({
     
-	    name: $scope.projectName || new Date().toDateString(), // ideally the default should be something with a date/time stamp
+	    name: $scope.formData.projectName || new Date().toUTCString(), // ideally the default should be something with a date/time stamp
 	    
 	    latitude: $scope.latitude,
 	    longitude: $scope.longitude, 

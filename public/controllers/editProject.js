@@ -31,7 +31,7 @@
  		}
 
  		$scope.formData = {
- 			projectName: $rootScope.currentProject.name,
+ 			projectName: $rootScope.currentProject.name || new Date().toUTCString(),
 
 
 	    lineVoltage: $rootScope.currentProject.data.design.lineVoltage,
@@ -75,11 +75,24 @@
  				
 
  			Project.update({id: $rootScope.currentProject._id}, $scope.formData,
- 				function(data) {
- 					console.log(data)
+ 				function() {
+	 				$alert({
+		        title: 'Success!',
+		        content: 'Project updated.',
+		        placement: 'top-right',
+		        type: 'success',
+		        duration: 3
+      		});
  				},
  				function(respone) {
- 					console.log(respone)
+ 					console.log(respone.data.message)
+ 					$alert({
+		        title: 'Error!',
+		        content: response.data.message,
+		        placement: 'top-right',
+		        type: 'danger',
+		        duration: 5  
+	      });
  				});
  			console.log("updated");
  		};
