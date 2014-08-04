@@ -242,13 +242,13 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
       });
 		},
 		function(response) {
-			console.log(response.data.message);
+			console.log(response);
 			$alert({
         title: 'Error!',
         content: response.data.message,
         placement: 'top-right',
         type: 'danger',
-        duration: 3   
+        duration: 5  
       });
 	  });
 	};

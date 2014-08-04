@@ -38,7 +38,7 @@ var app = express();
 // Authentication
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) next();
-  else res.send(401);
+  else res.send(401, { message: 'You are not logged in.'});
 }
 
 // User authentication using passport
@@ -148,7 +148,7 @@ app.put('/api/updatePassword', ensureAuthenticated, function (req, res, next) {
 app.get('/api/profile', ensureAuthenticated, function(req, res, next) {
   User.findOne({email: req.user.email}, function(err, user) {
     if(err) return next(err);
-    res.send(user);
+    res.send(200, user);
   })
 })
 
@@ -185,7 +185,7 @@ app.get('/api/projects', ensureAuthenticated, function(req, res, next) {
   .sort('-createdOn')
   .exec(function(err, projects) {
     if(err) return next(err);
-    if(!projects) res.send(400, 'Empty');
+    if(projects.length === 0) res.send(400, 'No project found');
     res.send(200, projects);
   });
 });
@@ -263,7 +263,7 @@ app.post('/api/projects', ensureAuthenticated, function(req, res, next) {
 app.get('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
   Project.findById(req.params.id, function(err, project) {
     if(err) return next(err);
-    if(!project) res.send(404, 'Project doesnt exist');
+    if(!project) res.send(404, { message: 'Project doesnt exist' });
     console.log('CalledMethod: ' + project);
     res.send(project);
   })

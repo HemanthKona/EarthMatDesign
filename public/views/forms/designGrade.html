@@ -41,6 +41,22 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Voltage
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p> MaxStepVoltage: {{formData.maxStepVoltage}} </p>
+        <p> TolerableStepVoltage: {{formData.tolerableStepVoltage}} </p>
+        <p> MaxGridPotentialRise: {{formData.maxGridPotentialRise}} </p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
           Current
         </a>
@@ -73,22 +89,7 @@
       </div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-          Voltage
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse">
-      <div class="panel-body">
-        <p> MaxStepVoltage: {{formData.maxStepVoltage}} </p>
-        <p> TolerableStepVoltage: {{formData.tolerableStepVoltage}} </p>
-        <p> MaxGridPotentialRise: {{formData.maxGridPotentialRise}} </p>
-      </div>
-    </div>
-  </div>
+  
 </div>
 </div>
 

@@ -115,12 +115,9 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
 
     //url will be /form/designGrade
     .state('edit.designGrade', {
-      url: '/designGrade/:projectId',
+      url: '/designGrade/',
       templateUrl: 'views/forms/designGrade.html'
     });
-
-     
-
 		
 		$urlRouterProvider.otherwise('/home');
 

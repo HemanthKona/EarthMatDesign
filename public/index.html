@@ -31,28 +31,30 @@
   <material-toolbar headroom tolerance="5" offset="205" class="material-theme-emd">
     <div class="material-toolbar-tools">
       <a ui-sref-active="active" ui-sref="projects">
-        <span class="fa fa-home"></span>
+        <span class="fa fa-home fa-lg"></span>
       </a>
       <!-- <span class="fa fa-bars"></span> -->
       <span flex>{{pageTitle}}</span>
-      <a href="" ng-if="currentUser" ng-click="searchProjects= true">
-        <span class="fa fa-search"></span>
+      <a href="" ng-if="currentUser" title="Search" ng-click="searchProjects= true">
+        <span class="fa fa-search fa-lg"></span>
       </a>
-      <a ui-sref-active="active" ui-sref="form.electrical" ng-if="currentUser">
-        <span class="fa fa-plus" title="New project"></span>
-      </a>
-      <a ui-sref-active="active" ui-sref="profile" ng-if="currentUser">
-        <span class="fa fa-user"></span>
+      &nbsp
+      <a ui-sref-active="active" title="New project" ui-sref="form.electrical" ng-if="currentUser">
+        <span class="fa fa-plus fa-lg" title="New project"></span>
+      </a> 
+      &nbsp
+      <a ui-sref-active="active" title="Profile" ui-sref="profile" ng-if="currentUser">
+        <span class="fa fa-user fa-lg"></span>
         <!-- <span class="fa fa-user" ng-bind="currentUser.email"></span> -->
       </a>
-      <a class="btn btn-primary" href="/login" ng-if="!currentUser"> 
+      <a class="btn btn-primary" title="Login" href="/login" ng-if="!currentUser"> 
            Login
       </a>
-      <a class="btn btn-primary" href="/signup" ng-if="!currentUser">
+      <a class="btn btn-primary" title="Signup" href="/signup" ng-if="!currentUser">
            Signup
       </a>
-      <a href="javascript:void(0)" ng-click="logout()" ng-if="currentUser" ng-controller="LogoutController">
-        <span class="fa fa-sign-out"></span>
+      <a href="javascript:void(0)" title="Logout" ng-click="logout()" ng-if="currentUser" ng-controller="LogoutController">
+        <span class="fa fa-sign-out fa-lg"></span>
       </a>
     </div>
   </material-toolbar>

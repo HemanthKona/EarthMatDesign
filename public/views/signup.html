@@ -25,14 +25,17 @@
       </div>
       <div class="material-input-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="emailAddress" ng-model="email" required>
+        <input type="email" id="email" name="email" ng-model="email" required>
       </div>
       <div class="material-input-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="pass" ng-model="password">
+        <input type="password" id="password" name="password" ng-model="password" requireds>
       </div>
-      <button class="material-button material-button-raised" type="reset">Reset</button>
-      <button class="material-button material-button-raised material-theme-green" type="submit">Submit</button>
+      <div class="help-block text-danger" ng-if="signupForm.lastname.$dirty" ng-messages="signupForm.lastname.$error">
+        <div ng-message="required">Lastname cannot be empty</div>
+      </div>
+      <button class="material-button material-button-raised" type="reset" ng-click="reset()">Reset</button>
+      <button class="material-button material-button-raised material-theme-green" type="submit" ng-disable="signupForm.$invalid">Submit</button>
     </form>
   </div>
   </material-card>

@@ -155,9 +155,7 @@
 			$scope.CompareMaxWithTolerableStepVoltage();
 			$scope.formData.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
 
-
-			
-			$location.path('/edit/designGrade');
+			$location.path('edit/designGrade/');
 		}
 		
 	//Comparing max step voltage and tolerable step voltage

@@ -8,70 +8,67 @@ $(document).ready(function(){
 
 <div layout flex main-axis="space-between" flex="50">
 <div>
-<label for="substationLength">Substation Length</label>
-<div class="input-group">
-	<span class="input-group-addon">
-        <a href="" data-toggle="tooltip" 
+<label for="substationLength">
+    Substation Length
+    <a href="" data-toggle="tooltip" 
         data-original-title="Length of the Substation"><i class="fa fa-info-circle"></i></a>
-    </span>
-    <input class="form-control" id="substationLength" name="substationLength" ng-model="formData.substationLength">
+</label>
+<div class="input-group">
+	<input class="form-control" id="substationLength" name="substationLength" ng-model="formData.substationLength" autofocus>
     <span class="input-group-addon">m</span>
 </div>
 </div>
 <div>
-<label for="substationWidth"> Substation Width</label>
-<div class="input-group">
-	<span class="input-group-addon">
-        <a href="" data-toggle="tooltip" 
+<label for="substationWidth">
+    Substation Width
+    <a href="" data-toggle="tooltip" 
         data-original-title="Width of the Substation"><i class="fa fa-info-circle"></i></a>
-    </span>
-    <input class="form-control" id="substationWidth" name="substationWidth" ng-model="formData.substationWidth">
-    <span class="input-group-addon">m</span>
-</div>
-</div>
-</div>
-
-<label for="lengthSpacing"> Length Spacing </label>
+</label>
 <div class="input-group">
-	<span class="input-group-addon">
-        <a href="" data-toggle="tooltip" 
+	<input class="form-control" id="substationWidth" name="substationWidth" ng-model="formData.substationWidth">
+    <span class="input-group-addon">m</span>
+</div>
+</div>
+</div>
+
+<label for="lengthSpacing">
+    Length Spacing
+     <a href="" data-toggle="tooltip" 
         data-original-title="Spacing between lengthwise rods"><i class="fa fa-info-circle"></i></a>
-    </span>
-    <input class="form-control" id="lengthSpacing" name="lengthSpacing" ng-model="formData.lengthSpacing">
+</label>
+<div class="input-group">
+	<input class="form-control" id="lengthSpacing" name="lengthSpacing" ng-model="formData.lengthSpacing">
     <span class="input-group-addon">m</span>
 </div>
 
-<label for="widthSpacing">  Width Spacing </label>
+<label for="widthSpacing">
+    Width Spacing
+    <a href="" data-toggle="tooltip" data-original-title="Spacing between cross-sectional rods"><i class="fa fa-info-circle"></i></a>
+</label>
 <div class="input-group" >
-    <span class="input-group-addon">
-        <a href="" data-toggle="tooltip" data-original-title="Spacing between cross-sectional rods"><i class="fa fa-info-circle"></i></a>
-    </span>
     <input class="form-control" id="widthSpacing" name="widthSpacing" ng-model="formData.widthSpacing">
     <span class="input-group-addon">m</span>
 </div>
 
-<label for="earthRodLength">Earth Rod Length</label>
-<div class="input-group">
-	<span class="input-group-addon">
-        <a href="" data-toggle="tooltip" data-original-title="Length of each rod">
+<label for="earthRodLength">
+    Earth Rod Length
+    <a href="" data-toggle="tooltip" data-original-title="Length of each rod">
             <i class="fa fa-info-circle"></i>
         </a>
-    </span>
-    <input class="form-control" id="earthRodLength" name="earthRodLength" ng-model="formData.earthRodLength">
+</label>
+<div class="input-group">
+	<input class="form-control" id="earthRodLength" name="earthRodLength" ng-model="formData.earthRodLength">
     <span class="input-group-addon">m</span>
 </div>
 
-<label for="clearingTime">Clearing Time</label>
+<label for="clearingTime">
+    Clearing Time
+    <a href="" data-toggle="tooltip" data-original-title="Maximum fault clearing time"><i class="fa fa-info-circle"></i></a>
+</label>
 <div class="input-group">
-	<span class="input-group-addon">
-        <a href="" data-toggle="tooltip" data-original-title="Maximum fault clearing time"><i class="fa fa-info-circle"></i></a>
-    </span>
-    <input class="form-control" id="clearingTime" name="clearingTime" ng-model="formData.clearingTime">
+	<input class="form-control" id="clearingTime" name="clearingTime" ng-model="formData.clearingTime">
     <span class="input-group-addon">s</span>
-	
 </div>
-
-
 
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">

@@ -221,16 +221,20 @@
   })
 </script>
       <hr>
-      <a class="" ng-hide="confirmDelete" ng-click="confirmDelete = true">
-        <i class="fa fa-trash-o fa-lg"></i>
+      <a class="" title="Delete" ng-hide="confirmDelete" ng-click="confirmDelete = true">
+        <i class="fa fa-trash-o fa-2x"></i>
       </a>
-      <a ng-hide="confirmDelete" ng-click="editProject(project._id, $index)">
-        <i class="fa fa-pencil fa-lg"></i>
+      &nbsp
+      <a ng-hide="confirmDelete" title="Edit project" ng-click="editProject(project._id, $index)">
+        <i class="fa fa-pencil fa-2x"></i>
       </a>
-      <a ng-click="viewProject = !viewProject" ng-hide="confirmDelete" class="btn btn-primary"> View ^ </a>
+      &nbsp
+      <a ng-click="viewProject = !viewProject" title="View Project" ng-hide="confirmDelete">
+        <i class="fa fa-chevron-down fa-2x pull-right"></i>
+      </a>
       <div  ng-show="confirmDelete"> 
         <button class="btn btn-danger" ng-click="remove(project._id, $index)">
-          <i class="fa fa-trash-o fa-lg"></i>
+          <i class="fa fa-trash-o fa-2x"></i>
            Confirm delete ? 
         </button>
         <button class="btn btn-success" ng-click="confirmDelete = false">Cancel</button>

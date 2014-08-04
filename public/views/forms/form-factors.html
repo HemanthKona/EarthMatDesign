@@ -8,22 +8,22 @@ $(document).ready(function(){
 
 <div layout flex main-axis="space-between" flex="50">
     <div>
-        <label for="decrementFactor">Decrement Factor </label>
-        <div class="input-group">
-            <span class="input-group-addon">
-                <a href="" data-toggle="tooltip" 
+        <label for="decrementFactor">
+            Decrement Factor 
+            <a href="" data-toggle="tooltip" 
                 data-original-title="The symmetrical grid current is not the maximum grid current because of asymmetry in short circuits, namely a DC current offset. This is captured by the decrement factor, which can be calculated from IEEE Std 80 equation 79"><i class="fa fa-info-circle"></i></a>
-            </span>
-            <input class="form-control" id="decrementFactor" name="decrementFactor" ng-model="formData.decrementFactor">	
+        </label>
+        <div class="input-group">
+            <input class="form-control" id="decrementFactor" name="decrementFactor" ng-model="formData.decrementFactor" autofocus>	
         </div>
     </div>
     <div>
-        <label for="growthFactor"> Growth Factor </label>
-        <div class="input-group">
-            <span class="input-group-addon">
-                <a href="" data-toggle="tooltip" 
+        <label for="growthFactor">
+            Growth Factor 
+            <a href="" data-toggle="tooltip" 
                 data-original-title="Projection factor for future system growth"><i class="fa fa-info-circle"></i></a>
-            </span>
+        </label>
+        <div class="input-group">
             <input class="form-control" id="growthFactor" name="growthFactor" ng-model="formData.growthFactor">
     </div>
     </div>
@@ -31,31 +31,31 @@ $(document).ready(function(){
 
 <div layout flex main-axis="space-between" flex="50">
     <div>
-        <label for="irregularityFactor"> Irregularity Factor  </label>
-        <div class="input-group">
-            <span class="input-group-addon">
-                <a href="" data-toggle="tooltip" 
+        <label for="irregularityFactor">
+            Irregularity Factor
+            <a href="" data-toggle="tooltip" 
                 data-original-title="An irregularity correction factor"><i class="fa fa-info-circle"></i></a>
-            </span>
+        </label>
+        <div class="input-group">
             <input class="form-control" id="irregularityFactor" name="irregularityFactor" ng-model="formData.irregularityFactor">	
         </div>
     </div>
     <div>
-        <label for="geometricSpacingFactor">  Geometric Spacing Factor </label>
+        <label for="geometricSpacingFactor">
+            Geometric Spacing Factor
+            <a href="" data-toggle="tooltip" data-original-title="Calculated from IEEE Std 80 Equation 81"><i class="fa fa-info-circle"></i></a>  
+        </label>
         <div class="input-group">
-            <span class="input-group-addon">
-                <a href="" data-toggle="tooltip" data-original-title="Calculated from IEEE Std 80 Equation 81"><i class="fa fa-info-circle"></i></a>   
-            </span>
             <input class="form-control" id="geometricSpacingFactor" name="geometricSpacingFactor" ng-model="formData.geometricSpacingFactor">
         </div>
     </div>
 </div>
 
-<label for="physicalGridCoefficient">Physical Grid Coefficient</label>
+<label for="physicalGridCoefficient">
+    Physical Grid Coefficient
+    <a href="" data-toggle="tooltip" data-original-title="Coefficient which takes into account the physical parameters of the grid "><i class="fa fa-info-circle"></i></a>   
+</label>
 <div class="input-group">
-    <span class="input-group-addon">
-        <a href="" data-toggle="tooltip" data-original-title="Coefficient which takes into account the physical parameters of the grid "><i class="fa fa-info-circle"></i></a>    
-    </span>
     <input class="form-control" id="physicalGridCoefficient" name="physicalGridCoefficient" ng-model="formData.physicalGridCoefficient">
 </div>
 

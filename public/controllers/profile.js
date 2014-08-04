@@ -38,7 +38,7 @@
  				.error(function(response) {
  					$alert({
             title: 'Error!',
-            content: response.data,
+            content: response.message,
             placement: 'top-right',
             type: 'danger',
             duration: 3
@@ -62,10 +62,10 @@
  				.error(function (response) {
  					$alert({
             title: 'Error!',
-            content: response.data,
+            content: response.data.message,
             placement: 'top-right',
             type: 'danger',
-            duration: 3
+            duration: 5
           });
  				})
  		}
