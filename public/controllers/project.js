@@ -5,8 +5,8 @@
 	Revision history
 	Hemanth Kona, 2014.06.23: created
  */
- app.controller('ProjectController', [ 'Project', '$scope', '$rootScope', '$location', '$alert', '$state',  
- 	function(Project, $scope, $rootScope, $location, $alert, $state) {
+ app.controller('ProjectController', [ 'Project', '$scope', '$rootScope', '$cookieStore', '$location', '$alert', '$state',  
+ 	function(Project, $scope, $rootScope, $cookieStore, $location, $alert, $state) {
  		$rootScope.pageTitle = "Projects"
  		$scope.show = true;
  		
