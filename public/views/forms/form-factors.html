@@ -1,10 +1,12 @@
 <script>
 $(document).ready(function(){
-    $("a").tooltip({
+    $(".justfortooltip a").tooltip({
         placement : 'top'
     });
 });
 </script>
+
+<div class="justfortooltip">
 
 <div layout flex main-axis="space-between" flex="50">
     <div>
@@ -60,3 +62,5 @@ $(document).ready(function(){
 </div>
 
 <button type="submit" ng-click="processForm()" class="btn btn-danger">Submit</button>
+
+</div>
