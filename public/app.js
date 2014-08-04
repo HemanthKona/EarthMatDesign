@@ -95,25 +95,25 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
     
     // nested states 
     // each of these sections will have their own view
-    // url will be nested (/form/profile)
+    // url will be nested (/edit/profile)
     .state('edit.electrical', {
     url: '/electrical/:projectId',
       templateUrl: 'views/forms/form-electrical.html'
     })
     
-    // url will be /form/physical
+    // url will be /edit/physical
     .state('edit.physical', {
       url: '/physical/:projectId',
       templateUrl: 'views/forms/form-physical.html'
     })
     
-    // url will be /form/factors
+    // url will be /edit/factors
     .state('edit.factors', {
       url: '/factors/:projectId',
       templateUrl: 'views/forms/form-factors.html'
     })
 
-    //url will be /form/designGrade
+    //url will be /edit/designGrade
     .state('edit.designGrade', {
       url: '/designGrade/',
       templateUrl: 'views/forms/designGrade.html'
