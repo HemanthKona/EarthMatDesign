@@ -19,7 +19,7 @@
 
 		},
 		function(response) {
-			console.log(response.dta.message)
+			console.log(response)
 			$alert({
 	      title: 'Error!',
 	      content: response.data.message,

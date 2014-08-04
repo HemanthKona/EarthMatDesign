@@ -141,13 +141,13 @@ pre {
 
 /* form styling */
 #form-container {
-  background: #d5d5d5;
+  background: #eceff1;
   margin-bottom: 20px;
   border-radius: 5px;
   max-width: 800px; }
 
 #form-container .page-header {
-  background: #bbb;
+  background: #cfd8dc;
   margin: 0;
   padding: 10px;
   border-top-left-radius: 5px;
@@ -163,12 +163,12 @@ pre {
   margin-right: 10px;
   text-align: center;
   text-transform: uppercase;
-  background: #607d8b;
+  background: #90a4ae;
   box-shadow: 2px 2px 5px #111;
   border-radius: 10px; }
 
 #status-buttons a:hover {
-  background: #00BC8C;
+  background: #607d8b;
   /*border-radius:15px; */
   text-decoration: none; }
 
@@ -182,7 +182,7 @@ pre {
 
 /* active buttons */
 #status-buttons a.active {
-  background: #00BC8C;
+  background: #607d8b;
   /*border-radius: 10px;*/ }
 
 /* ANIMATION STYLINGS
@@ -190,7 +190,7 @@ pre {
 #form-container {
   position: relative;
   min-height: 300px;
-  min-width: 350px;
+  min-width: 300px;
   overflow: hidden;
   padding: 10px 30px; }
 
@@ -277,7 +277,11 @@ clear: none;
 */
 /* ===== end form desing ========== */
 /*= =========== Media Queries = =============*/
-@media (min-width: 900) {
+@media (min-width: 670px) and (max-width: 800px) {
+  #form-container {
+    width: 620px; } }
+
+@media (min-width: 800px) {
   #form-container {
     width: 800px; } }
 

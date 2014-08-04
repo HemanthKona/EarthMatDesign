@@ -84,15 +84,16 @@
 		        duration: 3
       		});
  				},
- 				function(respone) {
- 					console.log(respone.data.message)
+ 				function(response) {
+ 					console.log(response.data.message)
  					$alert({
 		        title: 'Error!',
 		        content: response.data.message,
 		        placement: 'top-right',
 		        type: 'danger',
 		        duration: 5  
-	      });
+		      });
+	      	
  				});
  			console.log("updated");
  		};
