@@ -27,6 +27,13 @@
 	      type: 'danger',
 	      duration: 3   
 	    });
+	    if(response.status == 401) {
+	    	
+	    	$rootScope.currentUser = null;
+				$cookieStore.remove('user');
+	    	
+	    	$location.path('/login');
+	    }
 		});
 
  		/* Edit project */
