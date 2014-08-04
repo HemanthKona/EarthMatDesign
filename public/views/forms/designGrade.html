@@ -1,3 +1,6 @@
+
+
+
 <div class=" designgrade ">
 
 	<div class="well {{formData.designGrade}}" ng-if="formData.designGrade === 'Good'">
@@ -14,6 +17,8 @@
 
   <div class="well " ng-if="formData.designGrade === ''"> 
     
+
+
   </div>
 			<!-- <button class="btn btn-default">See costruction data</button> -->
  			<button class="btn btn-default" ng-click="getCurrentGeoLocation()">Add location</button>
@@ -22,6 +27,10 @@
 			<!-- <button class="btn btn-default">Share</button> -->
 
 			<!-- <p>Coords: {{coords.latitude}} , {{coords.longitude}}</p> -->
+			
+<div class="hidden-xs" align="center">
+	<img src="/views/images/EarthMatPic.jpg" title="{{formData.maxStepVoltagePercent}}"> 
+</div>
 
 <div class="panel-group" id="accordion">
   <div class="panel panel-default">
@@ -44,14 +53,29 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
           Voltage
+		  <div class="progress hidden-xs">
+			  <div class="progress-bar progress-bar-striped active"  role="progressbar"  aria-valuemin="0" aria-valuemax="{{formData.maxStepVoltage}}" style="width: 100%">
+			
+			  </div>
+			  
+
+		</div>
+		
+		  <div class="progress hidden-xs">
+			  <div class="progress-bar progress-bar-warning progress-bar-striped active"  role="progressbar"   aria-valuemin="0" aria-valuemax="200" style="width: 100%">
+			
+			  </div>
+			  
+
+		</div>
         </a>
       </h4>
     </div>
     <div id="collapseThree" class="panel-collapse collapse">
       <div class="panel-body">
-        <p> MaxStepVoltage: {{formData.maxStepVoltage}} </p>
-        <p> TolerableStepVoltage: {{formData.tolerableStepVoltage}} </p>
-        <p> MaxGridPotentialRise: {{formData.maxGridPotentialRise}} </p>
+        <p> MaxStepVoltage: {{formData.maxStepVoltage}} &nbsp [V]</p>
+        <p> TolerableStepVoltage: {{formData.tolerableStepVoltage}} &nbsp [V] </p>
+        <p> MaxGridPotentialRise: {{formData.maxGridPotentialRise}} &nbsp [V]</p>
       </div>
     </div>
   </div>
@@ -65,9 +89,9 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse">
       <div class="panel-body">
-        <p>EstimatedFaultCurrent: {{formData.estimatedFaultCurrent}}</p>
-        <p>DesignFaultCurrent: {{formData.designFaultCurrent}}</p>
-        <p>EarthMatResistance: {{formData.earthMatResistance}}</p>
+        <p>EstimatedFaultCurrent: {{formData.estimatedFaultCurrent}}&nbsp [A]</p>
+        <p>DesignFaultCurrent: {{formData.designFaultCurrent}}&nbsp [A]</p>
+        <p>EarthMatResistance: {{formData.earthMatResistance}}&nbsp [A]</p>
       </div>
     </div>
   </div>
@@ -81,18 +105,19 @@
     </div>
     <div id="collapseTwo" class="panel-collapse collapse">
       <div class="panel-body">
-        <p> ConductorLength: {{formData.conductorLength}} </p>
-        <p> GridConductorLength: {{formData.gridConductorLength}} </p>
-        <p> MinEarthRodsNumber: {{formData.minEarthRodsNumber}} </p>
-        <p> IncreasedEarthRodsNumber: {{formData.increasedEarthRodsNumber}} </p>
-        <p> NewGridConductorLength: {{formData.newGridConductorLength}} </p>
-        <p> TotalLengthOfCopper: {{formData.totalLengthOfCopper}} </p>
+        <p> ConductorLength: {{formData.conductorLength}}&nbsp [m] </p>
+        <p> GridConductorLength: {{formData.gridConductorLength}}&nbsp [m] </p>
+        <p> MinEarthRodsNumber: {{formData.minEarthRodsNumber}}&nbsp [rods] </p>
+        <p> IncreasedEarthRodsNumber: {{formData.increasedEarthRodsNumber}} &nbsp [rods]</p>
+        <p> NewGridConductorLength: {{formData.newGridConductorLength}} &nbsp [m]</p>
+        <p> TotalLengthOfCopper: {{formData.totalLengthOfCopper}}&nbsp [m] </p>
       </div>
     </div>
   </div>
   
 </div>
 </div>
+
 
 <script>
 	$('a[data-toggle]').on('click', function(e) {
