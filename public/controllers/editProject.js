@@ -229,7 +229,7 @@
 			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 		}
-		else if (($scope.maxStepVoltage <= $scope.tolerableStepVoltage) && ($scope.minEarthRodsNumber < 0))
+		else if (($scope.maxStepVoltage <= $scope.tolerableStepVoltage) && ($scope.minEarthRodsNumber <= 0))
 		{
 			$scope.designGrade = "Bad"; 
 			$scope.formData.designGrade = "Bad"; 
@@ -267,7 +267,7 @@
 			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 		}
-		else if (($scope.maxStepVoltage < 0 ) && ($scope.minEarthRodsNumber < 0))
+		else if (($scope.maxStepVoltage < 0 ) && ($scope.minEarthRodsNumber <= 0))
 		{
 			$scope.designGrade = "Bad"; 
 			$scope.formData.designGrade = "Bad"; 
@@ -281,7 +281,7 @@
 			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 		}
-		else if (($scope.maxStepVoltage > $scope.tolerableStepVoltage) && ($scope.minEarthRodsNumber < 0))
+		else if (($scope.maxStepVoltage > $scope.tolerableStepVoltage) && ($scope.minEarthRodsNumber <= 0))
 		{
 			$scope.designGrade = "Bad"; 
 			$scope.formData.designGrade = "Bad"; 
