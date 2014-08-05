@@ -69,7 +69,10 @@
 	    maxGridPotentialRise: $rootScope.currentProject.data.construction.maxGridPotentialRise,
 	    recommendation: $rootScope.currentProject.data.construction.recommendation,
 	    comments: $rootScope.currentProject.data.construction.comments,
-		
+			
+			totalVoltage: $rootScope.currentProject.data.construction.totalVoltage,
+      maxStepVoltagePercent: $rootScope.currentProject.data.construction.maxStepVoltagePercent,
+      tolerableStepVoltagePercent: $rootScope.currentProject.data.construction.tolerableStepVoltagePercent
 		
  		};
 

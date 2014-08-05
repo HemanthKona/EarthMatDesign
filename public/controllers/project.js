@@ -20,6 +20,8 @@
 		},
 		function(response) {
 			console.log(response)
+			
+			
 			$alert({
 	      title: 'Error!',
 	      content: response.data.message,
@@ -34,6 +36,8 @@
 	    	
 	    	$location.path('/login');
 	    }
+
+
 		});
 
  		/* Edit project */

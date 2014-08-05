@@ -242,6 +242,10 @@ app.post('/api/projects', ensureAuthenticated, function(req, res, next) {
         maxGridPotentialRise: req.body.maxGridPotentialRise,
         recommendation: req.body.recommendation,
         comments: req.body.comments,
+
+        totalVoltage: req.body.totalVoltage,
+        maxStepVoltagePercent: req.body.maxStepVoltagePercent,
+        tolerableStepVoltagePercent: req.body.tolerableStepVoltagePercent,
       }
     } 
   });
@@ -318,6 +322,10 @@ app.put('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
         maxGridPotentialRise: req.body.maxGridPotentialRise,
         recommendation: req.body.recommendation,
         comments: req.body.comments,
+
+        totalVoltage: req.body.totalVoltage,
+        maxStepVoltagePercent: req.body.maxStepVoltagePercent,
+        tolerableStepVoltagePercent: req.body.tolerableStepVoltagePercent,
       }
     } 
   };

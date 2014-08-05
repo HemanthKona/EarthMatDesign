@@ -308,9 +308,9 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 	    recommendation: $scope.recommendation,
 	    comments: $scope.comments,
 		
-		totalVoltage: $scope.totalVoltage,
-		maxStepVoltagePercent: $scope.maxStepVoltagePercent,
-		tolerableStepVoltagePercent: $scope.tolerableStepVoltagePercent,
+			totalVoltage: $scope.totalVoltage,
+			maxStepVoltagePercent: $scope.maxStepVoltagePercent,
+			tolerableStepVoltagePercent: $scope.tolerableStepVoltagePercent,
 	
 		
 		
