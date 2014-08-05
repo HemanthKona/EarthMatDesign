@@ -25,7 +25,9 @@
     <span class="input-group-addon">V</span>
 </div>
 
-<div ng-messages='designForm.lineVoltage.$error'>
+<span class="e" ng-show="submitted && designForm.lineVoltage.$invalid">Please provide valid input</span>
+
+<div ng-messages='designForm.lineVoltage.$invalid'>
   <div ng-message='required'>Linevoltage is required</div>
   <div ng-message='pattern'>Linevoltage is not avalid number</div>
 </div>

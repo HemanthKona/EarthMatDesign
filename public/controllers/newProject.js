@@ -22,69 +22,8 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		$scope.processForm = function() {
 			console.log('Construction data genereated');
 
-		$scope.errors  = 'All fields are required, please fill out the missing fields';
 
-		if($scope.formData.lineVoltage === "") {
-			$scope.errors += 'lineVoltage' + '<br>';
-		}
-		if($scope.impedanceOne === "") {
-			$scope.errors += 'impedanceOne' + '<br>';
-		}
-		if($scope.impedanceTwo === "") {
-			$scope.errors += 'impedanceTwo' + '<br>';
-		}
-		if($scope.impedanceThree === "") {
-			$scope.errors += 'impedanceThree' + '<br>';
-		}
-		if($scope.decrementFactor === "") {
-			$scope.errors += 'decrementFactor' + '<br>';
-		}
-		if($scope.growthFactor === "") {
-			$scope.errors += 'growthFactor' + '<br>';
-		}
-		if($scope.physicalGridCoefficient === "") {
-			$scope.errors += 'physicalGridCoefficient' + '<br>';
-		}
-		if($scope.irregularityFactor === "") {
-			$scope.errors += 'irregularityFactor' + '<br>';
-		}
-		if($scope.averageResistivity === "") {
-			$scope.errors += 'averageResistivity' + '<br>';
-		}
-		if($scope.immediateResistivity === "") {
-			$scope.errors += 'immediateResistivity' + '<br>';
-		}
-		if($scope.clearingTime === "") {
-			$scope.errors += 'clearingTime' + '<br>';
-		}
-		if($scope.substationLength === "") {
-			$scope.errors += 'substationLength' + '<br>';
-		}
-		if($scope.substationWidth === "") {
-			$scope.errors += 'substationWidth' + '<br>';
-		}
-		if($scope.widthSpacing === "") {
-			$scope.errors += 'widthSpacing' + '<br>';
-		}
-		if($scope.lengthSpacing === "") {
-			$scope.errors += 'lengthSpacing' + '<br>';
-		}
-		if($scope.earthRodLength === "") {
-			$scope.errors += 'earthRodLength' + '<br>';
-		}
-		if($scope.geometricSpacingFactor === "") {
-			$scope.errors += 'geometricSpacingFactor' + '<br>';
-		}
-
-		if(!($scope.errors.length === 0)) {
-
-
-			alert($scope.errors);
-
-
-			return;
-		}
-
+			
 			// Input Design Data
 			
 			$scope.lineVoltage = parseFloat($scope.formData.lineVoltage);
@@ -166,6 +105,15 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			
 			$scope.formData.maxStepVoltagePercent = $scope.maxStepVoltagePercent;
 			$scope.formData.tolerableStepVoltagePercent = $scope.tolerableStepVoltagePercent;
+
+			for( var prop in $scope.formData) {
+					console.log($scope.formData[prop]);
+				if($scope.formData[prop] === NaN )	{
+					$scope.errors  = 'All fields are required, please fill out the missing fields';
+					alert($scope.errors);
+					return;
+				}
+			}
 
 			$scope.showResult = true;
 			
