@@ -14,8 +14,8 @@
 		//console.log(data in $rootScope.currentProject); 		
  		// if(geolocation in $rootScope.currentProject) {
  		// 	console.log(true);
- 			$scope.formData.latitude = $rootScope.currentProject.geolocation.latitude
- 			$scope.formData.longitude = $rootScope.currentProject.geolocation.longitude
+ 			// $scope.formData.latitude = $rootScope.currentProject.geolocation.latitude
+ 			// $scope.formData.longitude = $rootScope.currentProject.geolocation.longitude
  		// }
 
  		if($rootScope.currentProject == null) {

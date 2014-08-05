@@ -38,7 +38,7 @@
  				.error(function(response) {
  					$alert({
             title: 'Error!',
-            content: response.message,
+            content: response.data.message,
             placement: 'top-right',
             type: 'danger',
             duration: 3
@@ -48,7 +48,7 @@
 
  		$scope.updatePassword = function () {
  			console.log($scope.userProfileDetails.password);
- 			$http.put('/api/updatePassword', $scope.userProfileDetails.password)
+ 			$http.put('/api/updatePassword', $scope.userProfileDetails)
  				.success(function(data) {
  					console.log("success" + data)
  					$alert({
@@ -60,6 +60,7 @@
  					})
  				})
  				.error(function (response) {
+          console.log(response);
  					$alert({
             title: 'Error!',
             content: response.data.message,
