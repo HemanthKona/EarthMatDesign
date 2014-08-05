@@ -16,7 +16,7 @@ $(document).ready(function(){
                 data-original-title="The symmetrical grid current is not the maximum grid current because of asymmetry in short circuits, namely a DC current offset. This is captured by the decrement factor, which can be calculated from IEEE Std 80 equation 79"><i class="fa fa-info-circle"></i></a>
         </label>
         <div class="input-group">
-            <input type="number" class="form-control" id="decrementFactor" name="decrementFactor" ng-model="formData.decrementFactor" autofocus required >	
+            <input type="number" class="form-control" id="decrementFactor" name="decrementFactor" ng-model="formData.decrementFactor" autofocus required numeric />	
         </div>
     </div>
     <div>
@@ -26,7 +26,7 @@ $(document).ready(function(){
                 data-original-title="Projection factor for future system growth"><i class="fa fa-info-circle"></i></a>
         </label>
         <div class="input-group">
-            <input type="number" class="form-control" id="growthFactor" name="growthFactor" ng-model="formData.growthFactor" required >
+            <input type="number" class="form-control" id="growthFactor" name="growthFactor" ng-model="formData.growthFactor" required numeric />
     </div>
     </div>
 </div>
@@ -39,7 +39,7 @@ $(document).ready(function(){
                 data-original-title="An irregularity correction factor"><i class="fa fa-info-circle"></i></a>
         </label>
         <div class="input-group">
-            <input type="number" class="form-control" id="irregularityFactor" name="irregularityFactor" ng-model="formData.irregularityFactor" required >	
+            <input type="number" class="form-control" id="irregularityFactor" name="irregularityFactor" ng-model="formData.irregularityFactor" required numeric />	
         </div>
     </div>
     <div>
@@ -48,7 +48,7 @@ $(document).ready(function(){
             <a href="" data-toggle="tooltip" data-original-title="Calculated from IEEE Std 80 Equation 81"><i class="fa fa-info-circle"></i></a>  
         </label>
         <div class="input-group">
-            <input type="number" class="form-control" id="geometricSpacingFactor" name="geometricSpacingFactor" ng-model="formData.geometricSpacingFactor" required >
+            <input type="number" class="form-control" id="geometricSpacingFactor" name="geometricSpacingFactor" ng-model="formData.geometricSpacingFactor" required numeric />
         </div>
     </div>
 </div>
@@ -58,7 +58,7 @@ $(document).ready(function(){
     <a href="" data-toggle="tooltip" data-original-title="Coefficient which takes into account the physical parameters of the grid "><i class="fa fa-info-circle"></i></a>   
 </label>
 <div class="input-group">
-    <input type="number" class="form-control" id="physicalGridCoefficient" name="physicalGridCoefficient" ng-model="formData.physicalGridCoefficient" required >
+    <input type="number" class="form-control" id="physicalGridCoefficient" name="physicalGridCoefficient" ng-model="formData.physicalGridCoefficient" required numeric />
 </div>
 <br>
 <button type="submit" ng-click="" class="btn btn-danger">Submit</button>

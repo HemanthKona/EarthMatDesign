@@ -21,8 +21,7 @@
 </label>
 
 <div class="input-group">
-    <number-only-input input-value="formData.lineVoltage" input-name="lineVoltage"/>
-    <!-- <input type="number" class="form-control" name="lineVoltage" id="lineVoltage" ng-model="formData.lineVoltage" autofocus required numbers-only="numbers-only" /> -->
+    <input type="number" class="form-control" name="lineVoltage" id="lineVoltage" ng-model="formData.lineVoltage" autofocus required numeric />
     <span class="input-group-addon">V</span>
 </div>
 
@@ -42,24 +41,24 @@
   <div>
       <label for="impedanceOne"> One </label>
       <div class="input-group">
-          <number-only-input input-value="formData.impedanceOne" input-name="impedanceOne"/>
-          <!-- <input type="number" class="form-control" id="impedanceOne" name="impedanceOne" ng-model="formData.impedanceOne" required > -->
+          <!-- <number-only-input input-value="formData.impedanceOne" input-name="impedanceOne"/> -->
+          <input type="number" class="form-control" id="impedanceOne" name="impedanceOne" ng-model="formData.impedanceOne" required numeric />
           <span class="input-group-addon">&#8486</span>
       </div>
   </div>
   <div>
     <label for="impedanceTwo"> Two </label>
     <div class="input-group" >
-        <number-only-input input-value="formData.impedanceTwo" input-name="impedanceTwo"/><!-- 
-        <input type="number" class="form-control" id="impedanceTwo" name="impedanceTwo" ng-model="formData.impedanceTwo" required > -->
+        <!-- <number-only-input input-value="formData.impedanceTwo" input-name="impedanceTwo"/><!--  -->
+        <input type="number" class="form-control" id="impedanceTwo" name="impedanceTwo" ng-model="formData.impedanceTwo" required numeric /> 
         <span class="input-group-addon">&#8486</span>
 	  </div>
   </div>
   <div>
     <label for="impedanceThree"> Three</label>
     <div class="input-group">
-        <number-only-input input-value="formData.impedanceThree" input-name="impedanceThree"/>
-        <!-- <input type="number" class="form-control" id="impedanceThree" name="impedanceThree" ng-model="formData.impedanceThree" required > -->
+        <!-- <number-only-input input-value="formData.impedanceThree" input-name="impedanceThree"/> -->
+        <input type="number" class="form-control" id="impedanceThree" name="impedanceThree" ng-model="formData.impedanceThree" required numeric />
         <span class="input-group-addon">&#8486</span>
     </div>
   </div>
@@ -73,7 +72,7 @@
       </a>
 </label>
 <div class="input-group">
-    <input type="number" class="form-control" id="averageResistivity" name="averageResistivity" ng-model="formData.averageResistivity" required >
+    <input type="number" class="form-control" id="averageResistivity" name="averageResistivity" ng-model="formData.averageResistivity" required numeric />
     <span class="input-group-addon">&#8486</span>
 </div>
 
@@ -83,7 +82,7 @@
       <i class="fa fa-info-circle"></i></a>
 </label>
 <div class="input-group">
-  <input type="number" class="form-control" id="immediateResistivity" name="immediateResistivity" ng-model="formData.immediateResistivity" required >
+  <input type="number" class="form-control" id="immediateResistivity" name="immediateResistivity" ng-model="formData.immediateResistivity" required numeric />
   <span class="input-group-addon">&#8486</span>
 </div>
 

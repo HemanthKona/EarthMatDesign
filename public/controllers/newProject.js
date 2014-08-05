@@ -17,64 +17,64 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		$scope.showResult = false;
 		$scope.showGeoLocation = true;
 
-		$scope.formData = {lineVoltage: 0, impedanceOne: 0, impedanceTwo: 0, impedanceThree: 0};
+		$scope.formData = {};
  		
 
  			
 		$scope.processForm = function() {
 			console.log('Construction data genereated');
 
-			$scope.errors  = 'Please correct folowing errors' + '<br>';
+		$scope.errors  = 'All fields are required, please fill out the missing fields';
 
-			if($scope.formData.lineVoltage = "") {
+		if($scope.formData.lineVoltage === "") {
 			$scope.errors += 'lineVoltage' + '<br>';
 		}
-		if($scope.impedanceOne = "") {
+		if($scope.impedanceOne === "") {
 			$scope.errors += 'impedanceOne' + '<br>';
 		}
-		if($scope.impedanceTwo = "") {
+		if($scope.impedanceTwo === "") {
 			$scope.errors += 'impedanceTwo' + '<br>';
 		}
-		if($scope.impedanceThree = "") {
+		if($scope.impedanceThree === "") {
 			$scope.errors += 'impedanceThree' + '<br>';
 		}
-		if($scope.decrementFactor = "") {
+		if($scope.decrementFactor === "") {
 			$scope.errors += 'decrementFactor' + '<br>';
 		}
-		if($scope.growthFactor = "") {
+		if($scope.growthFactor === "") {
 			$scope.errors += 'growthFactor' + '<br>';
 		}
-		if($scope.physicalGridCoefficient = "") {
+		if($scope.physicalGridCoefficient === "") {
 			$scope.errors += 'physicalGridCoefficient' + '<br>';
 		}
-		if($scope.irregularityFactor = "") {
+		if($scope.irregularityFactor === "") {
 			$scope.errors += 'irregularityFactor' + '<br>';
 		}
-		if($scope.averageResistivity = "") {
+		if($scope.averageResistivity === "") {
 			$scope.errors += 'averageResistivity' + '<br>';
 		}
-		if($scope.immediateResistivity = "") {
+		if($scope.immediateResistivity === "") {
 			$scope.errors += 'immediateResistivity' + '<br>';
 		}
-		if($scope.clearingTime = "") {
+		if($scope.clearingTime === "") {
 			$scope.errors += 'clearingTime' + '<br>';
 		}
-		if($scope.substationLength = "") {
+		if($scope.substationLength === "") {
 			$scope.errors += 'substationLength' + '<br>';
 		}
-		if($scope.substationWidth = "") {
+		if($scope.substationWidth === "") {
 			$scope.errors += 'substationWidth' + '<br>';
 		}
-		if($scope.widthSpacing = "") {
+		if($scope.widthSpacing === "") {
 			$scope.errors += 'widthSpacing' + '<br>';
 		}
-		if($scope.lengthSpacing = "") {
+		if($scope.lengthSpacing === "") {
 			$scope.errors += 'lengthSpacing' + '<br>';
 		}
-		if($scope.earthRodLength = "") {
+		if($scope.earthRodLength === "") {
 			$scope.errors += 'earthRodLength' + '<br>';
 		}
-		if($scope.geometricSpacingFactor = "") {
+		if($scope.geometricSpacingFactor === "") {
 			$scope.errors += 'geometricSpacingFactor' + '<br>';
 		}
 

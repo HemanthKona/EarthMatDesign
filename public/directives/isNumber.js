@@ -6,6 +6,14 @@
     Pranav Maharaj, 2014.06.20: created
  */
 
+app.directive('numeric', function() {
+    return function(scope, element, attrs) {
+
+        $(element[0]).numericInput({ allowFloat: true });
+
+    };
+});
+
 app.directive('numberOnlyInput', function () {
     return {
         restrict: 'EA',
