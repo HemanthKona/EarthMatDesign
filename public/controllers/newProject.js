@@ -14,6 +14,8 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		
 		$scope.parent = "form";
 
+		$scope.showResult = false;
+
 		$scope.formData = {};
  			
  			
@@ -102,7 +104,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			$scope.formData.maxStepVoltagePercent = $scope.maxStepVoltagePercent;
 			$scope.formData.tolerableStepVoltagePercent = $scope.tolerableStepVoltagePercent;
 
-
+			$scope.showResult = true;
 			
 			$location.path('/form/designGrade');
 		}
