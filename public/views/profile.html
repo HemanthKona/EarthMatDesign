@@ -7,7 +7,7 @@
 
  -->
 <div>
-<material-card style="width: 350px;">
+<material-card style="width: 400px;">
   <div>
     <!-- <h2>Profile</h2> -->
     <form method="post" ng-submit="login()" name="LoginForm">
@@ -33,15 +33,15 @@
       	<input type="password" id="password" name="password" ng-model="userProfileDetails.password">       	
       </div>
       <div ng-hide="editProfile || editPassword">
-      	<button class="material-button material-button-raised" type="reset" ng-click="editProfile = true">Edit</button>
-      	<button class="material-button material-button-raised" ng-click="editPassword = true; editProfile = false">Edit Password</button>
+      	<button class="material-button material-button-raised" type="reset" ng-click="editProfile = true">Edit name</button>
+      	<button class="material-button material-button-raised" ng-click="editPassword = true; editProfile = false">Change Password</button>
       </div>
       <div ng-show="editProfile">
       	<button class="material-button material-button-raised material-theme-green" ng-click="updateProfile()">Save</button>
       	<button class="material-button material-button-raised" ng-click="editProfile = false">Cancel</button>
       </div>
       <div ng-show="editPassword">
-      	<button class="material-button material-button-raised material-theme-green" ng-click="updatePassword()">Update password</button>
+      	<button class="material-button material-button-raised material-theme-green" ng-click="updatePassword()">Update</button>
       	<button class="material-button material-button-raised" ng-click="editPassword = false">Cancel</button>
       </div>
     </form>
