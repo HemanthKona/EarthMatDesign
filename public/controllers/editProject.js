@@ -275,6 +275,20 @@
 			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 		}
+		else if (($scope.maxStepVoltage > $scope.tolerableStepVoltage) && ($scope.minEarthRodsNumber < 0))
+		{
+			$scope.designGrade = "Bad"; 
+			$scope.formData.designGrade = "Bad"; 
+				
+				
+			$scope.comments = "Max Step > Tolerable Step Voltage.  " + '\n' +
+				"Calculated # of rods is negative";		
+			
+			$scope.formData.comments = $scope.comments ;
+				
+			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+		}
 		
 		
 	}
