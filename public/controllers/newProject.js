@@ -17,7 +17,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		$scope.showResult = false;
 		$scope.showGeoLocation = true;
 
-		
+		$scope.formData = {lineVoltage: 0, impedanceOne: 0, impedanceTwo: 0, impedanceThree: 0};
  		
 
  			
