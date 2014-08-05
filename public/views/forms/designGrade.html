@@ -61,20 +61,21 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse">
       <div class="panel-body">
+	  <p>Max Step Voltage: {{formData.maxStepVoltage}} &nbsp [V]</p>
 	  <div class="progress ">
 			  <div class="progress-bar progress-bar-striped active"  role="progressbar"  aria-valuemin="0" aria-valuemax="{{formData.maxStepVoltage}}" style="width: {{formData.maxStepVoltagePercent}}%">
-			Max Step Voltage: {{formData.maxStepVoltage}} &nbsp [V]
+			
 			  </div>	  
 
 		</div>
         <div class="progress ">
 			  <div class="progress-bar progress-bar-danger progress-bar-striped active"  role="progressbar"   aria-valuemin="0" aria-valuemax="{{formData.tolerableStepVoltage}}}}" style="width: {{formData.tolerableStepVoltagePercent}}%">
-			Tolerable Step Voltage: {{formData.tolerableStepVoltage}} &nbsp [V]
+		
 			  </div>
 			  
 
 		</div>
-  
+  <p>	Tolerable Step Voltage: {{formData.tolerableStepVoltage}} &nbsp [V]</p>
         <p> MaxGrid Potential Rise: {{formData.maxGridPotentialRise}} &nbsp [V]</p>
       </div>
     </div>
