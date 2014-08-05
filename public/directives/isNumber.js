@@ -9,7 +9,7 @@
 app.directive('numberOnlyInput', function () {
     return {
         restrict: 'EA',
-        template: '<input class="form-control" name="{{inputName}}" ng-model="inputValue" />',z
+        template: '<input class="form-control" name="{{inputName}}" ng-model="inputValue" />',
         scope: {
             inputValue: '=',
             inputName: '='
