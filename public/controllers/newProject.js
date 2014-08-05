@@ -110,7 +110,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 	//Comparing max step voltage and tolerable step voltage
 	$scope.CompareMaxWithTolerableStepVoltage = function()
 	{
-		if(($scope.maxStepVoltage <= $scope.tolerableStepVoltage) && ($scope.minEarthRodsNumber > 0))
+		if(($scope.maxStepVoltage <= $scope.tolerableStepVoltage)&&($scope.maxStepVoltage > 0) && ($scope.minEarthRodsNumber > 0))
 		{
 			$scope.designGrade = "Good";			
 			$scope.formData.designGrade = "Good";		
@@ -134,7 +134,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
 		}
-		else if (($scope.maxStepVoltage <= $scope.tolerableStepVoltage) && ($scope.minEarthRodsNumber < 0))
+		else if ((($scope.maxStepVoltage <= $scope.tolerableStepVoltage) && ($scope.minEarthRodsNumber < 0))
 		{
 			$scope.designGrade = "Bad"; 
 			$scope.formData.designGrade = "Bad"; 
@@ -308,6 +308,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 	    recommendation: $scope.recommendation,
 	    comments: $scope.comments,
 		
+		//visual analytics
 		totalVoltage: $scope.totalVoltage,
 		maxStepVoltagePercent: $scope.maxStepVoltagePercent,
 		tolerableStepVoltagePercent: $scope.tolerableStepVoltagePercent,
