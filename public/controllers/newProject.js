@@ -18,9 +18,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		$scope.showGeoLocation = true;
 
 		$scope.formData = {};
- 		
-
- 			
+	
 		$scope.processForm = function() {
 			console.log('Construction data genereated');
 
