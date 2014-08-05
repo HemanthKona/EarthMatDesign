@@ -50,7 +50,8 @@
  			console.log($scope.userProfileDetails.password);
  			$http.put('/api/updatePassword', $scope.userProfileDetails)
  				.success(function(data) {
- 					console.log("success" + data)
+ 					console.log("success" + data);
+          $scope.editPassword = false;
  					$alert({
  						title: 'Success!',
             content: 'Password updated',
