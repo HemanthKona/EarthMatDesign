@@ -200,8 +200,8 @@ app.post('/api/projects', ensureAuthenticated, function(req, res, next) {
   var project = new Project({
     name: req.body.name,
     createdBy: user,
-    geolocation: {
-      latitide: req.body.latitude,
+    geoloc: {
+      latitude: req.body.latitude,
       longitude: req.body.longitude
     },
     data: {
@@ -280,8 +280,8 @@ app.put('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
   var project = {
     name: req.body.projectName,
     createdBy: user,
-    geolocation: {
-      latitide: req.body.latitude,
+    geoloc: {
+      latitude: req.body.latitude,
       longitude: req.body.longitude
     },
     data: {

@@ -11,13 +11,7 @@
  		$scope.show = true;
  		$scope.parent = "edit";
  		$scope.showResult = true;
-
-		//console.log(data in $rootScope.currentProject); 		
- 		// if(geolocation in $rootScope.currentProject) {
- 		// 	console.log(true);
- 			// $scope.formData.latitude = $rootScope.currentProject.geolocation.latitude
- 			// $scope.formData.longitude = $rootScope.currentProject.geolocation.longitude
- 		// }
+ 		$scope.showGeoLocation = false;
 
  		if($rootScope.currentProject == null) {
  			console.log("not project ");
@@ -30,6 +24,16 @@
  				}
  			);
  		}
+		
+		//console.log(data in $rootScope.currentProject); 		
+ 		// if ((typeof $rootScope.currentProject.geoloc == undefined)) {
+ 		// 	console.log(true);
+ 		// 	$scope.formData.latitude = $rootScope.currentProject.geoloc.latitude
+ 		// 	$scope.formData.longitude = $rootScope.currentProject.geoloc.longitude
+ 		// }
+ 		// else {
+ 		// 	console.log(false);
+ 		// }
 
  		$scope.formData = {
  			projectName: $rootScope.currentProject.name || new Date().toUTCString(),

@@ -21,7 +21,7 @@
 
   </div>
 			<!-- <button class="btn btn-default">See costruction data</button> -->
- 			<button class="btn btn-default" ng-click="getCurrentGeoLocation()">Add Location</button>
+ 			<button class="btn btn-default" ng-click="getCurrentGeoLocation()" ng-show="showGeoLocation">Add Location</button>
 			<button class="btn btn-default" ng-click="createProject()">Save Project</button>
 			<a class="btn btn-default" ui-sref="{{parent}}.electrical">Edit Inputs</a>
 			<!-- <button class="btn btn-default">Share</button> -->
@@ -33,7 +33,7 @@
 </div>
 
 <div class="panel-group" id="accordion">
-  <div class="panel panel-default">
+  <div class="panel panel-default"ng-show="showGeoLocation">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-target="#geolocation" href="#">

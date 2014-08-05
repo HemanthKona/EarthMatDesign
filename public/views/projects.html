@@ -169,7 +169,7 @@
       <hr>
       <div ng-show="viewProject">
       <div class="panel-group" id="accordion{{$index}}">
-  <!-- <div class="panel panel-default">
+  <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion{{$index}}" href="#geolocation{{$index}}">
@@ -179,11 +179,11 @@
     </div>
     <div id="geolocation{{$index}}" class="panel-collapse collapse in">
       <div class="panel-body">
-        <p>Latitude: {{formData.latitude}}</p>
-        <p>Longitude: {{formData.longitude}}</p>
+        <p>Latitude: {{project.geolocation.latitide}}</p>
+        <p>Longitude: {{project.geolocation.longitude}}</p>
       </div>
     </div>
-  </div> -->
+  </div>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">

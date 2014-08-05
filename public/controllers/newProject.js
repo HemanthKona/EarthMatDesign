@@ -15,6 +15,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		$scope.parent = "form";
 
 		$scope.showResult = false;
+		$scope.showGeoLocation = true;
 
 		$scope.formData = {};
  			
