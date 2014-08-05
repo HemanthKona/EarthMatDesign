@@ -110,7 +110,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 	//Comparing max step voltage and tolerable step voltage
 	$scope.CompareMaxWithTolerableStepVoltage = function()
 	{
-		if(($scope.maxStepVoltage <= $scope.tolerableStepVoltage) && ($scope.minEarthRodsNumber > 0))
+		if(($scope.maxStepVoltage <= $scope.tolerableStepVoltage)&&($scope.maxStepVoltage > 0) && ($scope.minEarthRodsNumber > 0))
 		{
 			$scope.designGrade = "Good";			
 			$scope.formData.designGrade = "Good";		
@@ -179,6 +179,20 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 				
 				
 			$scope.comments = "Max Step Voltage is Negative. " + '\n' +
+				"Calculated # of rods is negative";		
+			
+			$scope.formData.comments = $scope.comments ;
+				
+			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+		}
+		else if (($scope.maxStepVoltage > $scope.tolerableStepVoltage) && ($scope.minEarthRodsNumber < 0))
+		{
+			$scope.designGrade = "Bad"; 
+			$scope.formData.designGrade = "Bad"; 
+				
+				
+			$scope.comments = "Max Step > Tolerable Step Voltage.  " + '\n' +
 				"Calculated # of rods is negative";		
 			
 			$scope.formData.comments = $scope.comments ;
@@ -308,9 +322,11 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 	    recommendation: $scope.recommendation,
 	    comments: $scope.comments,
 		
-			totalVoltage: $scope.totalVoltage,
-			maxStepVoltagePercent: $scope.maxStepVoltagePercent,
-			tolerableStepVoltagePercent: $scope.tolerableStepVoltagePercent,
+
+		//visual analytics
+		totalVoltage: $scope.totalVoltage,
+		maxStepVoltagePercent: $scope.maxStepVoltagePercent,
+		tolerableStepVoltagePercent: $scope.tolerableStepVoltagePercent,
 	
 		
 		

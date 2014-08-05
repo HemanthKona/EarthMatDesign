@@ -19,7 +19,7 @@
  		// }
 
  		if($rootScope.currentProject == null) {
- 			console.log("not projct ");
+ 			console.log("not project ");
  			$rootScope.currentProject = Project.get({id: $stateParams.projectId}, 
  				function(data) {
  					console.log(data);
@@ -54,6 +54,7 @@
 	    earthRodLength: $rootScope.currentProject.data.design.earthRodLength,
 	    geometricSpacingFactor: $rootScope.currentProject.data.design.geometricSpacingFactor,
 	    
+		//Output construction data
 	    estimatedFaultCurrent: $rootScope.currentProject.data.construction.estimatedFaultCurrent,
 	    designFaultCurrent: $rootScope.currentProject.data.construction.designFaultCurrent,
 	    conductorLength: $rootScope.currentProject.data.construction.conductorLength,
@@ -69,10 +70,12 @@
 	    maxGridPotentialRise: $rootScope.currentProject.data.construction.maxGridPotentialRise,
 	    recommendation: $rootScope.currentProject.data.construction.recommendation,
 	    comments: $rootScope.currentProject.data.construction.comments,
-			
-			totalVoltage: $rootScope.currentProject.data.construction.totalVoltage,
-      maxStepVoltagePercent: $rootScope.currentProject.data.construction.maxStepVoltagePercent,
-      tolerableStepVoltagePercent: $rootScope.currentProject.data.construction.tolerableStepVoltagePercent
+
+		
+		//visual analytics
+		totalVoltage: $rootScope.currentProject.data.construction.totalVoltage,
+		maxStepVoltagePercent: $rootScope.currentProject.data.construction.maxStepVoltagePercent,
+		tolerableStepVoltagePercent: $rootScope.currentProject.data.construction.tolerableStepVoltagePercent, 
 		
  		};
 
@@ -153,30 +156,43 @@
 			$scope.CompareMaxWithTolerableStepVoltage();
 			
 			$scope.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
+			
+			$scope.totalVoltage = parseFloat($scope.maxStepVoltage) + parseFloat($scope.tolerableStepVoltage);
+			
+			$scope.maxStepVoltagePercent = (($scope.maxStepVoltage / $scope.totalVoltage) * 100).toFixed(0);
+			
+			$scope.tolerableStepVoltagePercent = (($scope.tolerableStepVoltage / $scope.totalVoltage) * 100).toFixed(0);
 
 			// Converting to form data for convenience 
+			//Eliminating past redundancy and overcalculations with more sources of error - pranav
 
-			$scope.formData.estimatedFaultCurrent = $scope.CalculateEstimatedFaultCurrent().toFixed(3);
-			$scope.formData.designFaultCurrent = $scope.CalculateDesignFaultCurrent().toFixed(3);
+			$scope.formData.estimatedFaultCurrent = $scope.estimatedFaultCurrent;
+			$scope.formData.designFaultCurrent = $scope.designFaultCurrent;
 			
-			$scope.formData.conductorLength = $scope.CalculateConductorLength().toFixed(3);
-			$scope.formData.earthMatResistance = $scope.CalculateEarthMatResistance().toFixed(3);
-			$scope.formData.gridConductorLength = $scope.CalculateGridConductorLength().toFixed(3);
-			$scope.formData.minEarthRodsNumber = $scope.CalculateMinEarthRodsNumber().toFixed(3);
-			$scope.formData.increasedEarthRodsNumber = $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
-			$scope.formData.comments = "Increased rod amount by 10% to: " + $scope.CalculateIncreasedEarthRodsNumber().toFixed(3);
+			$scope.formData.conductorLength = $scope.conductorLength;
+			$scope.formData.earthMatResistance = $scope.earthMatResistance;
+			$scope.formData.gridConductorLength = $scope.gridConductorLength;
+			$scope.formData.minEarthRodsNumber = $scope.minEarthRodsNumber ;
+			$scope.formData.increasedEarthRodsNumber = $scope.increasedEarthRodsNumber;
+			$scope.formData.comments = $scope.comments
 			
-			$scope.formData.newGridConductorLength = parseFloat($scope.increasedEarthRodsNumber * $scope.earthRodLength).toFixed(3);
-			$scope.formData.totalLengthOfCopper = parseFloat($scope.gridConductorLength) + parseFloat($scope.newGridConductorLength);
-			$scope.formData.maxStepVoltage = $scope.CalculateMaximumStepVoltage().toFixed(3);
-			$scope.formData.tolerableStepVoltage = $scope.CalculateTolerableStepVoltage().toFixed(3);
+			$scope.formData.newGridConductorLength = $scope.newGridConductorLength;
+			$scope.formData.totalLengthOfCopper = $scope.totalLengthOfCopper;
+			$scope.formData.maxStepVoltage = $scope.maxStepVoltage;
+			$scope.formData.tolerableStepVoltage = $scope.tolerableStepVoltage;
+		
 			
+		
 			
+			$scope.formData.designGrade =$scope.designGrade;
+			$scope.formData.recommendation= $scope.recommendation;
+			//$scope.CompareMaxWithTolerableStepVoltage(); ALREADY DONE ABOVE
+
+			$scope.formData.maxGridPotentialRise = $scope.maxGridPotentialRise;
+			$scope.formData.totalVoltage = $scope.totalVoltage;
 			
-			$scope.formData.designGrade ="";
-			$scope.formData.recommendation= "";
-			$scope.CompareMaxWithTolerableStepVoltage();
-			$scope.formData.maxGridPotentialRise = $scope.CalculateMaxGridPotentialRise().toFixed(3);
+			$scope.formData.maxStepVoltagePercent = $scope.maxStepVoltagePercent;
+			$scope.formData.tolerableStepVoltagePercent = $scope.tolerableStepVoltagePercent;
 
 			$location.path('/edit/designGrade/');
 		}
@@ -184,7 +200,7 @@
 	//Comparing max step voltage and tolerable step voltage
 	$scope.CompareMaxWithTolerableStepVoltage = function()
 	{
-		if(($scope.maxStepVoltage <= $scope.tolerableStepVoltage) && ($scope.minEarthRodsNumber > 0))
+		if(($scope.maxStepVoltage <= $scope.tolerableStepVoltage)&&($scope.maxStepVoltage > 0) && ($scope.minEarthRodsNumber > 0))
 		{
 			$scope.designGrade = "Good";			
 			$scope.formData.designGrade = "Good";		
@@ -226,6 +242,47 @@
 				
 				
 			$scope.comments = "Max Step > Tolerable Step Voltage. " + '\n' +
+				"Calculated # of rods is negative";		
+			
+			$scope.formData.comments = $scope.comments ;
+				
+			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+		}
+		else if (($scope.maxStepVoltage < 0) && ($scope.minEarthRodsNumber > 0))
+		{
+			$scope.designGrade = "Bad"; 
+			$scope.formData.designGrade = "Bad"; 
+				
+				
+			$scope.comments = "Max Step Voltage is Negative. ";		
+			
+			$scope.formData.comments = $scope.comments ;
+				
+			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+		}
+		else if (($scope.maxStepVoltage < 0 ) && ($scope.minEarthRodsNumber < 0))
+		{
+			$scope.designGrade = "Bad"; 
+			$scope.formData.designGrade = "Bad"; 
+				
+				
+			$scope.comments = "Max Step Voltage is Negative. " + '\n' +
+				"Calculated # of rods is negative";		
+			
+			$scope.formData.comments = $scope.comments ;
+				
+			$scope.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+			$scope.formData.recommendation = "Revise conductor-length inputs, check factors and coefficients for possible errors";
+		}
+		else if (($scope.maxStepVoltage > $scope.tolerableStepVoltage) && ($scope.minEarthRodsNumber < 0))
+		{
+			$scope.designGrade = "Bad"; 
+			$scope.formData.designGrade = "Bad"; 
+				
+				
+			$scope.comments = "Max Step > Tolerable Step Voltage.  " + '\n' +
 				"Calculated # of rods is negative";		
 			
 			$scope.formData.comments = $scope.comments ;
