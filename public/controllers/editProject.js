@@ -9,7 +9,8 @@
  	function(Project, geolocation, $scope, $rootScope, $location, $alert, $stateParams) {
  		$rootScope.pageTitle = "Edit Project"
  		$scope.show = true;
- 		$scope.parent = "edit"
+ 		$scope.parent = "edit";
+ 		$scope.showResult = true;
 
 		//console.log(data in $rootScope.currentProject); 		
  		// if(geolocation in $rootScope.currentProject) {
