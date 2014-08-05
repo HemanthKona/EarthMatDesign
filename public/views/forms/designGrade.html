@@ -24,6 +24,7 @@
  			<button class="btn btn-default" ng-click="getCurrentGeoLocation()" ng-show="showGeoLocation">Add Location</button>
 			<button class="btn btn-default" ng-click="createProject()">Save Project</button>
 			<a class="btn btn-default" ui-sref="{{parent}}.electrical">Edit Inputs</a>
+			
 			<!-- <button class="btn btn-default">Share</button> -->
 
 			<!-- <p>Coords: {{coords.latitude}} , {{coords.longitude}}</p> -->
@@ -61,7 +62,7 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse">
       <div class="panel-body">
-	  <p>Max Step Voltage: {{formData.maxStepVoltage}} &nbsp [V]</p>
+	  <p>Max Step Voltage: {{formData.maxStepVoltage}} V</p>
 	  <div class="progress ">
 			  <div class="progress-bar progress-bar-striped active"  role="progressbar"  aria-valuemin="0" aria-valuemax="{{formData.maxStepVoltage}}" style="width: {{formData.maxStepVoltagePercent}}%">
 			
@@ -72,11 +73,9 @@
 			  <div class="progress-bar progress-bar-danger progress-bar-striped active"  role="progressbar"   aria-valuemin="0" aria-valuemax="{{formData.tolerableStepVoltage}}}}" style="width: {{formData.tolerableStepVoltagePercent}}%">
 		
 			  </div>
-			  
-
 		</div>
-  
-        <p> MaxGrid Potential Rise: {{formData.maxGridPotentialRise}} &nbsp [V]</p>
+		<p>Tolerable Step Voltage: {{formData.tolerableStepVoltage}} V</p>
+        <p> MaxGrid Potential Rise: {{formData.maxGridPotentialRise}} V</p>
       </div>
     </div>
   </div>
@@ -90,9 +89,9 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse">
       <div class="panel-body">
-        <p>Estimated Fault Current: {{formData.estimatedFaultCurrent}}&nbsp [A]</p>
-        <p>Design Fault Current: {{formData.designFaultCurrent}}&nbsp [A]</p>
-        <p>Earth Mat Resistance: {{formData.earthMatResistance}}&nbsp [A]</p>
+        <p>Estimated Fault Current: {{formData.estimatedFaultCurrent}} A</p>
+        <p>Design Fault Current: {{formData.designFaultCurrent}} A</p>
+        <p>Earth Mat Resistance: {{formData.earthMatResistance}} A</p>
       </div>
     </div>
   </div>
@@ -106,12 +105,12 @@
     </div>
     <div id="collapseTwo" class="panel-collapse collapse">
       <div class="panel-body">
-        <p> ConductorLength: {{formData.conductorLength}}&nbsp [m] </p>
-        <p> GridConductorLength: {{formData.gridConductorLength}}&nbsp [m] </p>
-        <p> MinEarthRodsNumber: {{formData.minEarthRodsNumber}}&nbsp [rods] </p>
-        <p> IncreasedEarthRodsNumber: {{formData.increasedEarthRodsNumber}} &nbsp [rods]</p>
-        <p> NewGridConductorLength: {{formData.newGridConductorLength}} &nbsp [m]</p>
-        <p> TotalLengthOfCopper: {{formData.totalLengthOfCopper}}&nbsp [m] </p>
+        <p> Conductor Length: {{formData.conductorLength}} m</p>
+        <p> Grid Conductor Length: {{formData.gridConductorLength}} m</p>
+        <p> Min. Number of Earth Rods: {{formData.minEarthRodsNumber}} rods </p>
+        <p> Increased Earth Rods Number: {{formData.increasedEarthRodsNumber}} rods</p>
+        <p> New Grid Conductor Length: {{formData.newGridConductorLength}} m</p>
+        <p> Total Length of Copper: {{formData.totalLengthOfCopper}} m</p>
       </div>
     </div>
   </div>
