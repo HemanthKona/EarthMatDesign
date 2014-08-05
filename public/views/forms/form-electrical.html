@@ -19,9 +19,15 @@
         <i class="fa fa-info-circle "></i>
       </a>
 </label>
+
 <div class="input-group">
-    <input type="number" class="form-control" name="lineVoltage" ng-model="formData.lineVoltage" autofocus>
+    <input type="number" class="form-control" name="lineVoltage" id="lineVoltage" ng-model="formData.lineVoltage" autofocus required />
     <span class="input-group-addon">V</span>
+</div>
+
+<div ng-messages='designForm.lineVoltage.$error'>
+  <div ng-message='required'>Linevoltage is required</div>
+  <div ng-message='pattern'>Linevoltage is not avalid number</div>
 </div>
 
 <label> Impedances
@@ -35,21 +41,21 @@
   <div>
       <label for="impedanceOne"> One </label>
       <div class="input-group">
-          <input class="form-control" id="impedanceOne" name="impedanceOne" ng-model="formData.impedanceOne">
+          <input type="number" class="form-control" id="impedanceOne" name="impedanceOne" ng-model="formData.impedanceOne" required >
           <span class="input-group-addon">&#8486</span>
       </div>
   </div>
   <div>
     <label for="impedanceTwo"> Two </label>
     <div class="input-group" >
-        <input class="form-control" id="impedanceTwo" name="impedanceTwo" ng-model="formData.impedanceTwo">
+        <input type="number" class="form-control" id="impedanceTwo" name="impedanceTwo" ng-model="formData.impedanceTwo" required >
         <span class="input-group-addon">&#8486</span>
 	  </div>
   </div>
   <div>
     <label for="impedanceThree"> Three</label>
     <div class="input-group">
-        <input class="form-control" id="impedanceThree" name="impedanceThree" ng-model="formData.impedanceThree">
+        <input type="number" class="form-control" id="impedanceThree" name="impedanceThree" ng-model="formData.impedanceThree" required >
         <span class="input-group-addon">&#8486</span>
     </div>
   </div>
@@ -63,7 +69,7 @@
       </a>
 </label>
 <div class="input-group">
-    <input class="form-control" id="averageResistivity" name="averageResistivity" ng-model="formData.averageResistivity">
+    <input type="number" class="form-control" id="averageResistivity" name="averageResistivity" ng-model="formData.averageResistivity" required >
     <span class="input-group-addon">&#8486</span>
 </div>
 
@@ -73,7 +79,7 @@
       <i class="fa fa-info-circle"></i></a>
 </label>
 <div class="input-group">
-  <input class="form-control" id="immediateResistivity" name="immediateResistivity" ng-model="formData.immediateResistivity">
+  <input type="number" class="form-control" id="immediateResistivity" name="immediateResistivity" ng-model="formData.immediateResistivity" required >
   <span class="input-group-addon">&#8486</span>
 </div>
 

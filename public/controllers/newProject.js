@@ -379,4 +379,66 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
     });
 	}
 
+
+	$scope.checkForm = function() {
+		if($scope.lineVoltage = "") {
+			$scope.errors.push('lineVoltage');
+		}
+		if($scope.impedanceOne = "") {
+			$scope.errors.push('impedanceOne');
+		}
+		if($scope.impedanceTwo = "") {
+			$scope.errors.push('impedanceTwo');
+		}
+		if($scope.impedanceThree = "") {
+			$scope.errors.push('impedanceThree');
+		}
+		if($scope.decrementFactor = "") {
+			$scope.errors.push('decrementFactor');
+		}
+		if($scope.growthFactor = "") {
+			$scope.errors.push('growthFactor');
+		}
+		if($scope.physicalGridCoefficient = "") {
+			$scope.errors.push('physicalGridCoefficient');
+		}
+		if($scope.irregularityFactor = "") {
+			$scope.errors.push('irregularityFactor');
+		}
+		if($scope.averageResistivity = "") {
+			$scope.errors.push('averageResistivity');
+		}
+		if($scope.immediateResistivity = "") {
+			$scope.errors.push('immediateResistivity');
+		}
+		if($scope.clearingTime = "") {
+			$scope.errors.push('clearingTime');
+		}
+		if($scope.substationLength = "") {
+			$scope.errors.push('substationLength');
+		}
+		if($scope.substationWidth = "") {
+			$scope.errors.push('substationWidth');
+		}
+		if($scope.widthSpacing = "") {
+			$scope.errors.push('widthSpacing');
+		}
+		if($scope.lengthSpacing = "") {
+			$scope.errors.push('lengthSpacing');
+		}
+		if($scope.earthRodLength = "") {
+			$scope.errors.push('earthRodLength');
+		}
+		if($scope.geometricSpacingFactor = "") {
+			$scope.errors.push('geometricSpacingFactor');
+		}
+
+		if(!($scope.errors.length === 0)) {
+
+			
+
+			return;
+		}
+	}
+
 }]);

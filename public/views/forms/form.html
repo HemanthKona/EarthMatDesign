@@ -29,7 +29,7 @@
       <!-- </material-tabs> -->
 
       <!-- use ng-submit to catch the form submission and use our Angular function -->
-      <form id="design-form" ng-submit="">
+      <form id="designForm" ng-submit="processForm()">
           <!-- our nested state views will be injected here -->
             <label for="projectName"> Project Name: </label>
             <input class="form-control" id="projectName" name="projectName" ng-model="formData.projectName">

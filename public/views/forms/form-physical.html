@@ -14,7 +14,7 @@ $(document).ready(function(){
         data-original-title="Length of the Substation"><i class="fa fa-info-circle"></i></a>
 </label>
 <div class="input-group">
-	<input class="form-control" id="substationLength" name="substationLength" ng-model="formData.substationLength" autofocus>
+	<input type="number" class="form-control" id="substationLength" name="substationLength" ng-model="formData.substationLength" autofocus required >
     <span class="input-group-addon">m</span>
 </div>
 </div>
@@ -25,7 +25,7 @@ $(document).ready(function(){
         data-original-title="Width of the Substation"><i class="fa fa-info-circle"></i></a>
 </label>
 <div class="input-group">
-	<input class="form-control" id="substationWidth" name="substationWidth" ng-model="formData.substationWidth">
+	<input type="number" class="form-control" id="substationWidth" name="substationWidth" ng-model="formData.substationWidth" required >
     <span class="input-group-addon">m</span>
 </div>
 </div>
@@ -37,7 +37,7 @@ $(document).ready(function(){
         data-original-title="Spacing between lengthwise rods"><i class="fa fa-info-circle"></i></a>
 </label>
 <div class="input-group">
-	<input class="form-control" id="lengthSpacing" name="lengthSpacing" ng-model="formData.lengthSpacing">
+	<input type="number" class="form-control" id="lengthSpacing" name="lengthSpacing" ng-model="formData.lengthSpacing" required >
     <span class="input-group-addon">m</span>
 </div>
 
@@ -46,7 +46,7 @@ $(document).ready(function(){
     <a href="" data-toggle="tooltip" data-original-title="Spacing between cross-sectional rods"><i class="fa fa-info-circle"></i></a>
 </label>
 <div class="input-group" >
-    <input class="form-control" id="widthSpacing" name="widthSpacing" ng-model="formData.widthSpacing">
+    <input type="number" class="form-control" id="widthSpacing" name="widthSpacing" ng-model="formData.widthSpacing" required >
     <span class="input-group-addon">m</span>
 </div>
 
@@ -57,7 +57,7 @@ $(document).ready(function(){
         </a>
 </label>
 <div class="input-group">
-	<input class="form-control" id="earthRodLength" name="earthRodLength" ng-model="formData.earthRodLength">
+	<input type="number" class="form-control" id="earthRodLength" name="earthRodLength" ng-model="formData.earthRodLength" required >
     <span class="input-group-addon">m</span>
 </div>
 
@@ -66,7 +66,7 @@ $(document).ready(function(){
     <a href="" data-toggle="tooltip" data-original-title="Maximum fault clearing time"><i class="fa fa-info-circle"></i></a>
 </label>
 <div class="input-group">
-	<input class="form-control" id="clearingTime" name="clearingTime" ng-model="formData.clearingTime">
+	<input type="number" class="form-control" id="clearingTime" name="clearingTime" ng-model="formData.clearingTime" required >
     <span class="input-group-addon">s</span>
 </div>
 
