@@ -17,11 +17,75 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		$scope.showResult = false;
 		$scope.showGeoLocation = true;
 
-		$scope.formData = {};
- 			
+		$scope.formData = { lineVoltage: 0, validity: true };
+ 		
+
  			
 		$scope.processForm = function() {
 			console.log('Construction data genereated');
+
+			$scope.errors  = 'Please correct folowing errors' + '<br>';
+
+			if($scope.formData.lineVoltage = "") {
+			$scope.errors += 'lineVoltage' + '<br>';
+		}
+		if($scope.impedanceOne = "") {
+			$scope.errors += 'impedanceOne' + '<br>';
+		}
+		if($scope.impedanceTwo = "") {
+			$scope.errors += 'impedanceTwo' + '<br>';
+		}
+		if($scope.impedanceThree = "") {
+			$scope.errors += 'impedanceThree' + '<br>';
+		}
+		if($scope.decrementFactor = "") {
+			$scope.errors += 'decrementFactor' + '<br>';
+		}
+		if($scope.growthFactor = "") {
+			$scope.errors += 'growthFactor' + '<br>';
+		}
+		if($scope.physicalGridCoefficient = "") {
+			$scope.errors += 'physicalGridCoefficient' + '<br>';
+		}
+		if($scope.irregularityFactor = "") {
+			$scope.errors += 'irregularityFactor' + '<br>';
+		}
+		if($scope.averageResistivity = "") {
+			$scope.errors += 'averageResistivity' + '<br>';
+		}
+		if($scope.immediateResistivity = "") {
+			$scope.errors += 'immediateResistivity' + '<br>';
+		}
+		if($scope.clearingTime = "") {
+			$scope.errors += 'clearingTime' + '<br>';
+		}
+		if($scope.substationLength = "") {
+			$scope.errors += 'substationLength' + '<br>';
+		}
+		if($scope.substationWidth = "") {
+			$scope.errors += 'substationWidth' + '<br>';
+		}
+		if($scope.widthSpacing = "") {
+			$scope.errors += 'widthSpacing' + '<br>';
+		}
+		if($scope.lengthSpacing = "") {
+			$scope.errors += 'lengthSpacing' + '<br>';
+		}
+		if($scope.earthRodLength = "") {
+			$scope.errors += 'earthRodLength' + '<br>';
+		}
+		if($scope.geometricSpacingFactor = "") {
+			$scope.errors += 'geometricSpacingFactor' + '<br>';
+		}
+
+		if(!($scope.errors.length === 0)) {
+
+
+			alert($scope.errors);
+
+
+			return;
+		}
 
 			// Input Design Data
 			
@@ -435,7 +499,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 
 		if(!($scope.errors.length === 0)) {
 
-			
+
 
 			return;
 		}
