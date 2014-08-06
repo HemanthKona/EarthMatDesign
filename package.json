@@ -6,6 +6,9 @@
     "start": "node server.js",
     "test": "mocha"
   },
+  "engines": {
+    "node": "0.10.x"
+  },
   "dependencies": {
     "bcryptjs": "^1.0.1",
     "body-parser": "~1.0.0",
