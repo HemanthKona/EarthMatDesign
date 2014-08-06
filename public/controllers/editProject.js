@@ -5,8 +5,8 @@
 	Revision history
 	Hemanth Kona, 2014.06.23: created
  */
- app.controller('EditProjectController', [ 'Project', 'geolocation', '$scope', '$rootScope', '$location', '$alert', '$modal', '$stateParams',  
- 	function(Project, geolocation, $scope, $rootScope, $location, $alert, $modal, $stateParams) {
+ app.controller('EditProjectController', [ 'Project', 'geolocation', '$scope', '$rootScope', '$location', '$window', '$alert', '$modal', '$stateParams',  
+ 	function(Project, geolocation, $scope, $rootScope, $location, $window, $alert, $modal, $stateParams) {
  		$rootScope.pageTitle = "Edit Project"
  		$scope.show = true;
  		$scope.parent = "edit";
@@ -25,9 +25,9 @@
  			);
  		}
 
- 		window.onbeforeunload = function() {
- 			alert("refresh")
-		  return "Data will be lost if you leave the page, are you sure?";
+ 		// Warns user of data loss, when page is refreshed
+ 		$window.onbeforeunload = function() {
+		  return "Data will be lost if you leave the page!";
 		};
 		
 		//console.log(data in $rootScope.currentProject); 		
