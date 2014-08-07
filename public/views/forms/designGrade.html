@@ -64,12 +64,12 @@
       <div class="panel-body">
 
 	  <div class="progress style="background: #C0C5CA">
-			  <div class="progress-bar "  role="progressbar"  aria-valuemin="0" aria-valuemax="{{formData.maxStepVoltage}}" style="width: {{formData.maxStepVoltagePercent}}%">
+			  <div class="progress-bar " ng-class="{'progress-bar-success': formData.maxStepVoltagePercent < 50, 'progress-bar-danger': formData.maxStepVoltagePercent > 50}"  role="progressbar"  aria-valuemin="0" aria-valuemax="{{formData.maxStepVoltage}}" style="width: {{formData.maxStepVoltagePercent}}%">
 			 Max Step Voltage: {{formData.maxStepVoltage}} V
 			  </div>	  
 
 		</div>
-        <div class="progress style="background: #C0C5CA">
+        <div class="progress" style="background: #C0C5CA">
 			  <div class="progress-bar progress-bar-danger "  role="progressbar"   aria-valuemin="0" aria-valuemax="{{formData.tolerableStepVoltage}}}}" style="width: {{formData.tolerableStepVoltagePercent}}%">
 					Tolerable Step Voltage: {{formData.tolerableStepVoltage}} V
 			  </div>
