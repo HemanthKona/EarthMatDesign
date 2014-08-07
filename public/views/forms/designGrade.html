@@ -78,18 +78,29 @@
       style="width: {{formData.maxStepVoltagePercent}}%;
 	  min-width: 1%;">
 
+<<<<<<< HEAD
+	  <div class="progress style="background: #C0C5CA">
+			  <div class="progress-bar " ng-class="{'progress-bar-success': formData.maxStepVoltagePercent < 50, 'progress-bar-danger': formData.maxStepVoltagePercent > 50}"  role="progressbar"  aria-valuemin="0" aria-valuemax="{{formData.maxStepVoltage}}" style="width: {{formData.maxStepVoltagePercent}}%">
+=======
 	</div>	
 			  <!-- <div class="progress-bar "  role="progressbar"  aria-valuemin="0" aria-valuemax="{{formData.maxStepVoltage}}" style="width: {{formData.maxStepVoltagePercent}}%">
+>>>>>>> 6746c580be83b7b63ed3354e4c0f8dc4dbb91b4b
 			 Max Step Voltage: {{formData.maxStepVoltage}} V
 			  </div>	   -->
 
 		</div>
+<<<<<<< HEAD
+        <div class="progress" style="background: #C0C5CA">
+			  <div class="progress-bar progress-bar-danger "  role="progressbar"   aria-valuemin="0" aria-valuemax="{{formData.tolerableStepVoltage}}}}" style="width: {{formData.tolerableStepVoltagePercent}}%">
+					Tolerable Step Voltage: {{formData.tolerableStepVoltage}} V
+=======
 		
 		
         <div class="progress" >
 			  <div class="progress-bar progress-bar-warning "  role="progressbar"   aria-valuemin="0" aria-valuemax="{{formData.tolerableStepVoltage}}}}" style="width: {{formData.tolerableStepVoltagePercent}}%;
 			  min-width: 1%;">
 					
+>>>>>>> 6746c580be83b7b63ed3354e4c0f8dc4dbb91b4b
 			  </div>
 		</div>
 	<p><i class="fa fa-arrow-up"></i>Tolerable Step Voltage: {{formData.tolerableStepVoltage}} V</p>
