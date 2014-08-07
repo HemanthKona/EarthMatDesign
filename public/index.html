@@ -30,11 +30,19 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
   <script src="vendor/angular/angular.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 
 </head>
 
 <body>
-
+  <noscript>  
+    <div id="javasciptdisabled" class="alert alert-danger" role="alert" align="center">
+      Your browser JavaScript is disabled. Please enable it in your browser settings! Here are the <a href="http://www.enable-javascript.com/" class="alert-link" target="_blank">
+ instructions how to enable JavaScript in your web browser</a>.
+    </div>
+  </noscript>
+  
   <material-toolbar headroom tolerance="5" offset="205" class="material-theme-emd">
     <div class="material-toolbar-tools">
       <a ui-sref-active="active" ui-sref="projects">
@@ -140,15 +148,15 @@
 <script src="vendor/headroom/headroom.js"></script>
 <script src="vendor/headroom/angular.headroom.js"></script>
 
-<script>
-  (function() {
-    $('#help').popover('show')
 
-  })();
-</script>
 
 <script>
 $(document).ready(function(){
+
+    $('#javasciptdisabled').hide();
+
+    $('#help').popover('show')
+
     $(".justfortooltip a").tooltip({
         placement : 'bottom'
     });

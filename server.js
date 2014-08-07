@@ -79,7 +79,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(session({ secret: 'Authentic' }));
+app.use(session({ secret: 'Authentic', 
+                  saveUninitialized: true,
+                  resave: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req, res, next) {

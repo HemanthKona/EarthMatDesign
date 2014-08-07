@@ -7,8 +7,8 @@
 	Hemanth Kona, 2014.08.02; fixed design grade visual error
  */
 
-app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$location', '$rootScope', '$alert', 
-	function (Project, geolocation, $scope, $location, $rootScope, $alert) {
+app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$location', '$rootScope', '$alert', '$modal', 
+	function (Project, geolocation, $scope, $location, $rootScope, $alert, $modal) {
 	
 		$rootScope.pageTitle = "New Project";
 		
@@ -22,6 +22,92 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 		$scope.processForm = function() {
 			console.log('Construction data genereated');
 
+			$scope.formErrors = [];
+			
+
+			if($scope.formData.lineVoltage == undefined) {
+				$scope.formErrors.push('Line Voltage');
+			}
+
+			if($scope.formData.impedanceOne == undefined) {
+				$scope.formErrors.push('Impedance One');
+			}
+
+			if($scope.formData.impedanceTwo == undefined) {
+				$scope.formErrors.push('Impedance Two');
+			}
+
+			if($scope.formData.impedanceThree == undefined) {
+				$scope.formErrors.push('Impedance Three');
+			}
+
+			if($scope.formData.decrementFactor == undefined) {
+				$scope.formErrors.push('Decrement Factor');
+			}
+
+			if($scope.formData.growthFactor == undefined) {
+				$scope.formErrors.push('Growth Factor');
+			}
+
+			if($scope.formData.physicalGridCoefficient == undefined) {
+				$scope.formErrors.push('Physical Grid Coefficient');
+			}
+
+			if($scope.formData.irregularityFactor == undefined) {
+				$scope.formErrors.push('Irregularity Factor');
+			}
+
+			if($scope.formData.averageResistivity == undefined) {
+				$scope.formErrors.push('Average Resistivity');
+			}
+
+			if($scope.formData.immediateResistivity == undefined) {
+				$scope.formErrors.push('Immediate Resistivity');
+			}
+
+			if($scope.formData.clearingTime == undefined) {
+				$scope.formErrors.push('Clearing Time');
+			}
+
+			if($scope.formData.substationLength == undefined) {
+				$scope.formErrors.push('Substation Length');
+			}
+
+			if($scope.formData.substationWidth == undefined) {
+				$scope.formErrors.push('Substation Width');
+			}
+
+			if($scope.formData.widthSpacing == undefined) {
+				$scope.formErrors.push('Width Spacing');
+			}
+
+			if($scope.formData.lengthSpacing == undefined) {
+				$scope.formErrors.push('Length Spacing');
+			}
+
+			if($scope.formData.earthRodLength == undefined) {
+				$scope.formErrors.push('Earth Rod Length');
+			}
+
+			if($scope.formData.geometricSpacingFactor == undefined) {
+				$scope.formErrors.push('Geometric Spacing Factor');
+			}
+
+			if($scope.formErrors.length != 0) {
+				
+				// Concatenating all the data in the array to form a string, that string is sent to content in $modal
+				$scope.AllErrors = $scope.formErrors.join(', <br>')
+
+				// Pop up or Modal to show the error list
+				$modal({
+					title: "Error: Missing Input Data",
+					backdrop: false,
+					html: true,
+					content: $scope.AllErrors
+				});
+
+				return;
+			}
 
 			
 			// Input Design Data
@@ -106,14 +192,7 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 			$scope.formData.maxStepVoltagePercent = $scope.maxStepVoltagePercent;
 			$scope.formData.tolerableStepVoltagePercent = $scope.tolerableStepVoltagePercent;
 
-			for( var prop in $scope.formData) {
-					console.log($scope.formData[prop]);
-				if($scope.formData[prop] === NaN )	{
-					$scope.errors  = 'All fields are required, please fill out the missing fields';
-					alert($scope.errors);
-					return;
-				}
-			}
+			
 
 			$scope.showResult = true;
 			
