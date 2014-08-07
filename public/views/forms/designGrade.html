@@ -1,7 +1,7 @@
 
 
 
-<div class=" designgrade ">
+<div class=" designgrade hidden-print ">
 
 	<div class="well {{formData.designGrade}}" ng-if="formData.designGrade === 'Good'">
 			<h3>{{formData.designGrade}} Design </h3>
@@ -140,6 +140,21 @@
 
   
 </div>
+</div>
+<div class="visible-print-inline">
+	<h1>Project Name: {{formData.projectName}}</h1>
+	<h1>Input Design Data<h1>
+		<h2>Electrical</h2>
+		<h2>Physical</h2>
+		<h2>Factors</h2>
+	<h1>Output Construction Data</h1>
+	<h2> Voltages </h2>
+		<p>Max Step Voltage: {{formData.maxStepVoltage}} V</p>
+		<p>Tolerable Step Voltage: {{formData.tolerableStepVoltage}} V</p>
+		<p> MaxGrid Potential Rise: {{formData.maxGridPotentialRise}} V</p>
+	<h2> Lengths </h2>
+	<h2> Currents </h2>
+	<h2> Coordinates </h2>
 </div>
 
 
