@@ -31,8 +31,8 @@
       <!-- use ng-submit to catch the form submission and use our Angular function -->
       <form id="designForm" ng-submit="processForm()" novalidate>
           <!-- our nested state views will be injected here -->
-            <label for="projectName"> Project Name: </label>
-            <input class="form-control" id="projectName" name="projectName" ng-model="formData.projectName">
+            <label class="hidden-print" for="projectName"> Project Name: </label>
+            <input class="form-control hidden-print" id="projectName" name="projectName" ng-model="formData.projectName">
           <div id="form-views" ui-view></div>
       </form>
   

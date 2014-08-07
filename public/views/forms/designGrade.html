@@ -28,8 +28,7 @@
 			<!-- <button class="btn btn-default">Share</button> -->
 
 			<!-- <p>Coords: {{coords.latitude}} , {{coords.longitude}}</p> -->
-<h2>Construction Data Output</h2>		
-
+<h2>Construction Data Output</h2>
  <div class="hidden-xs" align="center" style="font-size: 3em; color: white;">{{formData.widthSpacing}} m  </div>
 <div class="hidden-xs" align="center" >
 	<div style="font-size: 3em; color: white; float: right;">{{formData.lengthSpacing}} m </div>
@@ -139,19 +138,45 @@
 </div>
 </div>
 <div class="visible-print-inline">
-	<h1>Project Name: {{formData.projectName}}</h1>
+	<p>Project Name: {{formData.projectName}}</p>
 	<h1>Input Design Data<h1>
 		<h2>Electrical</h2>
+    <p>Line Voltage:{{formData.lineVoltage}} Volts</p>
+   <p> Impedance One:{{formData.impedanceOne}} Ohms</p>
+   <p> Impedance Two:{{formData.impedanceTwo}} Ohms</p>
+   <p> Impedance Three:{{formData.impedancThree}} Ohms</p>
+   <p> Average Resistivity:{{formData.averageResistivity}} Ohms</p>
+   <p> Immediate Resistivity:{{formData.immediateResistivity}} Ohms</p>
 		<h2>Physical</h2>
+   <p> Substation Length:{{formData.substationLength}} Metres</p>
+   <p> Length Spacing: {{formData.lengthSpacing}} Metres</p>
+  <p>  Substation Width: {{formData.substationWidth}} Metres</p>
+   <p> Width Spacing: {{formData.widthSpacing}} Metres</p>
 		<h2>Factors</h2>
+    <p> Decrement Factor: {{formData.decrementFactor}} </p>
+    <p> Growth Factor: {{formData.growthFactor}} </p>
+    <p> Irregularity Factor: {{formData.irregularityFactor}} </p>
+    <p> Geometric Spacing Factor: {{formData.geometricSpacingFactor}} </p>
+    <p> Physical Grid Coefficient Factor: {{formData.physicalGridCoefficient}} </p>
 	<h1>Output Construction Data</h1>
 	<h2> Voltages </h2>
 		<p>Max Step Voltage: {{formData.maxStepVoltage}} V</p>
 		<p>Tolerable Step Voltage: {{formData.tolerableStepVoltage}} V</p>
 		<p> MaxGrid Potential Rise: {{formData.maxGridPotentialRise}} V</p>
 	<h2> Lengths </h2>
+      <p> Conductor Length: {{formData.conductorLength}} m</p>
+        <p> Grid Conductor Length: {{formData.gridConductorLength}} m</p>
+        <p> Min. Number of Earth Rods: {{formData.minEarthRodsNumber}} rods </p>
+        <p> Increased Earth Rods Number: {{formData.increasedEarthRodsNumber}} rods</p>
+        <p> New Grid Conductor Length: {{formData.newGridConductorLength}} m</p>
+        <p> Total Length of Copper: {{formData.totalLengthOfCopper}} m</p>
 	<h2> Currents </h2>
-	<h2> Coordinates </h2>
+    <p>Estimated Fault Current: {{formData.estimatedFaultCurrent}} A</p>
+        <p>Design Fault Current: {{formData.designFaultCurrent}} A</p>
+        <p>Earth Mat Resistance: {{formData.earthMatResistance}} A</p>
+	<!-- <h2> Coordinates </h2>
+  <p>Latitude: {{formData.latitude}}</p>
+        <p>Longitude: {{formData.longitude}}</p> -->
 </div>
 
 
