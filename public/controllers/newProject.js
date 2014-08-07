@@ -109,14 +109,6 @@ app.controller('NewProjectController', [ 'Project', 'geolocation', '$scope', '$l
 				return;
 			}
 
-			// for( var prop in $scope.formData) {
-			// 		console.log($scope.formData[prop]);
-			// 	if($scope.formData[prop] === "" )	{
-			// 		$scope.errors  = 'All fields are required, please fill out the missing fields';
-			// 		alert($scope.errors);
-			// 		return;
-			// 	}
-			// }
 			
 			// Input Design Data
 			

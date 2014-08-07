@@ -31,16 +31,16 @@
 
   <script src="vendor/angular/angular.js"></script>
 
+
 </head>
 
 <body>
-  <noscript>
-
-    <div class="alert alert-warning" role="alert">
-      Your browser JavaScript is disable. Please enable it i nyour browser settings!
+  <noscript>  
+    <div id="javasciptdisabled" class="alert alert-danger" role="alert" align="center">
+      Your browser JavaScript is disabled. Please enable it in your browser settings! Here are the <a href="http://www.enable-javascript.com/" class="alert-link" target="_blank">
+ instructions how to enable JavaScript in your web browser</a>.
     </div>
-
-  </noscript>  
+  </noscript>
   
   <material-toolbar headroom tolerance="5" offset="205" class="material-theme-emd">
     <div class="material-toolbar-tools">
@@ -147,15 +147,15 @@
 <script src="vendor/headroom/headroom.js"></script>
 <script src="vendor/headroom/angular.headroom.js"></script>
 
-<script>
-  (function() {
-    $('#help').popover('show')
 
-  })();
-</script>
 
 <script>
 $(document).ready(function(){
+
+    $('#javasciptdisabled').hide();
+
+    $('#help').popover('show')
+
     $(".justfortooltip a").tooltip({
         placement : 'bottom'
     });
