@@ -57,6 +57,7 @@
       </div>
     </div>
   </div>
+  
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
@@ -67,36 +68,41 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse">
       <div class="panel-body">
-		
-	  <p><i class="fa fa-arrow-down"></i>Max Step Voltage: {{formData.maxStepVoltage}} V</p>
-	  <div class="progress" >
-			<div class="progress-bar " ng-class="{'progress-bar-success': formData.maxStepVoltagePercent < 50, 
-                 'progress-bar-danger progress-bar-active': formData.maxStepVoltagePercent > 50}"  
+    
+    <p><i class="fa fa-arrow-down"></i>Max Step Voltage: {{formData.maxStepVoltage}} V</p>
+    <div class="progress" >
+      <div class="progress-bar " ng-class="{'progress-bar-success': formData.maxStepVoltagePercent < 50, 'progress-bar-danger': formData.maxStepVoltagePercent > 50}"  
       role="progressbar"  
       aria-valuemin="0" 
       aria-valuemax="{{formData.maxStepVoltage}}" 
       style="width: {{formData.maxStepVoltagePercent}}%;
-	  min-width: 1%;">
-
-	  <div class="progress style="background: #C0C5CA">
-			  <div class="progress-bar " ng-class="{'progress-bar-success': formData.maxStepVoltagePercent < 50, 'progress-bar-danger': formData.maxStepVoltagePercent > 50}"  role="progressbar"  aria-valuemin="0" aria-valuemax="{{formData.maxStepVoltage}}" style="width: {{formData.maxStepVoltagePercent}}%">
-	</div>	
-			 
-
-		</div>		
-		
+    min-width: 1%;"> </div>
+    </div>
+ 
+         
+    
       <div class="progress" >
-			  <div class="progress-bar progress-bar-warning "  role="progressbar"   aria-valuemin="0" aria-valuemax="{{formData.tolerableStepVoltage}}}}" style="width: {{formData.tolerableStepVoltagePercent}}%;
-			  min-width: 1%;">
-					
-			  </div>
-		</div>
-	 <p><i class="fa fa-arrow-up"></i>Tolerable Step Voltage: {{formData.tolerableStepVoltage}} V</p>
+        <div class="progress-bar progress-bar-warning "  role="progressbar"   aria-valuemin="0" aria-valuemax="{{formData.tolerableStepVoltage}}}}" style="width: {{formData.tolerableStepVoltagePercent}}%;
+        min-width: 1%;">
+          
+        </div>
+    </div>
+       <p>
+        <i class="fa fa-arrow-up"></i>
+        Tolerable Step Voltage: {{formData.tolerableStepVoltage}} V
+      </p>
         <p> MaxGrid Potential Rise: {{formData.maxGridPotentialRise}} V</p>
-		
+    
       </div>
     </div>
   </div>
+<!--  -->
+    
+  
+
+
+
+  <!-- sdlkfjsd -->
     <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
