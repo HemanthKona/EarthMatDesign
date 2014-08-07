@@ -4,15 +4,15 @@
 <div class=" designgrade ">
 
 	<div class="well {{formData.designGrade}}" ng-if="formData.designGrade === 'Good'">
-			<h2>{{formData.designGrade}} Design </h2>
+			<h3>{{formData.designGrade}} Design </h3>
       <p>Comments: {{formData.comments}}</p>
-			<h3>Recommendation: {{formData.recommendation}}</h3>
+			<h4>Recommendation: {{formData.recommendation}}</h4>
 	</div>
 
 	<div class="well {{formData.designGrade}}" ng-if="formData.designGrade === 'Bad'">
-			<h2>{{formData.designGrade}} Design</h2>
+			<h3>{{formData.designGrade}} Design</h3>
 			<p>Comments: {{formData.comments}}</p>
-			<h3>Recommendation: {{formData.recommendation}}</h3>
+			<h4>Recommendation: {{formData.recommendation}}</h4>
 	</div>
 
   <div class="well " ng-if="formData.designGrade === ''"> 
@@ -28,7 +28,7 @@
 			<!-- <button class="btn btn-default">Share</button> -->
 
 			<!-- <p>Coords: {{coords.latitude}} , {{coords.longitude}}</p> -->
-			<h2>Construction Data output</h2>
+<h2>Construction Data Output</h2>			
 <div class="hidden-xs" align="center">
 	<img src="/views/images/EarthMatPic.jpg"> 
 </div>
@@ -80,23 +80,7 @@
       </div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-target="#collapseOne" href="#">
-          Current
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse">
-      <div class="panel-body">
-        <p>Estimated Fault Current: {{formData.estimatedFaultCurrent}} A</p>
-        <p>Design Fault Current: {{formData.designFaultCurrent}} A</p>
-        <p>Earth Mat Resistance: {{formData.earthMatResistance}} A</p>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
+    <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-target="#collapseTwo" href="#">
@@ -115,6 +99,23 @@
       </div>
     </div>
   </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-target="#collapseOne" href="#">
+          Current
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>Estimated Fault Current: {{formData.estimatedFaultCurrent}} A</p>
+        <p>Design Fault Current: {{formData.designFaultCurrent}} A</p>
+        <p>Earth Mat Resistance: {{formData.earthMatResistance}} A</p>
+      </div>
+    </div>
+  </div>
+
   
 </div>
 </div>
