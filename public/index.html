@@ -30,6 +30,7 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
   <script src="vendor/angular/angular.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 
 </head>
@@ -42,14 +43,14 @@
     </div>
   </noscript>
   
-  <material-toolbar headroom tolerance="5" offset="205" class="material-theme-emd">
+  <material-toolbar headroom tolerance="5" offset="205" class="material-theme-emd hidden-print">
     <div class="material-toolbar-tools">
       <a ui-sref-active="active" ui-sref="projects">
         <span class="fa fa-home fa-lg"></span>
       </a>
       <!-- <span class="fa fa-bars"></span> -->
       <span flex>{{pageTitle}}</span>
-      <a href="" ng-if="currentUser" title="Search" ng-click="searchProjects= true">
+      <a href="" ng-if="currentUser" title="Search" ng-click="searchProjects = !searchProjects">
         <span class="fa fa-search fa-lg"></span>
       </a>
       &nbsp

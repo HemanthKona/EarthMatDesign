@@ -22,7 +22,7 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
 			templateUrl: 'views/home.html',
 			controller: function($rootScope) {
 				$rootScope.pageTitle = "EMD",
-        $rootScope.searchProjects = false
+        $rootScope.searchProjects = false;
 			}
 		})
 		

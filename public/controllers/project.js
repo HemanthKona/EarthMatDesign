@@ -7,7 +7,9 @@
  */
  app.controller('ProjectController', [ 'Project', '$scope', '$rootScope', '$cookieStore', '$location', '$alert', '$state',  
  	function(Project, $scope, $rootScope, $cookieStore, $location, $alert, $state) {
+
  		$rootScope.pageTitle = "Projects"
+
  		$scope.show = true;
  		
  		/* Retrieve all the projects from mongodb database */ 

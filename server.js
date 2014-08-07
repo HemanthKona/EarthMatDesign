@@ -282,10 +282,7 @@ app.put('/api/projects/:id', ensureAuthenticated, function(req, res, next) {
   var project = {
     name: req.body.projectName,
     createdBy: user,
-    geolocation: {
-      latitude: req.body.latitude,
-      longitude: req.body.longitude
-    },
+    
     data: {
       design: {
         lineVoltage: req.body.lineVoltage,

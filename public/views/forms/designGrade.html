@@ -1,18 +1,18 @@
 
 
 
-<div class=" designgrade ">
+<div class=" designgrade hidden-print ">
 
 	<div class="well {{formData.designGrade}}" ng-if="formData.designGrade === 'Good'">
-			<h2>{{formData.designGrade}} Design </h2>
+			<h3>{{formData.designGrade}} Design </h3>
       <p>Comments: {{formData.comments}}</p>
-			<h3>Recommendation: {{formData.recommendation}}</h3>
+			<h4>Recommendation: {{formData.recommendation}}</h4>
 	</div>
 
 	<div class="well {{formData.designGrade}}" ng-if="formData.designGrade === 'Bad'">
-			<h2>{{formData.designGrade}} Design</h2>
+			<h3>{{formData.designGrade}} Design</h3>
 			<p>Comments: {{formData.comments}}</p>
-			<h3>Recommendation: {{formData.recommendation}}</h3>
+			<h4>Recommendation: {{formData.recommendation}}</h4>
 	</div>
 
   <div class="well " ng-if="formData.designGrade === ''"> 
@@ -28,9 +28,18 @@
 			<!-- <button class="btn btn-default">Share</button> -->
 
 			<!-- <p>Coords: {{coords.latitude}} , {{coords.longitude}}</p> -->
-			<h2>Construction Data output</h2>
-<div class="hidden-xs" align="center">
-	<img src="/views/images/EarthMatPic.jpg"> 
+<h2>Construction Data Output</h2>		
+
+ <div class="hidden-xs" align="center" style="font-size: 3em; color: white;">{{formData.widthSpacing}} m  </div>
+<div class="hidden-xs" align="center" >
+	<div style="font-size: 3em; color: white; float: right;">{{formData.lengthSpacing}} m </div>
+	<div style="font-size: 3em; color: white; float: left;">{{formData.substationLength}} m </div>
+	
+
+	
+	<img src="/views/images/SpacingsLayout.jpg">
+
+	 <div style="font-size: 3em; color: white;">{{formData.substationWidth}} m </div>
 </div>
 
 <div class="panel-group" id="accordion">
@@ -53,30 +62,70 @@
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-target="#collapseThree" href="#">
-          Voltage
-		  
-		
-		  
+          Voltage  
         </a>
       </h4>
     </div>
     <div id="collapseThree" class="panel-collapse collapse">
       <div class="panel-body">
+		
+	  <p><i class="fa fa-arrow-down"></i>Max Step Voltage: {{formData.maxStepVoltage}} V</p>
+	  <div class="progress" >
+			<div class="progress-bar " ng-class="{'progress-bar-success': formData.maxStepVoltagePercent < 50, 
+                 'progress-bar-danger progress-bar-active': formData.maxStepVoltagePercent > 50}"  
+      role="progressbar"  
+      aria-valuemin="0" 
+      aria-valuemax="{{formData.maxStepVoltage}}" 
+      style="width: {{formData.maxStepVoltagePercent}}%;
+	  min-width: 1%;">
 
+<<<<<<< HEAD
 	  <div class="progress style="background: #C0C5CA">
 			  <div class="progress-bar " ng-class="{'progress-bar-success': formData.maxStepVoltagePercent < 50, 'progress-bar-danger': formData.maxStepVoltagePercent > 50}"  role="progressbar"  aria-valuemin="0" aria-valuemax="{{formData.maxStepVoltage}}" style="width: {{formData.maxStepVoltagePercent}}%">
+=======
+	</div>	
+			  <!-- <div class="progress-bar "  role="progressbar"  aria-valuemin="0" aria-valuemax="{{formData.maxStepVoltage}}" style="width: {{formData.maxStepVoltagePercent}}%">
+>>>>>>> 6746c580be83b7b63ed3354e4c0f8dc4dbb91b4b
 			 Max Step Voltage: {{formData.maxStepVoltage}} V
-			  </div>	  
+			  </div>	   -->
 
 		</div>
+<<<<<<< HEAD
         <div class="progress" style="background: #C0C5CA">
 			  <div class="progress-bar progress-bar-danger "  role="progressbar"   aria-valuemin="0" aria-valuemax="{{formData.tolerableStepVoltage}}}}" style="width: {{formData.tolerableStepVoltagePercent}}%">
 					Tolerable Step Voltage: {{formData.tolerableStepVoltage}} V
+=======
+		
+		
+        <div class="progress" >
+			  <div class="progress-bar progress-bar-warning "  role="progressbar"   aria-valuemin="0" aria-valuemax="{{formData.tolerableStepVoltage}}}}" style="width: {{formData.tolerableStepVoltagePercent}}%;
+			  min-width: 1%;">
+					
+>>>>>>> 6746c580be83b7b63ed3354e4c0f8dc4dbb91b4b
 			  </div>
 		</div>
-	
+	<p><i class="fa fa-arrow-up"></i>Tolerable Step Voltage: {{formData.tolerableStepVoltage}} V</p>
         <p> MaxGrid Potential Rise: {{formData.maxGridPotentialRise}} V</p>
 		
+      </div>
+    </div>
+  </div>
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-target="#collapseTwo" href="#">
+          Length
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p> Conductor Length: {{formData.conductorLength}} m</p>
+        <p> Grid Conductor Length: {{formData.gridConductorLength}} m</p>
+        <p> Min. Number of Earth Rods: {{formData.minEarthRodsNumber}} rods </p>
+        <p> Increased Earth Rods Number: {{formData.increasedEarthRodsNumber}} rods</p>
+        <p> New Grid Conductor Length: {{formData.newGridConductorLength}} m</p>
+        <p> Total Length of Copper: {{formData.totalLengthOfCopper}} m</p>
       </div>
     </div>
   </div>
@@ -96,27 +145,24 @@
       </div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-target="#collapseTwo" href="#">
-          Length
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
-      <div class="panel-body">
-        <p> Conductor Length: {{formData.conductorLength}} m</p>
-        <p> Grid Conductor Length: {{formData.gridConductorLength}} m</p>
-        <p> Min. Number of Earth Rods: {{formData.minEarthRodsNumber}} rods </p>
-        <p> Increased Earth Rods Number: {{formData.increasedEarthRodsNumber}} rods</p>
-        <p> New Grid Conductor Length: {{formData.newGridConductorLength}} m</p>
-        <p> Total Length of Copper: {{formData.totalLengthOfCopper}} m</p>
-      </div>
-    </div>
-  </div>
+
   
 </div>
+</div>
+<div class="visible-print-inline">
+	<h1>Project Name: {{formData.projectName}}</h1>
+	<h1>Input Design Data<h1>
+		<h2>Electrical</h2>
+		<h2>Physical</h2>
+		<h2>Factors</h2>
+	<h1>Output Construction Data</h1>
+	<h2> Voltages </h2>
+		<p>Max Step Voltage: {{formData.maxStepVoltage}} V</p>
+		<p>Tolerable Step Voltage: {{formData.tolerableStepVoltage}} V</p>
+		<p> MaxGrid Potential Rise: {{formData.maxGridPotentialRise}} V</p>
+	<h2> Lengths </h2>
+	<h2> Currents </h2>
+	<h2> Coordinates </h2>
 </div>
 
 
