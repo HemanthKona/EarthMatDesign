@@ -145,13 +145,13 @@
 }
 
 #searchbox {
+  position: relative;
+  margin: 10px;
   border: 5px solid #;
+  float: right;
 }
 
  </style>
-<div id="searchbox" ng-show="searchProjects">
-  <input type="text" ng-model="query.name" placeholder="Search...">
-</div>
 
 <div ng-show="!projects.length" class="panel panel-default" style="text-align: center">
     <div class="noprojects">
@@ -159,6 +159,9 @@
     </div>
 </div>
 
+<div id="searchbox" >
+  <input type="text" ng-model="query.name" placeholder="Search...">
+</div>
 
 <div class="container">
   
